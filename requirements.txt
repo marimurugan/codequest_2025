@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+crewai
+langchain-openai
+openai
+python-multipart
+jinja2
+python-jose
+passlib
+bcrypt
+pydantic

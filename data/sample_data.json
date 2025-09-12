@@ -1,0 +1,232 @@
+[
+  {
+    "customer_id": "CUST1001",
+    "transaction_id": "TXN30001",
+    "amount": 249.50,
+    "currency": "USD",
+    "date": "2025-08-20T09:45:00Z",
+    "merchant": "TravelNow",
+    "channel": "Online",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60001",
+    "previous_interactions": [
+      {
+        "date": "2025-08-15T11:30:00Z",
+        "channel": "email",
+        "summary": "Reported suspicious login attempt"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.88,
+      "device_id": "dev_4100",
+      "ip_address": "192.168.2.54"
+    }
+  },
+  {
+    "customer_id": "CUST1002",
+    "transaction_id": "TXN30002",
+    "amount": 59.99,
+    "currency": "USD",
+    "date": "2025-08-18T16:20:00Z",
+    "merchant": "StyleStore",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60002",
+    "previous_interactions": [
+      {
+        "date": "2025-08-10T14:50:00Z",
+        "channel": "chat",
+        "summary": "Requested subscription cancellation"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.20,
+      "device_id": "dev_4101",
+      "ip_address": "192.168.2.77"
+    }
+  },
+  {
+    "customer_id": "CUST1003",
+    "transaction_id": "TXN30003",
+    "amount": 134.75,
+    "currency": "USD",
+    "date": "2025-08-22T13:05:00Z",
+    "merchant": "BookWorld",
+    "channel": "POS",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60003",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T12:10:00Z",
+        "channel": "phone",
+        "summary": "Asked about delivery timeline"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.35,
+      "device_id": "dev_4102",
+      "ip_address": "192.168.2.88"
+    }
+  },
+  {
+    "customer_id": "CUST1004",
+    "transaction_id": "TXN30004",
+    "amount": 312.00,
+    "currency": "USD",
+    "date": "2025-08-25T18:30:00Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Online",
+    "customer_statement": "I was charged twice for the same laptop accessory.",
+    "crm_ticket_id": "CRM60004",
+    "previous_interactions": [
+      {
+        "date": "2025-08-20T09:00:00Z",
+        "channel": "chat",
+        "summary": "Inquired about billing issue"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.15,
+      "device_id": "dev_4103",
+      "ip_address": "192.168.3.14"
+    }
+  },
+  {
+    "customer_id": "CUST1005",
+    "transaction_id": "TXN30005",
+    "amount": 87.20,
+    "currency": "USD",
+    "date": "2025-08-27T20:10:00Z",
+    "merchant": "FoodieHub",
+    "channel": "Mobile App",
+    "customer_statement": "The charge looks unauthorized — I didn't order food.",
+    "crm_ticket_id": "CRM60005",
+    "previous_interactions": [
+      {
+        "date": "2025-08-18T08:40:00Z",
+        "channel": "email",
+        "summary": "Asked about fraud claim process"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.91,
+      "device_id": "dev_4104",
+      "ip_address": "192.168.4.99"
+    }
+  },
+  {
+    "customer_id": "CUST1006",
+    "transaction_id": "TXN30006",
+    "amount": 420.00,
+    "currency": "USD",
+    "date": "2025-08-28T11:15:00Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership last month but was billed again.",
+    "crm_ticket_id": "CRM60006",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T15:20:00Z",
+        "channel": "chat",
+        "summary": "Requested cancellation confirmation"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.18,
+      "device_id": "dev_5101",
+      "ip_address": "192.168.5.21"
+    }
+  },
+  {
+    "customer_id": "CUST1007",
+    "transaction_id": "TXN30007",
+    "amount": 72.50,
+    "currency": "USD",
+    "date": "2025-08-30T14:55:00Z",
+    "merchant": "QuickMart",
+    "channel": "POS",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60007",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T18:40:00Z",
+        "channel": "phone",
+        "summary": "Called about missing delivery"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.22,
+      "device_id": "dev_5102",
+      "ip_address": "192.168.5.33"
+    }
+  },
+  {
+    "customer_id": "CUST1008",
+    "transaction_id": "TXN30008",
+    "amount": 980.00,
+    "currency": "USD",
+    "date": "2025-09-01T19:05:00Z",
+    "merchant": "GlobalAir",
+    "channel": "Online",
+    "customer_statement": "This flight booking was not made by me.",
+    "crm_ticket_id": "CRM60008",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T09:10:00Z",
+        "channel": "email",
+        "summary": "Reported suspicious account activity"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.95,
+      "device_id": "dev_5103",
+      "ip_address": "192.168.5.47"
+    }
+  },
+  {
+    "customer_id": "CUST1009",
+    "transaction_id": "TXN30009",
+    "amount": 45.00,
+    "currency": "USD",
+    "date": "2025-09-02T08:25:00Z",
+    "merchant": "StreamFlix",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged even though I canceled my streaming subscription.",
+    "crm_ticket_id": "CRM60009",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T13:45:00Z",
+        "channel": "chat",
+        "summary": "Asked about subscription cancellation"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.10,
+      "device_id": "dev_6101",
+      "ip_address": "192.168.6.12"
+    }
+  },
+  {
+    "customer_id": "CUST1010",
+    "transaction_id": "TXN30010",
+    "amount": 560.75,
+    "currency": "USD",
+    "date": "2025-09-03T17:40:00Z",
+    "merchant": "TechWorld",
+    "channel": "Online",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60010",
+    "previous_interactions": [
+      {
+        "date": "2025-08-31T10:20:00Z",
+        "channel": "email",
+        "summary": "Requested shipping status update"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.28,
+      "device_id": "dev_6102",
+      "ip_address": "192.168.6.45"
+    }
+  }
+]
