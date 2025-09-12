@@ -1,0 +1,20 @@
+id: POL-A-06
+version: 1.0
+effective_from: 2025-09-01
+category: A
+scenario: Merchant refund abuse / False credit
+summary: Excessive refunds to new cards/accounts; refund to different instrument; outside policy windows.
+signals:
+  - {key: refund_ratio_merchant_30d, op: ">=", value: 0.25, timeframe: "30d", weight: 15}
+  - {key: refund_to_different_instrument_30d, op: ">=", value: 3, timeframe: "30d", weight: 15}
+  - {key: refund_outside_window_30d, op: ">=", value: 2, timeframe: "30d", weight: 10}
+decision:
+  severity_buckets: [{min: 40, label: HIGH}, {min: 20, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: ESCALATE, steps: ["Hold settlements", "Audit refund policy compliance"], sla: "24h",
+           evidence_checklist: ["Refund ledger", "Policy windows"] }
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["Proof of return"], sla: "72h"}
+    LOW: {recommendation: MONITOR, steps: ["Refund caps"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["Refund Policy §2"]
+tags: ["merchant_refund_abuse","refund_ratio","different_instrument","policy_window"]

@@ -1,0 +1,32 @@
+id: POL-A-01
+version: 1.0
+effective_from: 2025-09-01
+category: A
+scenario: Account Takeover (ATO)
+summary: Suspicious takeover indicated by device/IP novelty, unusual geo, profile changes, and high-velocity attempts.
+signals:
+  - {key: new_device_rate_24h, op: ">=", value: 0.5, timeframe: "24h", weight: 15}
+  - {key: new_ip_rate_24h, op: ">=", value: 0.5, timeframe: "24h", weight: 10}
+  - {key: contact_changed_72h, op: "==", value: 1, timeframe: "72h", weight: 10}
+  - {key: velocity_bursts_pct_1m, op: ">=", value: 0.2, timeframe: "30d", weight: 10}
+  - {key: cp_geo_distance_km, op: ">=", value: 800, timeframe: "event", weight: 10}
+decision:
+  severity_buckets: [{min: 45, label: HIGH}, {min: 25, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH:
+      recommendation: ESCALATE
+      steps: ["Block card/account", "Reset credentials", "Step-up auth", "P1 to fraud ops"]
+      sla: "1h"
+      evidence_checklist: ["Login logs (device/IP/geo)", "Profile change audit (72h)"]
+    MEDIUM:
+      recommendation: REQUEST_DOCS
+      steps: ["Out-of-band verification", "Device attestation"]
+      sla: "24h"
+      evidence_checklist: ["Device/IP history"]
+    LOW:
+      recommendation: APPROVE
+      steps: ["Monitor for 7 days"]
+      sla: "N/A"
+exceptions: ["VIP: manager approval before block", "Travel-noted: relax geo by 30%"]
+compliance_refs: ["Internal Playbook: ATO v3"]
+tags: ["ATO","new_device","new_ip","velocity","geo","profile_change"]

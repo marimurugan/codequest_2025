@@ -1,0 +1,20 @@
+id: POL-B-04
+version: 1.0
+effective_from: 2025-09-01
+category: B
+scenario: Synthetic identity
+summary: Thin-file identity, shared device/IP/address fragments; high application velocity, few anchored relationships.
+signals:
+  - {key: thin_file_score, op: ">=", value: 0.8, timeframe: "event", weight: 15}
+  - {key: shared_device_users_30d, op: ">=", value: 3, timeframe: "30d", weight: 10}
+  - {key: shared_address_users_90d, op: ">=", value: 3, timeframe: "90d", weight: 10}
+  - {key: application_velocity_30d, op: ">=", value: 3, timeframe: "30d", weight: 10}
+decision:
+  severity_buckets: [{min: 40, label: HIGH}, {min: 20, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: DENY, steps: ["Freeze account","KYC deep-dive"], sla: "24h"}
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["ID verification"], sla: "48h"}
+    LOW: {recommendation: MONITOR, steps: ["Step-up on next txn"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["KYC Policy §Synthetic ID"]
+tags: ["synthetic","thin_file","shared_device","shared_address","application_velocity"]

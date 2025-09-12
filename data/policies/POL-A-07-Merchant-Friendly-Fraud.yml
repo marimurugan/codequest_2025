@@ -1,0 +1,19 @@
+id: POL-A-07
+version: 1.0
+effective_from: 2025-09-01
+category: A
+scenario: Friendly fraud (disputes without true fraud) – merchant perspective
+summary: Legitimate fulfillment telemetry; disputes cluster around certain buyers/merchants; prior history of similar claims.
+signals:
+  - {key: delivery_confirmed, op: "==", value: 1, timeframe: "event", weight: 15}
+  - {key: buyer_dispute_rate_90d, op: ">=", value: 0.2, timeframe: "90d", weight: 10}
+  - {key: merchant_dispute_cluster_30d, op: ">=", value: 10, timeframe: "30d", weight: 10}
+decision:
+  severity_buckets: [{min: 35, label: HIGH}, {min: 20, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: DENY, steps: ["Represent chargeback"], sla: "3d"}
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["Proof of delivery"], sla: "5d"}
+    LOW: {recommendation: APPROVE, steps: ["Goodwill credit"], sla: "N/A"}
+exceptions: ["Consumer law exceptions by region"]
+compliance_refs: ["Chargeback Guide §Friendly Fraud"]
+tags: ["friendly_fraud","delivery","dispute_cluster"]

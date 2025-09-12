@@ -1,0 +1,22 @@
+id: POL-B-03
+version: 1.0
+effective_from: 2025-09-01
+category: B
+scenario: Bust-out
+summary: Velocity to limit, novel devices, MCC anomalies, large final spree.
+signals:
+  - {key: utilization_now, op: ">=", value: 0.95, timeframe: "event", weight: 15}
+  - {key: velocity_bursts_pct_1w, op: ">=", value: 0.3, timeframe: "7d", weight: 10}
+  - {key: new_device_rate_7d, op: ">=", value: 0.5, timeframe: "7d", weight: 10}
+  - {key: mcc_diversity_index_7d, op: ">=", value: 0.7, timeframe: "7d", weight: 10}
+  - {key: high_value_cluster_48h, op: "==", value: 1, timeframe: "48h", weight: 15}
+decision:
+  severity_buckets: [{min: 45, label: HIGH}, {min: 25, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: ESCALATE, steps: ["Limit reduction/hold", "Manual review"], sla: "4h",
+           evidence_checklist: ["Credit line history","MCC mix","Device/IP novelty"] }
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["ID/Income check"], sla: "24h"}
+    LOW: {recommendation: MONITOR, steps: ["Tight rules"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["Collections Policy §Bustout"]
+tags: ["bustout","velocity","utilization","mcc_diversity","new_device"]

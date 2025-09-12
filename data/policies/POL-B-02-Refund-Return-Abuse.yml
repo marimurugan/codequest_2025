@@ -1,0 +1,19 @@
+id: POL-B-02
+version: 1.0
+effective_from: 2025-09-01
+category: B
+scenario: Refund/Return abuse (INR/empty box)
+summary: High refund ratio, edge of policy window, repeated addresses; serial returner.
+signals:
+  - {key: customer_refund_ratio_90d, op: ">=", value: 0.3, timeframe: "90d", weight: 15}
+  - {key: refunds_near_window_30d, op: ">=", value: 2, timeframe: "30d", weight: 10}
+  - {key: repeated_addresses_90d, op: ">=", value: 3, timeframe: "90d", weight: 10}
+decision:
+  severity_buckets: [{min: 40, label: HIGH}, {min: 20, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: DENY, steps: ["Blacklist address"], sla: "3d"}
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["Return proof"], sla: "5d"}
+    LOW: {recommendation: MONITOR, steps: ["Cap refunds"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["Returns Policy §2"]
+tags: ["refund_abuse","policy_window","address_reuse"]

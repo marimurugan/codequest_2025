@@ -1,0 +1,19 @@
+id: POL-B-05
+version: 1.0
+effective_from: 2025-09-01
+category: B
+scenario: Muling (as customer)
+summary: Many in/out transfers; shared devices with risky accounts; odd times; cross-border hops.
+signals:
+  - {key: inbound_outbound_ratio_30d, op: ">=", value: 3.0, timeframe: "30d", weight: 15}
+  - {key: shared_device_with_known_bad_90d, op: "==", value: 1, timeframe: "90d", weight: 15}
+  - {key: night_activity_ratio_30d, op: ">=", value: 0.5, timeframe: "30d", weight: 10}
+decision:
+  severity_buckets: [{min: 45, label: HIGH}, {min: 25, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: ESCALATE, steps: ["Freeze outbound", "SAR/STR prep"], sla: "24h"}
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["Source-of-funds"], sla: "48h"}
+    LOW: {recommendation: MONITOR, steps: ["Velocity caps"], sla: "N/A"}
+exceptions: ["Legal hold exceptions"]
+compliance_refs: ["AML Program §Mule"]
+tags: ["muling","shared_device_bad","transfers","night_activity"]

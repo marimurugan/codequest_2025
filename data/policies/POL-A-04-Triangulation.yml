@@ -1,0 +1,20 @@
+id: POL-A-04
+version: 1.0
+effective_from: 2025-09-01
+category: A
+scenario: Triangulation (rogue marketplace sellers)
+summary: One seller fulfilled orders using many victims' cards; shared shipping/IPs; refund anomalies.
+signals:
+  - {key: many_cards_to_merchant_7d, op: ">=", value: 20, timeframe: "7d", weight: 15}
+  - {key: shared_shipping_addr_users_30d, op: ">=", value: 5, timeframe: "30d", weight: 15}
+  - {key: refund_ratio_merchant_30d, op: ">=", value: 0.2, timeframe: "30d", weight: 10}
+decision:
+  severity_buckets: [{min: 45, label: HIGH}, {min: 25, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: ESCALATE, steps: ["Suspend merchant", "Investigate orders", "Notify victims"], sla: "4h",
+           evidence_checklist: ["Shipping address graph", "Refunds log"] }
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["KYC refresh"], sla: "24h", evidence_checklist: ["Account links"] }
+    LOW: {recommendation: MONITOR, steps: ["Increase scrutiny"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["Marketplace Policy §Triangulation"]
+tags: ["triangulation","shared_address","refund_anomaly","merchant_abuse"]

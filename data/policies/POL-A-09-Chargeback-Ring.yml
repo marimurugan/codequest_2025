@@ -1,0 +1,19 @@
+id: POL-A-09
+version: 1.0
+effective_from: 2025-09-01
+category: A
+scenario: Chargeback exploitation rings
+summary: Users linked by device/IP repeatedly dispute the same MCC/merchant; dispute-win feedback loops.
+signals:
+  - {key: shared_device_disputers_30d, op: ">=", value: 3, timeframe: "30d", weight: 15}
+  - {key: repeated_disputes_same_merchant_30d, op: ">=", value: 3, timeframe: "30d", weight: 15}
+  - {key: dispute_win_rate_users_90d, op: ">=", value: 0.6, timeframe: "90d", weight: 10}
+decision:
+  severity_buckets: [{min: 45, label: HIGH}, {min: 25, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: ESCALATE, steps: ["Blacklist ring", "Inform networks"], sla: "24h"}
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["Enhanced KYC"], sla: "72h"}
+    LOW: {recommendation: MONITOR, steps: ["Limit exposure"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["Chargeback Ops §Rings"]
+tags: ["chargeback_ring","shared_device","repeat_disputes"]

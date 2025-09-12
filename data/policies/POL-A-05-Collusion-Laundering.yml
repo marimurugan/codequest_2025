@@ -1,0 +1,21 @@
+id: POL-A-05
+version: 1.0
+effective_from: 2025-09-01
+category: A
+scenario: Merchant collusion / Transaction laundering
+summary: Merchant cluster shares devices/IPs/bank accounts; MCC mismatch; round-dollar high-frequency cycles.
+signals:
+  - {key: shared_settlement_accts_merchants_30d, op: ">=", value: 2, timeframe: "30d", weight: 15}
+  - {key: merchant_ip_overlap_30d, op: ">=", value: 2, timeframe: "30d", weight: 10}
+  - {key: mcc_mismatch_score, op: ">=", value: 0.7, timeframe: "event", weight: 10}
+  - {key: round_amount_ratio_7d, op: ">=", value: 0.6, timeframe: "7d", weight: 10}
+decision:
+  severity_buckets: [{min: 45, label: HIGH}, {min: 25, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: ESCALATE, steps: ["Suspend settlement", "KYB review"], sla: "4h",
+           evidence_checklist: ["Settlement account links", "IP overlap"] }
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["Explain MCC variance"], sla: "24h", evidence_checklist: ["Invoices"] }
+    LOW: {recommendation: MONITOR, steps: ["Sampling audits"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["KYB Policy §Laundering"]
+tags: ["collusion","laundering","shared_bank","ip_overlap","mcc_mismatch","round_amounts"]

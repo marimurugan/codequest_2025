@@ -1,0 +1,19 @@
+id: POL-B-07
+version: 1.0
+effective_from: 2025-09-01
+category: B
+scenario: Cashback/loyalty abuse
+summary: Cyclic transactions among related parties; MCC patterns with no consumption; self-dealing.
+signals:
+  - {key: cyclic_txn_score_30d, op: ">=", value: 0.7, timeframe: "30d", weight: 15}
+  - {key: related_party_merchant_links, op: ">=", value: 1, timeframe: "90d", weight: 10}
+  - {key: zero_consumption_ratio_30d, op: ">=", value: 0.4, timeframe: "30d", weight: 10}
+decision:
+  severity_buckets: [{min: 40, label: HIGH}, {min: 20, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: DENY, steps: ["Void rewards","Blacklist entities"], sla: "72h"}
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["Proof of service"], sla: "5d"}
+    LOW: {recommendation: MONITOR, steps: ["Reward caps"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["Rewards Policy §Abuse"]
+tags: ["cashback_abuse","cyclic","related_party","zero_consumption"]

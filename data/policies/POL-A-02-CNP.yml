@@ -1,0 +1,22 @@
+id: POL-A-02
+version: 1.0
+effective_from: 2025-09-01
+category: A
+scenario: Card-Not-Present (CNP) / BIN/Credential testing
+summary: Decline/test sequences followed by high-value CNP hit; card_present=0 spikes, many cards funnel to one merchant/IP.
+signals:
+  - {key: declines_10m, op: ">=", value: 5, timeframe: "10m", weight: 15}
+  - {key: small_tests_30m, op: ">=", value: 3, timeframe: "30m", weight: 10}
+  - {key: high_value_after_tests, op: "==", value: 1, timeframe: "2h", weight: 15}
+  - {key: cnp_ratio_24h, op: ">=", value: 0.9, timeframe: "24h", weight: 10}
+  - {key: many_cards_to_merchant_24h, op: ">=", value: 5, timeframe: "24h", weight: 10}
+decision:
+  severity_buckets: [{min: 45, label: HIGH}, {min: 25, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: DENY, steps: ["Block card", "Notify network rules team"], sla: "Immediate",
+           evidence_checklist: ["Decline log", "Attempt sequence"] }
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["3DS/step-up next txn", "Monitor merchant"], sla: "24h", evidence_checklist: ["Attempts pattern"] }
+    LOW: {recommendation: APPROVE, steps: ["Monitor 7d"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["Card Brand CNP Risk §2.1"]
+tags: ["CNP","declines","tests","bin_attack","card_present=0"]

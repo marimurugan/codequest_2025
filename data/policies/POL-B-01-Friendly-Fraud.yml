@@ -1,0 +1,19 @@
+id: POL-B-01
+version: 1.0
+effective_from: 2025-09-01
+category: B
+scenario: Friendly fraud (customer)
+summary: Customer disputes post-consumption; device fingerprint matches past legit txns; repeats across merchants.
+signals:
+  - {key: delivery_confirmed, op: "==", value: 1, timeframe: "event", weight: 15}
+  - {key: device_match_past_good, op: "==", value: 1, timeframe: "event", weight: 10}
+  - {key: customer_dispute_rate_90d, op: ">=", value: 0.2, timeframe: "90d", weight: 10}
+decision:
+  severity_buckets: [{min: 35, label: HIGH}, {min: 20, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: DENY, steps: ["Represent with evidence"], sla: "3d"}
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["Proof of issue"], sla: "5d"}
+    LOW: {recommendation: APPROVE, steps: ["Goodwill credit"], sla: "N/A"}
+exceptions: ["Vulnerable customer exceptions per local law"]
+compliance_refs: ["Chargeback Guide §Friendly Fraud"]
+tags: ["friendly_fraud","delivery","device_match","repeat_disputes"]

@@ -1,0 +1,19 @@
+id: POL-B-06
+version: 1.0
+effective_from: 2025-09-01
+category: B
+scenario: Subscription abuse (trial hopping/chargebacks)
+summary: Multiple cards per device, short-lived accounts, repeat disputes at renewal.
+signals:
+  - {key: cards_per_device_30d, op: ">=", value: 3, timeframe: "30d", weight: 15}
+  - {key: account_age_days, op: "<=", value: 30, timeframe: "event", weight: 10}
+  - {key: renewal_dispute_rate_90d, op: ">=", value: 0.3, timeframe: "90d", weight: 10}
+decision:
+  severity_buckets: [{min: 40, label: HIGH}, {min: 20, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: DENY, steps: ["Blacklist device","Cancel subs"], sla: "24h"}
+    MEDIUM: {recommendation: REQUEST_DOCS, steps: ["ID verification"], sla: "48h"}
+    LOW: {recommendation: MONITOR, steps: ["3DS on renewal"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["Subscription Policy §Abuse"]
+tags: ["subscription","cards_per_device","short_lived","renewal_disputes"]

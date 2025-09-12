@@ -1,0 +1,19 @@
+id: POL-A-03
+version: 1.0
+effective_from: 2025-09-01
+category: A
+scenario: Skimming / Counterfeit (Card-Present)
+summary: Cloned PAN used across distant geos/terminals in short windows.
+signals:
+  - {key: cp_geo_impossible_travel_24h, op: "==", value: 1, timeframe: "24h", weight: 20}
+  - {key: shared_terminal_cards_7d, op: ">=", value: 3, timeframe: "7d", weight: 15}
+  - {key: cp_ratio_24h, op: ">=", value: 0.8, timeframe: "24h", weight: 10}
+decision:
+  severity_buckets: [{min: 40, label: HIGH}, {min: 20, label: MEDIUM}, {min: 0, label: LOW}]
+  actions:
+    HIGH: {recommendation: DENY, steps: ["Block card", "Reissue card"], sla: "Immediate", evidence_checklist: ["Terminal list", "Geo timeline"] }
+    MEDIUM: {recommendation: ESCALATE, steps: ["Contact customer"], sla: "4h", evidence_checklist: ["CP map"] }
+    LOW: {recommendation: APPROVE, steps: ["Monitor terminals"], sla: "N/A"}
+exceptions: []
+compliance_refs: ["Card Brand CP Fraud §1.4"]
+tags: ["skimming","counterfeit","cp","impossible_travel","terminal_sharing"]
