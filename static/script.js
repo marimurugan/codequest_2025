@@ -3,24 +3,20 @@ class DisputeHandler {
         this.currentUser = null;
         this.cases = [];
         this.currentCase = null;
+        this.chatbotInitialized = false;
+        this.chatbot = new EnhancedChatbot();
         this.init();
     }
 
     init() {
-    this.bindEvents();
-    this.checkAuth();
-    this.initializeChatbot(); // Add this line
-}
-
-initializeChatbot() {
-    // Add welcome message after a delay
-    setTimeout(() => {
-        if (document.getElementById('chatbot-messages')) {
-            this.addMessage("Welcome! I can help you manage your dispute cases.");
-            this.addMessage("Type 'help' to see what I can do, or use the quick replies below.");
-        }
-    }, 2000);
-}
+        this.bindEvents();
+        this.checkAuth();
+        
+        // Initialize JUNO with welcome message after delay
+        setTimeout(() => {
+            this.showChatbotWelcome();
+        }, 2000);
+    }
 
     bindEvents() {
         // Login form
@@ -81,6 +77,22 @@ initializeChatbot() {
             sidebarToggle.addEventListener('click', () => {
                 document.querySelector('.sidebar').classList.toggle('open');
             });
+        }
+
+        // JUNO chatbot controls
+        const minimizeChatbot = document.getElementById('minimize-chatbot');
+        if (minimizeChatbot) {
+            minimizeChatbot.addEventListener('click', () => this.minimizeChatbot());
+        }
+
+        const closeChatbot = document.getElementById('close-chatbot');
+        if (closeChatbot) {
+            closeChatbot.addEventListener('click', () => this.closeChatbot());
+        }
+
+        const junoToggle = document.getElementById('juno-toggle');
+        if (junoToggle) {
+            junoToggle.addEventListener('click', () => this.toggleChatbot());
         }
 
         // Close modals when clicking outside
@@ -302,17 +314,15 @@ initializeChatbot() {
                     </div>
                 </div>
 
-                <div class="case-detail-card-ai">
-                    <h3>🤖 AI Analysis</h3>
+                <div class="case-detail-card">
+                    <h3>AI Analysis</h3>
                     <div class="case-info-item">
                         <strong>Dispute Type</strong>
                         <span>${this.currentCase.classification?.type || 'Unknown'}</span>
                     </div>
                     <div class="case-info-item">
-                        <strong style="font-size: 1.2rem; font-weight: 700;">Confidence Score</strong>
-                        <span style="font-size: 1.2rem; font-weight: 600; margin-left: 5px;">
-                            ${this.currentCase.classification?.confidence ? (this.currentCase.classification.confidence * 100).toFixed(1) + '%' : 'N/A'}
-                        </span>
+                        <strong>Confidence Score</strong>
+                        <span>${this.currentCase.classification?.confidence ? (this.currentCase.classification.confidence * 100).toFixed(1) + '%' : 'N/A'}</span>
                     </div>
                     ${this.currentCase.media_trust_score ? `
                     <div class="case-info-item">
@@ -459,217 +469,6 @@ initializeChatbot() {
         input.click();
     }
 
-    // Chatbot methods
-toggleChatbot() {
-    const chatbot = document.getElementById('chatbot-widget');
-    chatbot.classList.toggle('open');
-    
-    const toggleBtn = document.getElementById('chatbot-toggle');
-    const chevron = chatbot.querySelector('.fa-chevron-down');
-    
-    if (chatbot.classList.contains('open')) {
-        chevron.classList.replace('fa-chevron-down', 'fa-chevron-up');
-        toggleBtn.style.opacity = '0.5';
-        this.scrollChatToBottom();
-    } else {
-        chevron.classList.replace('fa-chevron-up', 'fa-chevron-down');
-        toggleBtn.style.opacity = '1';
-    }
-}
-
-addMessage(message, isUser = false) {
-    const messagesContainer = document.getElementById('chatbot-messages');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
-    
-    messageDiv.innerHTML = `
-        <div class="message-content">
-            <p>${message}</p>
-        </div>
-    `;
-    
-    messagesContainer.appendChild(messageDiv);
-    this.scrollChatToBottom();
-}
-
-scrollChatToBottom() {
-    const messagesContainer = document.getElementById('chatbot-messages');
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-}
-
-handleQuickReply(action) {
-    switch(action) {
-        case 'show_cases':
-            this.showOpenCasesInChat();
-            break;
-        case 'create_case':
-            this.promptCreateCase();
-            break;
-        case 'help':
-            this.showHelp();
-            break;
-        default:
-            this.addMessage("I'm not sure how to help with that. Try one of the options above.");
-    }
-}
-
-showOpenCasesInChat() {
-    const openCases = this.cases.filter(c => c.status === 'open');
-    
-    if (openCases.length === 0) {
-        this.addMessage("You don't have any open cases at the moment.");
-        return;
-    }
-    
-    this.addMessage(`You have ${openCases.length} open case(s):`);
-    
-    const casesList = openCases.map(caseItem => `
-        <div class="case-item" onclick="app.handleCaseSelection('${caseItem.case_id}')">
-            <div class="case-info">
-                <span class="case-id">${caseItem.case_id}</span>
-                <span class="case-amount">${caseItem.transaction?.amount || 0} ${caseItem.transaction?.currency || ''}</span>
-            </div>
-            <div>${caseItem.classification?.type || 'Unknown'}</div>
-        </div>
-    `).join('');
-    
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = casesList;
-    
-    const messagesContainer = document.getElementById('chatbot-messages');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'message bot-message';
-    messageDiv.innerHTML = '<div class="message-content"><div class="case-list">' + casesList + '</div></div>';
-    
-    messagesContainer.appendChild(messageDiv);
-    this.scrollChatToBottom();
-}
-
-handleCaseSelection(caseId) {
-    const selectedCase = this.cases.find(c => c.case_id === caseId);
-    if (!selectedCase) return;
-    
-    this.addMessage(`Selected case: ${caseId}`);
-    this.showCaseActions(selectedCase);
-}
-
-showCaseActions(caseItem) {
-    this.addMessage(`What would you like to do with case ${caseItem.case_id}?`);
-    
-    const actionsHtml = `
-        <div class="chat-actions">
-            <button class="chat-action-btn" onclick="app.viewCaseDetails('${caseItem.case_id}')">View Details</button>
-            <button class="chat-action-btn" onclick="app.uploadDocumentsChat('${caseItem.case_id}')">Upload Documents</button>
-            <button class="chat-action-btn" onclick="app.resolveCaseChat('${caseItem.case_id}', 'approve')">Approve</button>
-            <button class="chat-action-btn" onclick="app.resolveCaseChat('${caseItem.case_id}', 'escalate')">Escalate</button>
-        </div>
-    `;
-    
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = actionsHtml;
-    
-    const messagesContainer = document.getElementById('chatbot-messages');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'message bot-message';
-    messageDiv.innerHTML = '<div class="message-content">' + actionsHtml + '</div>';
-    
-    messagesContainer.appendChild(messageDiv);
-    this.scrollChatToBottom();
-}
-
-viewCaseDetails(caseId) {
-    this.addMessage(`Opening case ${caseId} details...`, true);
-    this.openCase(caseId);
-    this.toggleChatbot(); // Close chatbot when opening case details
-}
-
-uploadDocumentsChat(caseId) {
-    this.addMessage(`Preparing to upload documents for case ${caseId}...`, true);
-    this.openCase(caseId);
-    setTimeout(() => {
-        this.uploadDocuments();
-        this.toggleChatbot(); // Close chatbot when uploading documents
-    }, 1000);
-}
-
-async resolveCaseChat(caseId, action) {
-    this.addMessage(`${action === 'approve' ? 'Approving' : 'Escalating'} case ${caseId}...`, true);
-    
-    try {
-        const response = await this.apiCall(
-            `/api/cases/${caseId}/resolve`,
-            'POST',
-            { action, notes: `Resolution ${action}d via chatbot` }
-        );
-        
-        this.addMessage(`Case ${caseId} has been ${action}d successfully!`);
-        this.loadDashboard(); // Refresh dashboard data
-        
-    } catch (error) {
-        console.error(`Failed to ${action} case:`, error);
-        this.addMessage(`Failed to ${action} case. Please try again.`);
-    }
-}
-
-promptCreateCase() {
-    this.addMessage("To create a new case, please use the 'Create New Case' button on the dashboard or provide a transaction ID.");
-    
-    const promptHtml = `
-        <div class="chat-actions">
-            <button class="chat-action-btn" onclick="app.showCreateCaseModal()">Open Create Form</button>
-        </div>
-    `;
-    
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = promptHtml;
-    
-    const messagesContainer = document.getElementById('chatbot-messages');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'message bot-message';
-    messageDiv.innerHTML = '<div class="message-content">' + promptHtml + '</div>';
-    
-    messagesContainer.appendChild(messageDiv);
-    this.scrollChatToBottom();
-}
-
-showHelp() {
-    this.addMessage("I can help you with:");
-    this.addMessage("• Viewing open cases");
-    this.addMessage("• Creating new dispute cases");
-    this.addMessage("• Managing existing cases");
-    this.addMessage("• Uploading documents");
-    this.addMessage("• Approving or escalating cases");
-}
-
-handleChatInput(event) {
-    if (event.key === 'Enter') {
-        this.sendMessage();
-        event.preventDefault();
-    }
-}
-
-sendMessage() {
-    const input = document.getElementById('chatbot-input');
-    const message = input.value.trim();
-    
-    if (message) {
-        this.addMessage(message, true);
-        input.value = '';
-        
-        // Simple response logic
-        setTimeout(() => {
-            if (message.toLowerCase().includes('hello') || message.toLowerCase().includes('hi')) {
-                this.addMessage("Hello! How can I help you with your dispute cases today?");
-            } else if (message.toLowerCase().includes('case')) {
-                this.showOpenCasesInChat();
-            } else if (message.toLowerCase().includes('help')) {
-                this.showHelp();
-            } else {
-                this.addMessage("I'm here to help with dispute cases. You can ask me about open cases or use the quick replies above.");
-            }
-        }, 500);
-    }
-}
     async showDocumentAnalysis() {
         try {
             const response = await this.apiCall(`/api/cases/${this.currentCase.case_id}/documents/analysis`, 'GET');
@@ -875,6 +674,771 @@ sendMessage() {
         }
 
         return await response.json();
+    }
+
+    // ==================== JUNO CHATBOT FUNCTIONALITY ====================
+
+    showChatbotWelcome() {
+        if (!this.chatbotInitialized) {
+            this.addMessage("👋 Hello! I'm JUNO, your AI Dispute Assistant", false);
+            setTimeout(() => {
+                this.addMessage("I'm here to help you manage cases, analyze documents, and answer questions about dispute resolution.", false);
+            }, 800);
+            setTimeout(() => {
+                this.addMessage("How can I assist you today?", false);
+                this.showEnhancedQuickReplies();
+            }, 1600);
+            this.chatbotInitialized = true;
+        }
+    }
+
+    toggleChatbot() {
+        const chatbot = document.getElementById('juno-chatbot');
+        const toggleBtn = document.getElementById('juno-toggle');
+        
+        if (window.innerWidth <= 768) {
+            // Mobile view - toggle visibility
+            chatbot.classList.toggle('open');
+            toggleBtn.style.display = chatbot.classList.contains('open') ? 'none' : 'flex';
+        } else {
+            // Desktop view - toggle minimization
+            chatbot.classList.toggle('minimized');
+            toggleBtn.style.display = chatbot.classList.contains('minimized') ? 'flex' : 'none';
+        }
+        
+        if (chatbot.classList.contains('minimized') || chatbot.classList.contains('open')) {
+            this.scrollChatToBottom();
+            
+            // Show welcome message when opening
+            if (!this.chatbotInitialized) {
+                this.showChatbotWelcome();
+                this.chatbotInitialized = true;
+            }
+        }
+    }
+
+    minimizeChatbot() {
+        const chatbot = document.getElementById('juno-chatbot');
+        const toggleBtn = document.getElementById('juno-toggle');
+        
+        if (window.innerWidth <= 768) {
+            chatbot.classList.remove('open');
+            toggleBtn.style.display = 'flex';
+        } else {
+            chatbot.classList.add('minimized');
+            toggleBtn.style.display = 'flex';
+        }
+    }
+
+    closeChatbot() {
+        const chatbot = document.getElementById('juno-chatbot');
+        const toggleBtn = document.getElementById('juno-toggle');
+        
+        if (window.innerWidth <= 768) {
+            chatbot.classList.remove('open');
+        } else {
+            chatbot.classList.add('minimized');
+        }
+        
+        toggleBtn.style.display = 'flex';
+    }
+
+    addMessage(message, isUser = false) {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        
+        // Add typing indicator for bot messages
+        if (!isUser) {
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <div class="message-text">${message}</div>
+                    <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                </div>
+            `;
+        } else {
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="message-text">${message}</div>
+                    <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                </div>
+                <div class="message-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            `;
+        }
+        
+        messagesContainer.appendChild(messageDiv);
+        this.scrollChatToBottom();
+    }
+
+    scrollChatToBottom() {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    showTypingIndicator() {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot-message typing-indicator';
+        typingDiv.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="typing-text">JUNO is thinking...</div>
+            </div>
+        `;
+        messagesContainer.appendChild(typingDiv);
+        this.scrollChatToBottom();
+    }
+
+    hideTypingIndicator() {
+        const typingIndicator = document.querySelector('.typing-indicator');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    }
+
+    showEnhancedQuickReplies() {
+        const quickRepliesHtml = `
+            <button class="quick-reply" onclick="app.handleQuickReply('open_cases')">
+                <i class="fas fa-folder-open"></i>
+                <span>View Open Cases</span>
+            </button>
+            <button class="quick-reply" onclick="app.handleQuickReply('create_case')">
+                <i class="fas fa-plus-circle"></i>
+                <span>Create New Case</span>
+            </button>
+            <button class="quick-reply" onclick="app.handleQuickReply('upload_docs')">
+                <i class="fas fa-file-upload"></i>
+                <span>Upload Documents</span>
+            </button>
+            <button class="quick-reply" onclick="app.handleQuickReply('ask_question')">
+                <i class="fas fa-question-circle"></i>
+                <span>Ask Question</span>
+            </button>
+            <button class="quick-reply" onclick="app.handleQuickReply('policy_info')">
+                <i class="fas fa-book"></i>
+                <span>Policy Information</span>
+            </button>
+            <button class="quick-reply" onclick="app.handleQuickReply('help')">
+                <i class="fas fa-life-ring"></i>
+                <span>Get Help</span>
+            </button>
+        `;
+
+        document.getElementById('quick-replies').innerHTML = quickRepliesHtml;
+    }
+
+    handleQuickReply(action) {
+        // Clear quick replies when an action is taken
+        document.getElementById('quick-replies').innerHTML = '';
+        
+        this.addMessage(this.getQuickReplyText(action), true);
+        
+        switch(action) {
+            case 'open_cases':
+                setTimeout(() => this.showOpenCasesInChat(), 500);
+                break;
+            case 'create_case':
+                setTimeout(() => this.promptCreateCase(), 500);
+                break;
+            case 'upload_docs':
+                setTimeout(() => this.promptDocumentUpload(), 500);
+                break;
+            case 'ask_question':
+                setTimeout(() => this.promptQuestion(), 500);
+                break;
+            case 'policy_info':
+                setTimeout(() => this.showPolicyOptions(), 500);
+                break;
+            case 'help':
+                setTimeout(() => this.showHelp(), 500);
+                break;
+        }
+    }
+
+    getQuickReplyText(action) {
+        const texts = {
+            'open_cases': 'Show me my open cases',
+            'create_case': 'I want to create a new case',
+            'upload_docs': 'I need to upload documents',
+            'ask_question': 'I have a question',
+            'policy_info': 'Tell me about policies',
+            'help': 'I need help'
+        };
+        return texts[action] || 'I need assistance';
+    }
+
+    async showOpenCasesInChat() {
+        const openCases = this.cases.filter(c => c.status === 'open');
+        
+        if (openCases.length === 0) {
+            this.addMessage("🎉 Excellent! You have no open cases. Everything is resolved and up to date.", false);
+            return;
+        }
+
+        this.addMessage(`I found ${openCases.length} open case${openCases.length > 1 ? 's' : ''}:`, false);
+
+        openCases.forEach((caseItem, index) => {
+            setTimeout(() => {
+                const caseHtml = `
+                    <div class="case-card" onclick="app.handleCaseSelection('${caseItem.case_id}')">
+                        <div class="case-header">
+                            <span class="case-id">${caseItem.case_id}</span>
+                            <span class="case-amount">${caseItem.transaction?.amount || 0} ${caseItem.transaction?.currency || 'USD'}</span>
+                        </div>
+                        <div class="case-details">
+                            <div class="case-detail-item">
+                                <i class="fas fa-store"></i>
+                                <span>${caseItem.transaction?.merchant || 'Unknown Merchant'}</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <i class="fas fa-tag"></i>
+                                <span>${caseItem.classification?.type || 'Unknown Type'}</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>${new Date(caseItem.created_date).toLocaleDateString()}</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Score: ${caseItem.media_trust_score || 'N/A'}%</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message bot-message';
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">${caseHtml}</div>
+                `;
+
+                document.getElementById('chatbot-messages').appendChild(messageDiv);
+                this.scrollChatToBottom();
+
+                // Show actions after last case
+                if (index === openCases.length - 1) {
+                    setTimeout(() => {
+                        this.showCaseActions();
+                    }, 300);
+                }
+            }, index * 400);
+        });
+    }
+
+    handleCaseSelection(caseId) {
+        const selectedCase = this.cases.find(c => c.case_id === caseId);
+        if (!selectedCase) return;
+        
+        this.addMessage(`Selected case: ${caseId}`, true);
+        this.showCaseActions(selectedCase);
+    }
+
+    showCaseActions(caseItem) {
+        this.addMessage(`What would you like to do with case ${caseItem.case_id}?`, false);
+        
+        const actionsHtml = `
+            <div class="chat-actions">
+                <button class="chat-action-btn" onclick="app.viewCaseDetails('${caseItem.case_id}')">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>Open Details</span>
+                </button>
+                <button class="chat-action-btn" onclick="app.uploadDocumentsChat('${caseItem.case_id}')">
+                    <i class="fas fa-file-upload"></i>
+                    <span>Upload Docs</span>
+                </button>
+                <button class="chat-action-btn" onclick="app.resolveCaseChat('${caseItem.case_id}', 'approve')">
+                    <i class="fas fa-check"></i>
+                    <span>Approve</span>
+                </button>
+                <button class="chat-action-btn" onclick="app.resolveCaseChat('${caseItem.case_id}', 'escalate')">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Escalate</span>
+                </button>
+            </div>
+        `;
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message bot-message';
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">${actionsHtml}</div>
+        `;
+
+        document.getElementById('chatbot-messages').appendChild(messageDiv);
+        this.scrollChatToBottom();
+    }
+
+    viewCaseDetails(caseId) {
+        this.addMessage(`Opening case ${caseId} details...`, true);
+        this.openCase(caseId);
+        this.minimizeChatbot();
+    }
+
+    uploadDocumentsChat(caseId) {
+        this.addMessage(`Preparing to upload documents for case ${caseId}...`, true);
+        this.openCase(caseId);
+        setTimeout(() => {
+            this.uploadDocuments();
+            this.minimizeChatbot();
+        }, 1000);
+    }
+
+    async resolveCaseChat(caseId, action) {
+        this.addMessage(`${action === 'approve' ? 'Approving' : 'Escalating'} case ${caseId}...`, true);
+        
+        try {
+            const response = await this.apiCall(
+                `/api/cases/${caseId}/resolve`,
+                'POST',
+                { action, notes: `Resolution ${action}d via JUNO chatbot` }
+            );
+            
+            this.addMessage(`Case ${caseId} has been ${action}d successfully!`, false);
+            this.loadDashboard();
+            
+        } catch (error) {
+            console.error(`Failed to ${action} case:`, error);
+            this.addMessage(`Failed to ${action} case. Please try again.`, false);
+        }
+    }
+
+    promptCreateCase() {
+        this.addMessage("To create a new case, I'll need some information:", false);
+        
+        setTimeout(() => {
+            this.addMessage("1. Transaction ID 📄", false);
+        }, 400);
+        
+        setTimeout(() => {
+            this.addMessage("2. Customer details 👤", false);
+        }, 800);
+        
+        setTimeout(() => {
+            this.addMessage("3. Reason for dispute ❓", false);
+        }, 1200);
+        
+        setTimeout(() => {
+            const actionsHtml = `
+                <div class="chat-actions">
+                    <button class="chat-action-btn" onclick="app.showCreateCaseModal()">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span>Open Case Form</span>
+                    </button>
+                    <button class="chat-action-btn" onclick="app.showEnhancedQuickReplies()">
+                        <i class="fas fa-undo"></i>
+                        <span>Back to Menu</span>
+                    </button>
+                </div>
+            `;
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot-message';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>You can create a case through the form for better experience!</p>
+                    ${actionsHtml}
+                </div>
+            `;
+            
+            document.getElementById('chatbot-messages').appendChild(messageDiv);
+            this.scrollChatToBottom();
+        }, 1600);
+    }
+
+    promptDocumentUpload() {
+        this.addMessage("I can help you upload documents for your cases. Here's what I need:", false);
+        
+        setTimeout(() => {
+            this.addMessage("1. Case ID 📋", false);
+        }, 400);
+        
+        setTimeout(() => {
+            this.addMessage("2. Document files 📁", false);
+        }, 800);
+        
+        setTimeout(() => {
+            this.addMessage("3. Document type 🏷️", false);
+        }, 1200);
+        
+        setTimeout(() => {
+            this.addMessage("You can upload documents through the case details page or use the attachment button below.", false);
+            this.showEnhancedQuickReplies();
+        }, 1600);
+    }
+
+    promptQuestion() {
+        this.addMessage("I'm ready to answer your questions! I have knowledge about:", false);
+        
+        const knowledgeAreas = [
+            "Refund policies and procedures",
+            "Case escalation processes",
+            "Document requirements",
+            "Resolution timelines (SLA)",
+            "Fraud prevention measures",
+            "Customer support information"
+        ];
+        
+        knowledgeAreas.forEach((area, index) => {
+            setTimeout(() => {
+                this.addMessage(`• ${area}`, false);
+            }, index * 300);
+        });
+        
+        setTimeout(() => {
+            this.addMessage("What would you like to know?", false);
+        }, knowledgeAreas.length * 300 + 300);
+    }
+
+    showPolicyOptions() {
+        this.addMessage("I can provide information on these policy areas:", false);
+        
+        const policies = [
+            "Refund and return policies",
+            "Dispute resolution procedures",
+            "Documentation requirements",
+            "Escalation protocols",
+            "Service level agreements (SLA)",
+            "Fraud prevention guidelines"
+        ];
+        
+        policies.forEach((policy, index) => {
+            setTimeout(() => {
+                this.addMessage(`• ${policy}`, false);
+            }, index * 300);
+        });
+        
+        setTimeout(() => {
+            this.addMessage("Which policy area are you interested in?", false);
+        }, policies.length * 300 + 300);
+    }
+
+    showHelp() {
+        this.addMessage("Here's how I can help you: 🚀", false);
+        
+        const helpItems = [
+            { icon: "📋", text: "View and manage open dispute cases" },
+            { icon: "📁", text: "Upload documents for case verification" },
+            { icon: "✅", text: "Approve or escalate case resolutions" },
+            { icon: "🆕", text: "Create new dispute cases easily" },
+            { icon: "📊", text: "Check case status and details" },
+            { icon: "🤖", text: "Get AI-powered recommendations" },
+            { icon: "❓", text: "Answer policy and procedure questions" },
+            { icon: "⚡", text: "Provide quick dispute resolution guidance" }
+        ];
+        
+        helpItems.forEach((item, index) => {
+            setTimeout(() => {
+                this.addMessage(`${item.icon} ${item.text}`, false);
+            }, index * 250);
+        });
+        
+        setTimeout(() => {
+            this.addMessage("What would you like to do today?", false);
+            this.showEnhancedQuickReplies();
+        }, helpItems.length * 250 + 300);
+    }
+
+    toggleAttachment() {
+        const attachmentMenu = document.getElementById('attachment-menu');
+        attachmentMenu.classList.toggle('open');
+    }
+
+    uploadDocument() {
+        this.addMessage("Document upload feature activated...", false);
+        this.toggleAttachment();
+        // Actual file upload would be implemented here
+    }
+
+    uploadImage() {
+        this.addMessage("Image upload feature activated...", false);
+        this.toggleAttachment();
+        // Actual image upload would be implemented here
+    }
+
+    handleChatInput(event) {
+        if (event.key === 'Enter') {
+            this.sendMessage();
+            event.preventDefault();
+        }
+    }
+
+    async sendMessage() {
+        const input = document.getElementById('chatbot-input');
+        const message = input.value.trim();
+        
+        if (message) {
+            this.addMessage(message, true);
+            input.value = '';
+            
+            // Show typing indicator - REMOVED THE DUPLICATE CALL
+            // Use RAG-powered response
+            await this.chatbot.handleUserMessage(message);
+        }
+    }
+
+    openDashboard() {
+        this.addMessage("Opening main dashboard...", true);
+        this.minimizeChatbot();
+        // Dashboard is already open, just ensure we're on the right view
+    }
+
+    askForHelp() {
+        this.addMessage("I need additional help", true);
+        setTimeout(() => this.showHelp(), 500);
+    }
+}
+
+// Enhanced Chatbot with RAG Integration
+class EnhancedChatbot {
+    constructor() {
+        this.knowledgeBase = {
+            policies: [
+                {
+                    question: "What is your refund policy?",
+                    answer: "We offer full refunds for unauthorized transactions within 90 days. For billing errors, refunds are processed within 30 days. Merchant disputes may take 5-7 business days for resolution.",
+                    source: "Refund Policy v2.1, Section 4.3"
+                },
+                {
+                    question: "How to handle duplicate charges?",
+                    answer: "Duplicate charges are automatically flagged by our system. Submit proof of duplicate transaction (screenshot or statement), and we'll process refund within 24 hours. No additional documentation required for amounts under $500.",
+                    source: "Fraud Prevention Guide, Page 12"
+                },
+                {
+                    question: "What documents are needed for dispute?",
+                    answer: "Required documents: Transaction receipt (mandatory), government ID, proof of communication with merchant, and any supporting evidence. For amounts over $1000, notarized affidavit may be required.",
+                    source: "Dispute Resolution Handbook, Chapter 3"
+                }
+            ],
+            procedures: [
+                {
+                    question: "How to escalate a case?",
+                    answer: "Cases with trust score above 90% are automatically escalated to senior agents. Manual escalation requires supervisor approval and detailed case notes. Use the 'Escalate' button in case details or request via chatbot.",
+                    source: "Escalation Protocol v1.2"
+                },
+                {
+                    question: "What is the SLA for dispute resolution?",
+                    answer: "Standard resolution time is 5-7 business days. Priority cases are resolved within 48 hours. Emergency fraud cases are handled within 24 hours. All times are business days excluding weekends and holidays.",
+                    source: "Service Level Agreement 2024, Section 8.2"
+                },
+                {
+                    question: "How to check case status?",
+                    answer: "Case status can be checked through the dashboard, via chatbot by providing case ID, or by contacting support. Real-time updates are available for all open cases through the case management system.",
+                    source: "Case Management Procedures, Page 7"
+                }
+            ]
+        };
+        this.chatHistory = [];
+    }
+
+    async generateRAGResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        // Search knowledge base for relevant information
+        const relevantKnowledge = this.searchKnowledgeBase(lowerMessage);
+        
+        if (relevantKnowledge) {
+            return this.formatKnowledgeResponse(relevantKnowledge);
+        }
+
+        // If no specific knowledge found, use general response with context
+        return this.generateContextualResponse(lowerMessage);
+    }
+
+    searchKnowledgeBase(query) {
+        const allKnowledge = [...this.knowledgeBase.policies, ...this.knowledgeBase.procedures];
+        
+        const relevant = allKnowledge.filter(item =>
+            item.question.toLowerCase().includes(query) ||
+            query.includes(item.question.toLowerCase().split(' ')[0]) ||
+            this.calculateSimilarity(query, item.question.toLowerCase()) > 0.3
+        );
+
+        if (relevant.length > 0) {
+            // Return most relevant match based on similarity score
+            return relevant.sort((a, b) => 
+                this.calculateSimilarity(query, b.question.toLowerCase()) - 
+                this.calculateSimilarity(query, a.question.toLowerCase())
+            )[0];
+        }
+
+        return null;
+    }
+
+    calculateSimilarity(str1, str2) {
+        const words1 = str1.split(' ');
+        const words2 = str2.split(' ');
+        const commonWords = words1.filter(word => words2.includes(word));
+        return commonWords.length / Math.max(words1.length, words2.length);
+    }
+
+    formatKnowledgeResponse(knowledge) {
+        return `
+            <div class="knowledge-response">
+                <div class="knowledge-title">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Based on our knowledge base:</span>
+                </div>
+                <div class="knowledge-content">
+                    <p>${knowledge.answer}</p>
+                </div>
+                <div class="knowledge-source">
+                    <i class="fas fa-book"></i>
+                    <span>Source: ${knowledge.source}</span>
+                </div>
+            </div>
+        `;
+    }
+
+    generateContextualResponse(message) {
+        const context = this.getConversationContext();
+        
+        if (message.includes('refund') || message.includes('money back')) {
+            return "For refund requests, I'll need the transaction ID and reason for dispute. Would you like to check your open cases or create a new refund request?";
+        }
+        
+        if (message.includes('case status') || message.includes('status')) {
+            return "I can check your case status. Please provide the case ID or let me show you your open cases.";
+        }
+        
+        if (message.includes('document') || message.includes('upload')) {
+            return "To upload documents, you'll need the case ID. I can help you attach supporting files for your dispute. What type of document are you looking to upload?";
+        }
+        
+        if (message.includes('policy') || message.includes('rule')) {
+            return "I have access to our comprehensive dispute resolution policies. Are you looking for information about refunds, escalations, documentation, or something else?";
+        }
+        
+        if (message.includes('time') || message.includes('how long')) {
+            return "Our standard resolution time is 5-7 business days. Priority cases are handled within 48 hours. Is this for a specific case or general information?";
+        }
+        
+        if (message.includes('help') || message.includes('support')) {
+            return "I'm here to help! I can assist with case management, document uploads, policy information, and answer questions about our dispute process. What do you need help with?";
+        }
+        
+        if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+            return "Hello! 👋 I'm JUNO, your AI Dispute Assistant. I can help you manage cases, answer questions, and provide support using our knowledge base. How can I assist you today?";
+        }
+        
+        if (message.includes('thank')) {
+            return "You're welcome! 😊 Is there anything else I can help you with regarding dispute resolution?";
+        }
+        
+        // Default response with context awareness
+        return "I'm here to help with dispute resolution. I can assist with case management, document uploads, policy information, and general questions about our dispute process. What would you like to know or do today?";
+    }
+
+    getConversationContext() {
+        // Analyze recent messages for context
+        const recentMessages = this.chatHistory.slice(-5);
+        return recentMessages.join(' ');
+    }
+
+    async handleUserMessage(message) {
+        this.chatHistory.push(`User: ${message}`);
+        
+        // Show typing indicator - KEEP ONLY THIS ONE
+        this.showTypingIndicator();
+        
+        // Simulate processing delay
+        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 1000));
+        
+        // Generate response using RAG
+        const response = await this.generateRAGResponse(message);
+        
+        this.hideTypingIndicator();
+        this.addMessage(response, false);
+        
+        this.chatHistory.push(`Bot: ${response}`);
+        
+        // Keep history manageable
+        if (this.chatHistory.length > 20) {
+            this.chatHistory = this.chatHistory.slice(-10);
+        }
+    }
+    
+    showTypingIndicator() {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot-message typing-indicator';
+        typingDiv.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="typing-text">JUNO is thinking...</div>
+            </div>
+        `;
+        messagesContainer.appendChild(typingDiv);
+        this.scrollChatToBottom();
+    }
+
+    hideTypingIndicator() {
+        const typingIndicator = document.querySelector('.typing-indicator');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    }
+
+    addMessage(message, isUser = false) {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        
+        if (!isUser) {
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <div class="message-text">${message}</div>
+                    <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                </div>
+            `;
+        } else {
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <div class="message-text">${message}</div>
+                    <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                </div>
+                <div class="message-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            `;
+        }
+        
+        messagesContainer.appendChild(messageDiv);
+        this.scrollChatToBottom();
+    }
+
+    scrollChatToBottom() {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 }
 

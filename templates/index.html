@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Dispute Handling System</title>
+    <title>AI Dispute Handling System</title>
     <link rel="stylesheet" href="/static/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Sidebar -->
@@ -144,6 +144,16 @@
                         <p>Escalated</p>
                     </div>
                 </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="pending-docs-count">0</h3>
+                        <p>Pending Docs</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Recent Cases -->
@@ -207,58 +217,98 @@
                 </div>
             </div>
         </div>
+    </main>
 
-        <!-- Chatbot Widget -->
-<div id="chatbot-widget" class="chatbot-widget">
-    <div class="chatbot-header" onclick="app.toggleChatbot()">
-        <div class="chatbot-title">
-            <i class="fas fa-robot"></i>
-            <span>AI Dispute Assistant</span>
-        </div>
-        <div class="chatbot-actions">
-            <span class="chatbot-status"></span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </div>
-    
-    <div class="chatbot-body">
-        <div class="chatbot-messages" id="chatbot-messages">
-            <div class="message bot-message">
-                <div class="message-content">
-                    <p>Hello! I'm your AI dispute assistant. I can help you manage open cases and provide resolutions.</p>
+    <!-- JUNO Chatbot Sidebar -->
+    <div id="juno-chatbot" class="juno-chatbot">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="chatbot-info">
+                    <span class="chatbot-name">JUNO</span>
+                    <span class="chatbot-status">AI Dispute Assistant</span>
                 </div>
             </div>
-            <div class="message bot-message">
-                <div class="message-content">
-                    <p>Would you like to see your open cases or get help with a specific case?</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="chatbot-input">
-            <div class="quick-replies" id="quick-replies">
-                <button class="quick-reply" onclick="app.handleQuickReply('show_cases')">Show Open Cases</button>
-                <button class="quick-reply" onclick="app.handleQuickReply('create_case')">Create New Case</button>
-                <button class="quick-reply" onclick="app.handleQuickReply('help')">Get Help</button>
-            </div>
-            
-            <div class="input-container">
-                <input type="text" id="chatbot-input" placeholder="Type your message here..." 
-                       onkeypress="app.handleChatInput(event)">
-                <button onclick="app.sendMessage()">
-                    <i class="fas fa-paper-plane"></i>
+            <div class="chatbot-actions">
+                <!-- <button class="chatbot-action-btn" id="minimize-chatbot">
+                    <i class="fas fa-minus"></i>
+                </button> -->
+                <button class="chatbot-action-btn" id="close-chatbot">
+                    <i class="fas fa-times"></i>
                 </button>
             </div>
         </div>
+        
+        <div class="chatbot-body">
+            <!-- <div class="chatbot-welcome">
+                <div class="welcome-content">
+                    <div class="welcome-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="welcome-text">
+                        <h3>Hello! I'm JUNO</h3>
+                        <p>Your AI Dispute Assistant. I can help you manage cases, analyze documents, and answer questions.</p>
+                    </div>
+                </div>
+            </div> -->
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <!-- Messages will be dynamically added here -->
+            </div>
+            
+            <div class="chatbot-input-container">
+                <div class="quick-replies" id="quick-replies">
+                    <button class="quick-reply" onclick="app.handleQuickReply('open_cases')">
+                        <i class="fas fa-folder-open"></i>
+                        <span>Open Cases</span>
+                    </button>
+                    <button class="quick-reply" onclick="app.handleQuickReply('create_case')">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>New Case</span>
+                    </button>
+                    <button class="quick-reply" onclick="app.handleQuickReply('upload_docs')">
+                        <i class="fas fa-file-upload"></i>
+                        <span>Upload Docs</span>
+                    </button>
+                </div>
+                
+                <div class="input-wrapper">
+                    <div class="input-container">
+                        <button class="input-action" onclick="app.toggleAttachment()">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <input type="text" id="chatbot-input" placeholder="Ask JUNO about disputes, policies, or cases..." 
+                               onkeypress="app.handleChatInput(event)">
+                        <button class="input-action" onclick="app.sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="attachment-menu" id="attachment-menu">
+                        <button class="attachment-btn" onclick="app.uploadDocument()">
+                            <i class="fas fa-file"></i>
+                            <span>Document</span>
+                        </button>
+                        <button class="attachment-btn" onclick="app.uploadImage()">
+                            <i class="fas fa-image"></i>
+                            <span>Image</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
-<!-- Chatbot Toggle Button -->
-<button id="chatbot-toggle" class="chatbot-toggle-btn" onclick="app.toggleChatbot()">
-    <i class="fas fa-robot"></i>
-    <span class="notification-dot"></span>
-</button>
-    </main>
+    <!-- JUNO Toggle Button (visible when minimized) -->
+    <div class="juno-toggle-container">
+        <button id="juno-toggle" class="juno-toggle-btn">
+            <div class="juno-toggle-inner">
+                <i class="fas fa-robot"></i>
+                <span class="ask-text">Ask JUNO</span>
+            </div>
+        </button>
+    </div>
 
     <script src="/static/script.js"></script>
 </body>

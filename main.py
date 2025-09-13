@@ -54,8 +54,8 @@ users_db = {
     },
     "agent1": {
         "username": "agent1", 
-        "password": hash_password("agent123"), 
-        "full_name": "John Doe", 
+        "password": hash_password("Agent@123"), 
+        "full_name": "Suraj Sutar", 
         "role": "agent"
     }
 }
@@ -477,6 +477,52 @@ async def debug_info(request: Request):
         "transactions_count": len(transactions_db),
         "sessions_count": len(sessions)
     }
+
+@app.post("/api/chatbot/ask")
+async def chatbot_question(request: Request):
+    user = get_current_user(request)
+    if not user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    try:
+        data = await request.json()
+        question = data.get("question", "")
+        
+        # Simple RAG implementation - in production, use proper vector database
+        knowledge_base = {
+            "refund policy": "Full refunds within 90 days for unauthorized transactions. 30 days for billing errors.",
+            "escalation process": "Cases with >90% trust score auto-escalate. Manual escalation requires supervisor approval.",
+            "document requirements": "Need: transaction receipt, ID proof, merchant communication, supporting evidence.",
+            "sla": "Standard: 5-7 business days. Urgent: 48 hours resolution time.",
+            "fraud prevention": "Multi-factor authentication, transaction monitoring, AI-based fraud detection.",
+            "customer support": "24/7 support available. Email: support@dispute.com, Phone: +1-800-DISPUTE"
+        }
+        
+        # Find best match
+        best_match = None
+        best_score = 0
+        
+        for topic, answer in knowledge_base.items():
+            score = sum(1 for word in question.lower().split() if word in topic.lower())
+            if score > best_score:
+                best_score = score
+                best_match = answer
+        
+        if best_match:
+            return {
+                "answer": best_match,
+                "confidence": best_score / len(question.split()),
+                "source": "Dispute Resolution Knowledge Base 2024"
+            }
+        else:
+            return {
+                "answer": "I can help with dispute-related questions. Please ask about refunds, escalations, documents, or policies.",
+                "confidence": 0.3,
+                "source": "General Knowledge"
+            }
+            
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
