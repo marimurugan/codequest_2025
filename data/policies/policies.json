@@ -1,0 +1,16 @@
+{
+  "doc_id": "policy-001",
+  "title": "Refund Policy",
+  "version": "1.0",
+  "effective_date": "2025-01-01",
+  "text": "Refunds are allowed within 14 days of purchase if the customer cancels the subscription. Partial refunds may be considered after 14 days at manager discretion. Returns for defective items are allowed within 30 days. No refunds for digital content consumed."
+}
+ 
+ 
+{
+  "doc_id": "policy-002",
+  "title": "Cancellation Terms",
+  "version": "1.2",
+  "effective_date": "2024-08-01",
+  "text": "Subscription cancellations are effective from the next billing cycle. If a user cancels and is charged within the current cycle, issue a pro-rated refund if the user requests within 7 days. For fraudulent charges, escalate to investigations team immediately."
+}
