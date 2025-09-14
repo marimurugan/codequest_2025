@@ -948,6 +948,218 @@ class DisputeHandler {
         this.showCaseActions(selectedCase);
     }
 
+    
+
+
+
+    // Enhanced score rendering methods for DisputeHandler class
+
+getScoreCategory(score) {
+    if (score >= 90) return 'excellent';
+    if (score >= 75) return 'good';
+    if (score >= 60) return 'fair';
+    return 'poor';
+}
+
+getScoreWidth(score) {
+    return Math.min(100, Math.max(0, score));
+}
+
+renderScoreMeter(score, title, containerId) {
+    const category = this.getScoreCategory(score);
+    const width = this.getScoreWidth(score);
+    
+    return `
+        <div class="score-meter">
+            <div class="meter-container">
+                <div class="meter-fill ${category}" style="width: ${width}%"></div>
+            </div>
+            <div class="meter-labels">
+                <span class="meter-label">Poor</span>
+                <span class="meter-label">Fair</span>
+                <span class="meter-label">Good</span>
+                <span class="meter-label">Excellent</span>
+            </div>
+            <div class="score-value">${score}%</div>
+            <div class="score-text ${category}">${category.charAt(0).toUpperCase() + category.slice(1)}</div>
+        </div>
+    `;
+}
+
+renderScoreItem(score, title, icon) {
+    const category = this.getScoreCategory(score);
+    
+    return `
+        <div class="score-item">
+            <h4><i class="${icon}"></i> ${title}</h4>
+            ${this.renderScoreMeter(score, title)}
+        </div>
+    `;
+}
+
+// Update the showCaseModal method with the enhanced layout
+// Update the showCaseModal method with the improved layout
+showCaseModal() {
+    const modal = document.getElementById('case-modal');
+    const modalBody = document.getElementById('case-modal-body');
+    
+    if (!modal || !modalBody) return;
+    
+    if (!this.currentCase) {
+        modalBody.innerHTML = '<p>No case data available.</p>';
+        modal.style.display = 'block';
+        return;
+    }
+    
+    // Calculate or retrieve scores
+    const confidenceScore = this.currentCase.classification?.confidence ? 
+        Math.round(this.currentCase.classification.confidence * 100) : 0;
+    
+    const mediaTrustScore = this.currentCase.media_trust_score || 0;
+    
+    // Mock scores for demonstration
+    const transactionalScore = Math.floor(Math.random() * 40) + 60; // 60-100
+    const customerScore = Math.floor(Math.random() * 45) + 55; // 55-100
+    const overallScore = Math.round((confidenceScore + mediaTrustScore + transactionalScore + customerScore) / 4);
+    
+    modalBody.innerHTML = `
+        <div class="case-detail-grid">
+            <!-- Transaction Information -->
+            <div class="case-detail-card">
+                <h3><i class="fas fa-info-circle"></i> Transaction Information</h3>
+                <div class="case-info-grid">
+                    <div class="case-info-item">
+                        <strong>Customer ID</strong>
+                        <span>${this.currentCase.transaction?.customer_id || 'N/A'}</span>
+                    </div>
+                    <div class="case-info-item">
+                        <strong>Transaction ID</strong>
+                        <span>${this.currentCase.transaction?.transaction_id || 'N/A'}</span>
+                    </div>
+                    <div class="case-info-item">
+                        <strong>Amount</strong>
+                        <span>${this.currentCase.transaction?.amount || 0} ${this.currentCase.transaction?.currency || ''}</span>
+                    </div>
+                    <div class="case-info-item">
+                        <strong>Merchant</strong>
+                        <span>${this.currentCase.transaction?.merchant || 'N/A'}</span>
+                    </div>
+                    <div class="case-info-item">
+                        <strong>Date</strong>
+                        <span>${this.currentCase.transaction?.date ? new Date(this.currentCase.transaction.date).toLocaleDateString() : 'N/A'}</span>
+                    </div>
+                    <div class="case-info-item">
+                        <strong>Customer Statement</strong>
+                        <p>"${this.currentCase.transaction?.customer_statement || 'No statement'}"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Analysis Scores -->
+            <div class="case-detail-card">
+                <h3><i class="fas fa-chart-line"></i> AI Analysis Scores</h3>
+                
+                <div class="score-panels-container">
+                    <div class="score-panel">
+                        <h3><i class="fas fa-brain"></i> Classification Analysis</h3>
+                        <div class="score-grid">
+                            ${this.renderScoreItem(confidenceScore, 'Confidence Score', 'fas fa-certificate')}
+                            ${this.renderScoreItem(mediaTrustScore, 'Media Trust Score', 'fas fa-file-contract')}
+                        </div>
+                    </div>
+                    
+                    <div class="score-panel">
+                        <h3><i class="fas fa-chart-pie"></i> Behavioral Analysis</h3>
+                        <div class="score-grid">
+                            ${this.renderScoreItem(transactionalScore, 'Transactional Score', 'fas fa-exchange-alt')}
+                            ${this.renderScoreItem(customerScore, 'Customer Score', 'fas fa-user-check')}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overall-score-container">
+                    <h4>Overall Case Score</h4>
+                    <div class="overall-score-value">${overallScore}%</div>
+                    ${this.renderScoreMeter(overallScore, 'Composite Score')}
+                    <div class="case-status-badge ${overallScore >= 75 ? 'status-high' : overallScore >= 60 ? 'status-medium' : 'status-low'}">
+                        <i class="fas ${overallScore >= 75 ? 'fa-check-circle' : overallScore >= 60 ? 'fa-exclamation-triangle' : 'fa-exclamation-circle'}"></i>
+                        ${overallScore >= 75 ? 'Low Risk' : overallScore >= 60 ? 'Medium Risk' : 'High Risk'}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Analysis -->
+            <div class="case-detail-card">
+                <h3><i class="fas fa-search"></i> Detailed Analysis</h3>
+                <div class="detailed-analysis">
+                    <h3><i class="fas fa-microscope"></i> Pattern Detection</h3>
+                    <div class="analysis-grid">
+                        <div class="analysis-item">
+                            <strong>Dispute Type</strong>
+                            <span>${this.currentCase.classification?.type || 'Unknown'}</span>
+                        </div>
+                        <div class="analysis-item">
+                            <strong>Pattern Detection</strong>
+                            <span>${this.currentCase.analysis?.pattern || 'No patterns detected'}</span>
+                        </div>
+                        <div class="analysis-item">
+                            <strong>Risk Level</strong>
+                            <span class="${this.currentCase.analysis?.risk_level === 'High' ? 'status-error' : 
+                                          this.currentCase.analysis?.risk_level === 'Medium' ? 'status-warning' : 'status-success'}">
+                                ${this.currentCase.analysis?.risk_level || 'Low'}
+                            </span>
+                        </div>
+                        <div class="analysis-item">
+                            <strong>Recommended Action</strong>
+                            <span>${this.currentCase.recommendation?.resolution?.join(', ') || 'Review required'}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy References -->
+            <div class="case-detail-card">
+                <h3><i class="fas fa-book"></i> Policy References</h3>
+                <div class="policy-references">
+                    ${this.currentCase.policies?.clauses?.length > 0 ? 
+                        this.currentCase.policies.clauses.map(clause => `
+                            <div class="policy-item">
+                                <strong>${clause.id || 'N/A'}</strong>
+                                <p>${clause.summary || 'No summary available'}</p>
+                            </div>
+                        `).join('') : 
+                        '<p>No policy references available.</p>'
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="case-actions">
+            <button class="btn-success" onclick="app.resolveCase('approve')">
+                <i class="fas fa-check"></i> Approve Resolution
+            </button>
+            <button class="btn-warning" onclick="app.resolveCase('escalate')">
+                <i class="fas fa-exclamation-triangle"></i> Escalate
+            </button>
+            <button class="btn-secondary" onclick="app.uploadDocuments()">
+                <i class="fas fa-upload"></i> Upload Documents
+            </button>
+            ${this.currentCase.supporting_documents?.length > 0 ? `
+            <button class="btn-info" onclick="app.showDocumentAnalysis()">
+                <i class="fas fa-file-alt"></i> View Document Analysis
+            </button>
+            ` : ''}
+        </div>
+    `;
+    
+    modal.style.display = 'block';
+    this.animateScoreMeters();
+}
+
+
+
+
+
     showCaseActions(caseItem) {
         this.addMessage(`What would you like to do with case ${caseItem.case_id}?`, false);
         
