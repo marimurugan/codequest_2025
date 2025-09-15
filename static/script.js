@@ -5,6 +5,7 @@ class DisputeHandler {
         this.currentCase = null;
         this.chatbotInitialized = false;
         this.chatbot = new EnhancedChatbot();
+        this.caseAnalysisViewed = {}; // Track which cases have been viewed
         this.init();
     }
 
@@ -263,6 +264,19 @@ class DisputeHandler {
 
     async openCase(caseId) {
         try {
+            // Check if this is the first time viewing this case
+            const isFirstView = !this.caseAnalysisViewed[caseId];
+            
+            if (isFirstView) {
+                // Show analyzing message for 6 seconds
+                this.showAnalyzingMessage();
+                await new Promise(resolve => setTimeout(resolve, 6000));
+                this.hideAnalyzingMessage();
+                
+                // Mark as viewed
+                this.caseAnalysisViewed[caseId] = true;
+            }
+            
             const response = await this.apiCall(`/api/cases/${caseId}/review`, 'POST');
             this.currentCase = response.case;
             this.showCaseModal();
@@ -270,6 +284,29 @@ class DisputeHandler {
             console.error('Failed to open case:', error);
             // this.showError('Failed to open case details.');
         }
+    }
+
+    showAnalyzingMessage() {
+        const modal = document.getElementById('case-modal');
+        const modalBody = document.getElementById('case-modal-body');
+        
+        if (!modal || !modalBody) return;
+        
+        modalBody.innerHTML = `
+            <div class="analyzing-container">
+                <div class="analyzing-spinner">
+                    <div class="spinner"></div>
+                </div>
+                <h3>JUNO is analysing</h3>
+                <p>Please wait while we analyze the case details...</p>
+            </div>
+        `;
+        
+        modal.style.display = 'block';
+    }
+
+    hideAnalyzingMessage() {
+        // This will be handled by the showCaseModal method
     }
 
     showCaseModal() {
@@ -284,92 +321,124 @@ class DisputeHandler {
             return;
         }
         
+        // Calculate or retrieve scores
+        const confidenceScore = this.currentCase.classification?.confidence ? 
+            Math.round(this.currentCase.classification.confidence * 100) : 0;
+        
+        const mediaTrustScore = this.currentCase.media_trust_score || 0;
+        
+        // Mock scores for demonstration
+        const transactionalScore = Math.floor(Math.random() * 40) + 60; // 60-100
+        const customerScore = Math.floor(Math.random() * 45) + 55; // 55-100
+        const overallScore = Math.round((confidenceScore + mediaTrustScore + transactionalScore + customerScore) / 4);
+        
         modalBody.innerHTML = `
             <div class="case-detail-grid">
+                <!-- Transaction Information -->
                 <div class="case-detail-card">
-                    <h3>Transaction Information</h3>
-                    <div class="case-info-item">
-                        <strong>Customer ID</strong>
-                        <span>${this.currentCase.transaction?.customer_id || 'N/A'}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Transaction ID</strong>
-                        <span>${this.currentCase.transaction?.transaction_id || 'N/A'}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Amount</strong>
-                        <span>${this.currentCase.transaction?.amount || 0} ${this.currentCase.transaction?.currency || ''}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Merchant</strong>
-                        <span>${this.currentCase.transaction?.merchant || 'N/A'}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Date</strong>
-                        <span>${this.currentCase.transaction?.date ? new Date(this.currentCase.transaction.date).toLocaleDateString() : 'N/A'}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Customer Statement</strong>
-                        <p>"${this.currentCase.transaction?.customer_statement || 'No statement'}"</p>
+                    <h3><i class="fas fa-info-circle"></i> Transaction Information</h3>
+                    <div class="case-info-grid">
+                        <div class="case-info-item">
+                            <strong>Customer ID</strong>
+                            <span>${this.currentCase.transaction?.customer_id || 'N/A'}</span>
+                        </div>
+                        <div class="case-info-item">
+                            <strong>Transaction ID</strong>
+                            <span>${this.currentCase.transaction?.transaction_id || 'N/A'}</span>
+                        </div>
+                        <div class="case-info-item">
+                            <strong>Amount</strong>
+                            <span>${this.currentCase.transaction?.amount || 0} ${this.currentCase.transaction?.currency || ''}</span>
+                        </div>
+                        <div class="case-info-item">
+                            <strong>Merchant</strong>
+                            <span>${this.currentCase.transaction?.merchant || 'N/A'}</span>
+                        </div>
+                        <div class="case-info-item">
+                            <strong>Date</strong>
+                            <span>${this.currentCase.transaction?.date ? new Date(this.currentCase.transaction.date).toLocaleDateString() : 'N/A'}</span>
+                        </div>
+                        <div class="case-info-item">
+                            <strong>Customer Statement</strong>
+                            <p>"${this.currentCase.transaction?.customer_statement || 'No statement'}"</p>
+                        </div>
                     </div>
                 </div>
 
+                <!-- AI Analysis Scores -->
                 <div class="case-detail-card">
-                    <h3>AI Analysis</h3>
-                    <div class="case-info-item">
-                        <strong>Dispute Type</strong>
-                        <span>${this.currentCase.classification?.type || 'Unknown'}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Confidence Score</strong>
-                        <span>${this.currentCase.classification?.confidence ? (this.currentCase.classification.confidence * 100).toFixed(1) + '%' : 'N/A'}</span>
-                    </div>
-                    ${this.currentCase.media_trust_score ? `
-                    <div class="case-info-item">
-                        <strong>Media Trust Score</strong>
-                        <span class="trust-score ${this.getTrustScoreClass(this.currentCase.media_trust_score)}">
-                            ${this.currentCase.media_trust_score}%
-                        </span>
-                    </div>
-                    ` : ''}
-                    <div class="case-info-item">
-                        <strong>Status</strong>
-                        <span class="status-badge status-${this.currentCase.status}">${this.currentCase.status}</span>
-                    </div>
-                </div>
+                    <h3><i class="fas fa-chart-line"></i> AI Analysis Scores</h3>
 
-                <div class="case-detail-card">
-                    <h3>Policy References</h3>
-                    ${this.currentCase.policies?.clauses?.length > 0 ? 
-                        this.currentCase.policies.clauses.map(clause => `
-                            <div class="case-info-item">
-                                <strong>${clause.id || 'N/A'}</strong>
-                                <p>${clause.summary || 'No summary'}</p>
+                    <div class="overall-score-container">
+                        <h4>Overall Case Score</h4>
+                        <div class="overall-score-value">${overallScore}%</div>
+                        ${this.renderScoreMeter(overallScore, 'Composite Score')}
+                        <div class="case-status-badge ${overallScore >= 75 ? 'status-high' : overallScore >= 60 ? 'status-medium' : 'status-low'}">
+                            <i class="fas ${overallScore >= 75 ? 'fa-check-circle' : overallScore >= 60 ? 'fa-exclamation-triangle' : 'fa-exclamation-circle'}"></i>
+                            ${overallScore >= 75 ? 'Low Risk' : overallScore >= 60 ? 'Medium Risk' : 'High Risk'}
+                        </div>
+                    </div>
+                
+                    <div class="score-panels-container">
+                        <div class="score-panel">
+                            <h3><i class="fas fa-chart-pie"></i> Behavioral Analysis</h3>
+                            <div class="score-grid">
+                                ${this.renderScoreItem(customerScore, 'Customer Score', 'fas fa-user-check')}
+                                ${this.renderScoreItem(transactionalScore, 'Transactional Score', 'fas fa-exchange-alt')}
                             </div>
-                        `).join('') : 
-                        '<p>No policy references available.</p>'
-                    }
+                        </div>
+                        <div class="score-panel">
+                            <h3><i class="fas fa-brain"></i> Classification Analysis</h3>
+                            <div class="score-grid">
+                                ${this.renderScoreItem(mediaTrustScore, 'Media Trust Score', 'fas fa-file-contract')}
+                                ${this.renderScoreItem(confidenceScore, 'Confidence Score', 'fas fa-certificate')}  
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Detailed Analysis -->
                 <div class="case-detail-card">
-                    <h3>Resolution Recommendation</h3>
-                    <div class="case-info-item">
-                        <strong>Action</strong>
-                        <span>${this.currentCase.recommendation?.resolution?.join(', ') || 'N/A'}</span>
+                    <h3><i class="fas fa-search"></i> Detailed Analysis</h3>
+                    <div class="detailed-analysis">
+                        <h3><i class="fas fa-microscope"></i> Pattern Detection</h3>
+                        <div class="analysis-grid">
+                            <div class="analysis-item">
+                                <strong>Dispute Type</strong>
+                                <span>${this.currentCase.classification?.type || 'Unknown'}</span>
+                            </div>
+                            <div class="analysis-item">
+                                <strong>Pattern Detection</strong>
+                                <span>${this.currentCase.analysis?.pattern || 'No patterns detected'}</span>
+                            </div>
+                            <div class="analysis-item">
+                                <strong>Risk Level</strong>
+                                <span class="${this.currentCase.analysis?.risk_level === 'High' ? 'status-error' : 
+                                            this.currentCase.analysis?.risk_level === 'Medium' ? 'status-warning' : 'status-success'}">
+                                    ${this.currentCase.analysis?.risk_level || 'Low'}
+                                </span>
+                            </div>
+                            <div class="analysis-item">
+                                <strong>Recommended Action</strong>
+                                <span>${this.currentCase.recommendation?.resolution?.join(', ') || 'Review required'}</span>
+                            </div>
+                        </div>
                     </div>
-                    ${this.currentCase.recommendation?.amount ? `
-                    <div class="case-info-item">
-                        <strong>Amount</strong>
-                        <span>${this.currentCase.recommendation.amount} ${this.currentCase.recommendation.currency || ''}</span>
-                    </div>
-                    ` : ''}
-                    <div class="case-info-item">
-                        <strong>Rationale</strong>
-                        <p>${this.currentCase.recommendation?.rationale || 'No rationale provided'}</p>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Policy Citations</strong>
-                        <p>${this.currentCase.recommendation?.citations?.join(', ') || 'No citations'}</p>
+                </div>
+
+                <!-- Policy References -->
+                <div class="case-detail-card">
+                    <h3><i class="fas fa-book"></i> Policy References</h3>
+                    <div class="policy-references">
+                        ${this.currentCase.policies?.clauses?.length > 0 ? 
+                            this.currentCase.policies.clauses.map(clause => `
+                                <div class="policy-item">
+                                    <strong>${clause.id || 'N/A'}</strong>
+                                    <p>${clause.summary || 'No summary available'}</p>
+                                </div>
+                            `).join('') : 
+                            '<p>No policy references available.</p>'
+                        }
                     </div>
                 </div>
             </div>
@@ -393,6 +462,65 @@ class DisputeHandler {
         `;
         
         modal.style.display = 'block';
+        this.animateScoreMeters();
+    }
+
+    getScoreCategory(score) {
+        if (score >= 90) return 'excellent';
+        if (score >= 75) return 'good';
+        if (score >= 60) return 'fair';
+        return 'poor';
+    }
+
+    getScoreWidth(score) {
+        return Math.min(100, Math.max(0, score));
+    }
+
+    renderScoreMeter(score, title, containerId) {
+        const category = this.getScoreCategory(score);
+        const width = this.getScoreWidth(score);
+        
+        return `
+            <div class="score-meter">
+                <div class="meter-container">
+                    <div class="meter-fill ${category}" style="width: ${width}%"></div>
+                </div>
+                <div class="meter-labels">
+                    <span class="meter-label">Poor</span>
+                    <span class="meter-label">Fair</span>
+                    <span class="meter-label">Good</span>
+                    <span class="meter-label">Excellent</span>
+                </div>
+                <div class="score-value">${score}%</div>
+                <div class="score-text ${category}">${category.charAt(0).toUpperCase() + category.slice(1)}</div>
+            </div>
+        `;
+    }
+
+    renderScoreItem(score, title, icon) {
+        const category = this.getScoreCategory(score);
+        
+        return `
+            <div class="score-item">
+                <h4><i class="${icon}"></i> ${title}</h4>
+                ${this.renderScoreMeter(score, title)}
+            </div>
+        `;
+    }
+
+    animateScoreMeters() {
+        // Animate score meters after a short delay to allow DOM rendering
+        setTimeout(() => {
+            const meterFills = document.querySelectorAll('.meter-fill');
+            meterFills.forEach(fill => {
+                const width = fill.style.width;
+                fill.style.width = '0';
+                setTimeout(() => {
+                    fill.style.transition = 'width 1s ease-in-out';
+                    fill.style.width = width;
+                }, 100);
+            });
+        }, 300);
     }
 
     getTrustScoreClass(score) {
@@ -613,14 +741,17 @@ class DisputeHandler {
 
     showError(message) {
         this.showNotification(message, 'error');
+        this.showBackToMenuOption();
     }
 
     showSuccess(message) {
         this.showNotification(message, 'success');
+        this.showBackToMenuOption();
     }
 
     showWarning(message) {
         this.showNotification(message, 'warning');
+        this.showBackToMenuOption();
     }
 
     showNotification(message, type = 'info') {
@@ -647,6 +778,19 @@ class DisputeHandler {
                 notification.parentNode.removeChild(notification);
             }
         }, 5000);
+    }
+
+    showBackToMenuOption() {
+        // Add Back to Menu option in chatbot
+        const quickReplies = document.getElementById('quick-replies');
+        if (quickReplies) {
+            quickReplies.innerHTML = `
+                <button class="quick-reply" onclick="app.handleQuickReply('back_to_menu')">
+                    <i class="fas fa-undo"></i>
+                    <span>Back to Menu</span>
+                </button>
+            `;
+        }
     }
 
     async apiCall(endpoint, method = 'GET', data = null) {
@@ -864,6 +1008,9 @@ class DisputeHandler {
             case 'help':
                 setTimeout(() => this.showHelp(), 500);
                 break;
+            case 'back_to_menu':
+                setTimeout(() => this.showEnhancedQuickReplies(), 500);
+                break;
         }
     }
 
@@ -874,7 +1021,8 @@ class DisputeHandler {
             'upload_docs': 'I need to upload documents',
             'ask_question': 'I have a question',
             'policy_info': 'Tell me about policies',
-            'help': 'I need help'
+            'help': 'I need help',
+            'back_to_menu': 'Back to Menu'
         };
         return texts[action] || 'I need assistance';
     }
@@ -884,6 +1032,7 @@ class DisputeHandler {
         
         if (openCases.length === 0) {
             this.addMessage("🎉 Excellent! You have no open cases. Everything is resolved and up to date.", false);
+            this.showBackToMenuOption();
             return;
         }
 
@@ -934,6 +1083,7 @@ class DisputeHandler {
                 if (index === openCases.length - 1) {
                     setTimeout(() => {
                         this.showCaseActions();
+                        this.showBackToMenuOption();
                     }, 300);
                 }
             }, index * 400);
@@ -947,219 +1097,6 @@ class DisputeHandler {
         this.addMessage(`Selected case: ${caseId}`, true);
         this.showCaseActions(selectedCase);
     }
-
-    
-
-
-
-    // Enhanced score rendering methods for DisputeHandler class
-
-getScoreCategory(score) {
-    if (score >= 90) return 'excellent';
-    if (score >= 75) return 'good';
-    if (score >= 60) return 'fair';
-    return 'poor';
-}
-
-getScoreWidth(score) {
-    return Math.min(100, Math.max(0, score));
-}
-
-renderScoreMeter(score, title, containerId) {
-    const category = this.getScoreCategory(score);
-    const width = this.getScoreWidth(score);
-    
-    return `
-        <div class="score-meter">
-            <div class="meter-container">
-                <div class="meter-fill ${category}" style="width: ${width}%"></div>
-            </div>
-            <div class="meter-labels">
-                <span class="meter-label">Poor</span>
-                <span class="meter-label">Fair</span>
-                <span class="meter-label">Good</span>
-                <span class="meter-label">Excellent</span>
-            </div>
-            <div class="score-value">${score}%</div>
-            <div class="score-text ${category}">${category.charAt(0).toUpperCase() + category.slice(1)}</div>
-        </div>
-    `;
-}
-
-renderScoreItem(score, title, icon) {
-    const category = this.getScoreCategory(score);
-    
-    return `
-        <div class="score-item">
-            <h4><i class="${icon}"></i> ${title}</h4>
-            ${this.renderScoreMeter(score, title)}
-        </div>
-    `;
-}
-
-// Update the showCaseModal method with the enhanced layout
-// Update the showCaseModal method with the improved layout
-showCaseModal() {
-    const modal = document.getElementById('case-modal');
-    const modalBody = document.getElementById('case-modal-body');
-    
-    if (!modal || !modalBody) return;
-    
-    if (!this.currentCase) {
-        modalBody.innerHTML = '<p>No case data available.</p>';
-        modal.style.display = 'block';
-        return;
-    }
-    
-    // Calculate or retrieve scores
-    const confidenceScore = this.currentCase.classification?.confidence ? 
-        Math.round(this.currentCase.classification.confidence * 100) : 0;
-    
-    const mediaTrustScore = this.currentCase.media_trust_score || 0;
-    
-    // Mock scores for demonstration
-    const transactionalScore = Math.floor(Math.random() * 40) + 60; // 60-100
-    const customerScore = Math.floor(Math.random() * 45) + 55; // 55-100
-    const overallScore = Math.round((confidenceScore + mediaTrustScore + transactionalScore + customerScore) / 4);
-    
-    modalBody.innerHTML = `
-        <div class="case-detail-grid">
-            <!-- Transaction Information -->
-            <div class="case-detail-card">
-                <h3><i class="fas fa-info-circle"></i> Transaction Information</h3>
-                <div class="case-info-grid">
-                    <div class="case-info-item">
-                        <strong>Customer ID</strong>
-                        <span>${this.currentCase.transaction?.customer_id || 'N/A'}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Transaction ID</strong>
-                        <span>${this.currentCase.transaction?.transaction_id || 'N/A'}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Amount</strong>
-                        <span>${this.currentCase.transaction?.amount || 0} ${this.currentCase.transaction?.currency || ''}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Merchant</strong>
-                        <span>${this.currentCase.transaction?.merchant || 'N/A'}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Date</strong>
-                        <span>${this.currentCase.transaction?.date ? new Date(this.currentCase.transaction.date).toLocaleDateString() : 'N/A'}</span>
-                    </div>
-                    <div class="case-info-item">
-                        <strong>Customer Statement</strong>
-                        <p>"${this.currentCase.transaction?.customer_statement || 'No statement'}"</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AI Analysis Scores -->
-            <div class="case-detail-card">
-                <h3><i class="fas fa-chart-line"></i> AI Analysis Scores</h3>
-
-                  <div class="overall-score-container">
-                    <h4>Overall Case Score</h4>
-                    <div class="overall-score-value">${overallScore}%</div>
-                    ${this.renderScoreMeter(overallScore, 'Composite Score')}
-                    <div class="case-status-badge ${overallScore >= 75 ? 'status-high' : overallScore >= 60 ? 'status-medium' : 'status-low'}">
-                        <i class="fas ${overallScore >= 75 ? 'fa-check-circle' : overallScore >= 60 ? 'fa-exclamation-triangle' : 'fa-exclamation-circle'}"></i>
-                        ${overallScore >= 75 ? 'Low Risk' : overallScore >= 60 ? 'Medium Risk' : 'High Risk'}
-                        </div>
-                    </div>
-                
-                <div class="score-panels-container">
-                       <div class="score-panel">
-                            <h3><i class="fas fa-chart-pie"></i> Behavioral Analysis</h3>
-                            <div class="score-grid">
-                                ${this.renderScoreItem(customerScore, 'Customer Score', 'fas fa-user-check')}
-                                ${this.renderScoreItem(transactionalScore, 'Transactional Score', 'fas fa-exchange-alt')}
-                            </div>
-                        </div>
-                    <div class="score-panel">
-                        <h3><i class="fas fa-brain"></i> Classification Analysis</h3>
-                        <div class="score-grid">
-                           ${this.renderScoreItem(mediaTrustScore, 'Media Trust Score', 'fas fa-file-contract')}
-                            ${this.renderScoreItem(confidenceScore, 'Confidence Score', 'fas fa-certificate')}  
-                        </div>
-                    </div>
-                </div>
-                
-              
-            </div>
-
-            <!-- Detailed Analysis -->
-            <div class="case-detail-card">
-                <h3><i class="fas fa-search"></i> Detailed Analysis</h3>
-                <div class="detailed-analysis">
-                    <h3><i class="fas fa-microscope"></i> Pattern Detection</h3>
-                    <div class="analysis-grid">
-                        <div class="analysis-item">
-                            <strong>Dispute Type</strong>
-                            <span>${this.currentCase.classification?.type || 'Unknown'}</span>
-                        </div>
-                        <div class="analysis-item">
-                            <strong>Pattern Detection</strong>
-                            <span>${this.currentCase.analysis?.pattern || 'No patterns detected'}</span>
-                        </div>
-                        <div class="analysis-item">
-                            <strong>Risk Level</strong>
-                            <span class="${this.currentCase.analysis?.risk_level === 'High' ? 'status-error' : 
-                                          this.currentCase.analysis?.risk_level === 'Medium' ? 'status-warning' : 'status-success'}">
-                                ${this.currentCase.analysis?.risk_level || 'Low'}
-                            </span>
-                        </div>
-                        <div class="analysis-item">
-                            <strong>Recommended Action</strong>
-                            <span>${this.currentCase.recommendation?.resolution?.join(', ') || 'Review required'}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Policy References -->
-            <div class="case-detail-card">
-                <h3><i class="fas fa-book"></i> Policy References</h3>
-                <div class="policy-references">
-                    ${this.currentCase.policies?.clauses?.length > 0 ? 
-                        this.currentCase.policies.clauses.map(clause => `
-                            <div class="policy-item">
-                                <strong>${clause.id || 'N/A'}</strong>
-                                <p>${clause.summary || 'No summary available'}</p>
-                            </div>
-                        `).join('') : 
-                        '<p>No policy references available.</p>'
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div class="case-actions">
-            <button class="btn-success" onclick="app.resolveCase('approve')">
-                <i class="fas fa-check"></i> Approve Resolution
-            </button>
-            <button class="btn-warning" onclick="app.resolveCase('escalate')">
-                <i class="fas fa-exclamation-triangle"></i> Escalate
-            </button>
-            <button class="btn-secondary" onclick="app.uploadDocuments()">
-                <i class="fas fa-upload"></i> Upload Documents
-            </button>
-            ${this.currentCase.supporting_documents?.length > 0 ? `
-            <button class="btn-info" onclick="app.showDocumentAnalysis()">
-                <i class="fas fa-file-alt"></i> View Document Analysis
-            </button>
-            ` : ''}
-        </div>
-    `;
-    
-    modal.style.display = 'block';
-    this.animateScoreMeters();
-}
-
-
-
-
 
     showCaseActions(caseItem) {
         this.addMessage(`What would you like to do with case ${caseItem.case_id}?`, false);
@@ -1196,6 +1133,7 @@ showCaseModal() {
 
         document.getElementById('chatbot-messages').appendChild(messageDiv);
         this.scrollChatToBottom();
+        this.showBackToMenuOption();
     }
 
     viewCaseDetails(caseId) {
@@ -1225,10 +1163,12 @@ showCaseModal() {
             
             this.addMessage(`Case ${caseId} has been ${action}d successfully!`, false);
             this.loadDashboard();
+            this.showBackToMenuOption();
             
         } catch (error) {
             console.error(`Failed to ${action} case:`, error);
             this.addMessage(`Failed to ${action} case. Please try again.`, false);
+            this.showBackToMenuOption();
         }
     }
 
@@ -1319,6 +1259,7 @@ showCaseModal() {
         
         setTimeout(() => {
             this.addMessage("What would you like to know?", false);
+            this.showBackToMenuOption();
         }, knowledgeAreas.length * 300 + 300);
     }
 
@@ -1342,6 +1283,7 @@ showCaseModal() {
         
         setTimeout(() => {
             this.addMessage("Which policy area are you interested in?", false);
+            this.showBackToMenuOption();
         }, policies.length * 300 + 300);
     }
 
@@ -1403,9 +1345,9 @@ showCaseModal() {
             this.addMessage(message, true);
             input.value = '';
             
-            // Show typing indicator - REMOVED THE DUPLICATE CALL
             // Use RAG-powered response
             await this.chatbot.handleUserMessage(message);
+            this.showBackToMenuOption();
         }
     }
 
@@ -1570,7 +1512,7 @@ class EnhancedChatbot {
     async handleUserMessage(message) {
         this.chatHistory.push(`User: ${message}`);
         
-        // Show typing indicator - KEEP ONLY THIS ONE
+        // Show typing indicator
         this.showTypingIndicator();
         
         // Simulate processing delay

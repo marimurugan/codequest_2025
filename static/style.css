@@ -2,7 +2,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 :root {
-    --primary: #3b3c43;
+    --primary: #13172e;
     --primary-dark: #7780a8;
     --secondary: #0e0d20;
     --success: #06d6a0; 
@@ -1059,7 +1059,7 @@ body {
         .juno-toggle-btn {
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #6a54fa 0%, #0b1b61 100%);
+            background: linear-gradient(135deg, #3928a7 0%, #13172e 100%);
             color: white;
             border: none;
             border-radius: 30px; /* Cylindrical shape */
@@ -2168,5 +2168,183 @@ body {
     
     .btn-success, .btn-warning, .btn-secondary, .btn-info {
         width: 100%;
+    }
+}
+
+
+
+
+
+
+
+/* Analyzing message styles */
+.analyzing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.analyzing-spinner {
+    margin-bottom: 20px;
+}
+
+.analyzing-container h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.analyzing-container p {
+    color: #7f8c8d;
+    font-size: 16px;
+}
+
+/* Back to Menu button styles */
+.quick-reply.back-to-menu {
+    background-color: #95a5a6;
+    border: 1px solid #7f8c8d;
+}
+
+.quick-reply.back-to-menu:hover {
+    background-color: #7f8c8d;
+}
+
+/* Enhanced score meter animations */
+.meter-fill {
+    transition: width 1s ease-in-out;
+}
+
+/* Case analysis viewed state */
+.case-card.viewed {
+    opacity: 0.8;
+    border-left: 4px solid #3498db;
+}
+
+/* Additional chatbot styles */
+.chat-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.chat-action-btn:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.chat-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Knowledge response styles */
+.knowledge-response {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 4px solid #3498db;
+}
+
+.knowledge-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.knowledge-content {
+    margin-bottom: 10px;
+}
+
+.knowledge-source {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Case card styles for chatbot */
+.case-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 4px solid #3498db;
+}
+
+.case-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.case-id {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.case-amount {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.case-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.case-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chat-actions {
+        flex-direction: column;
+    }
+    
+    .case-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .analyzing-container {
+        padding: 20px 10px;
+    }
+    
+    .analyzing-container h3 {
+        font-size: 20px;
     }
 }
