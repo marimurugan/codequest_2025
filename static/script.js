@@ -268,7 +268,7 @@ class DisputeHandler {
             this.showCaseModal();
         } catch (error) {
             console.error('Failed to open case:', error);
-            this.showError('Failed to open case details.');
+            // this.showError('Failed to open case details.');
         }
     }
 
@@ -1058,34 +1058,35 @@ showCaseModal() {
             <!-- AI Analysis Scores -->
             <div class="case-detail-card">
                 <h3><i class="fas fa-chart-line"></i> AI Analysis Scores</h3>
-                
-                <div class="score-panels-container">
-                    <div class="score-panel">
-                        <h3><i class="fas fa-brain"></i> Classification Analysis</h3>
-                        <div class="score-grid">
-                            ${this.renderScoreItem(confidenceScore, 'Confidence Score', 'fas fa-certificate')}
-                            ${this.renderScoreItem(mediaTrustScore, 'Media Trust Score', 'fas fa-file-contract')}
-                        </div>
-                    </div>
-                    
-                    <div class="score-panel">
-                        <h3><i class="fas fa-chart-pie"></i> Behavioral Analysis</h3>
-                        <div class="score-grid">
-                            ${this.renderScoreItem(transactionalScore, 'Transactional Score', 'fas fa-exchange-alt')}
-                            ${this.renderScoreItem(customerScore, 'Customer Score', 'fas fa-user-check')}
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="overall-score-container">
+
+                  <div class="overall-score-container">
                     <h4>Overall Case Score</h4>
                     <div class="overall-score-value">${overallScore}%</div>
                     ${this.renderScoreMeter(overallScore, 'Composite Score')}
                     <div class="case-status-badge ${overallScore >= 75 ? 'status-high' : overallScore >= 60 ? 'status-medium' : 'status-low'}">
                         <i class="fas ${overallScore >= 75 ? 'fa-check-circle' : overallScore >= 60 ? 'fa-exclamation-triangle' : 'fa-exclamation-circle'}"></i>
                         ${overallScore >= 75 ? 'Low Risk' : overallScore >= 60 ? 'Medium Risk' : 'High Risk'}
+                        </div>
+                    </div>
+                
+                <div class="score-panels-container">
+                       <div class="score-panel">
+                            <h3><i class="fas fa-chart-pie"></i> Behavioral Analysis</h3>
+                            <div class="score-grid">
+                                ${this.renderScoreItem(customerScore, 'Customer Score', 'fas fa-user-check')}
+                                ${this.renderScoreItem(transactionalScore, 'Transactional Score', 'fas fa-exchange-alt')}
+                            </div>
+                        </div>
+                    <div class="score-panel">
+                        <h3><i class="fas fa-brain"></i> Classification Analysis</h3>
+                        <div class="score-grid">
+                           ${this.renderScoreItem(mediaTrustScore, 'Media Trust Score', 'fas fa-file-contract')}
+                            ${this.renderScoreItem(confidenceScore, 'Confidence Score', 'fas fa-certificate')}  
+                        </div>
                     </div>
                 </div>
+                
+              
             </div>
 
             <!-- Detailed Analysis -->
