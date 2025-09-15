@@ -1,232 +1,5062 @@
 [
   {
-    "customer_id": "CUST1001",
+    "customer_id": "CUST1129",
     "transaction_id": "TXN30001",
-    "amount": 249.50,
+    "amount": 179.67,
     "currency": "USD",
-    "date": "2025-08-20T09:45:00Z",
-    "merchant": "TravelNow",
-    "channel": "Online",
-    "customer_statement": "I didn't make this booking.",
+    "date": "2025-08-08T00:13:54Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Mobile App",
+    "customer_statement": "I ordered a laptop but it never arrived.",
     "crm_ticket_id": "CRM60001",
     "previous_interactions": [
       {
-        "date": "2025-08-15T11:30:00Z",
-        "channel": "email",
-        "summary": "Reported suspicious login attempt"
+        "date": "2025-08-18T06:52:33Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.62,
+      "device_id": "dev_6304",
+      "ip_address": "192.168.4.82"
+    }
+  },
+  {
+    "customer_id": "CUST1151",
+    "transaction_id": "TXN30002",
+    "amount": 1261.49,
+    "currency": "USD",
+    "date": "2025-08-29T14:26:20Z",
+    "merchant": "AutoParts",
+    "channel": "Online",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60002",
+    "previous_interactions": [
+      {
+        "date": "2025-08-17T23:34:50Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.46,
+      "device_id": "dev_4207",
+      "ip_address": "192.168.10.185"
+    }
+  },
+  {
+    "customer_id": "CUST1106",
+    "transaction_id": "TXN30003",
+    "amount": 329.39,
+    "currency": "USD",
+    "date": "2025-08-16T23:53:49Z",
+    "merchant": "TravelNow",
+    "channel": "Web Portal",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60003",
+    "previous_interactions": [
+      {
+        "date": "2025-08-02T21:12:59Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.39,
+      "device_id": "dev_4282",
+      "ip_address": "192.168.9.80"
+    }
+  },
+  {
+    "customer_id": "CUST1017",
+    "transaction_id": "TXN30004",
+    "amount": 700.93,
+    "currency": "USD",
+    "date": "2025-08-31T07:35:34Z",
+    "merchant": "FitGear",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60004",
+    "previous_interactions": [
+      {
+        "date": "2025-08-24T18:46:04Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
       }
     ],
     "risk_signals": {
       "fraud_score": 0.88,
-      "device_id": "dev_4100",
-      "ip_address": "192.168.2.54"
+      "device_id": "dev_4384",
+      "ip_address": "192.168.10.165"
     }
   },
   {
-    "customer_id": "CUST1002",
-    "transaction_id": "TXN30002",
-    "amount": 59.99,
-    "currency": "USD",
-    "date": "2025-08-18T16:20:00Z",
-    "merchant": "StyleStore",
-    "channel": "Mobile App",
-    "customer_statement": "I canceled my subscription but was still billed.",
-    "crm_ticket_id": "CRM60002",
-    "previous_interactions": [
-      {
-        "date": "2025-08-10T14:50:00Z",
-        "channel": "chat",
-        "summary": "Requested subscription cancellation"
-      }
-    ],
-    "risk_signals": {
-      "fraud_score": 0.20,
-      "device_id": "dev_4101",
-      "ip_address": "192.168.2.77"
-    }
-  },
-  {
-    "customer_id": "CUST1003",
-    "transaction_id": "TXN30003",
-    "amount": 134.75,
-    "currency": "USD",
-    "date": "2025-08-22T13:05:00Z",
-    "merchant": "BookWorld",
-    "channel": "POS",
-    "customer_statement": "I never received my order.",
-    "crm_ticket_id": "CRM60003",
-    "previous_interactions": [
-      {
-        "date": "2025-08-12T12:10:00Z",
-        "channel": "phone",
-        "summary": "Asked about delivery timeline"
-      }
-    ],
-    "risk_signals": {
-      "fraud_score": 0.35,
-      "device_id": "dev_4102",
-      "ip_address": "192.168.2.88"
-    }
-  },
-  {
-    "customer_id": "CUST1004",
-    "transaction_id": "TXN30004",
-    "amount": 312.00,
-    "currency": "USD",
-    "date": "2025-08-25T18:30:00Z",
-    "merchant": "E-Shop Electronics",
-    "channel": "Online",
-    "customer_statement": "I was charged twice for the same laptop accessory.",
-    "crm_ticket_id": "CRM60004",
-    "previous_interactions": [
-      {
-        "date": "2025-08-20T09:00:00Z",
-        "channel": "chat",
-        "summary": "Inquired about billing issue"
-      }
-    ],
-    "risk_signals": {
-      "fraud_score": 0.15,
-      "device_id": "dev_4103",
-      "ip_address": "192.168.3.14"
-    }
-  },
-  {
-    "customer_id": "CUST1005",
+    "customer_id": "CUST1197",
     "transaction_id": "TXN30005",
-    "amount": 87.20,
+    "amount": 406.61,
     "currency": "USD",
-    "date": "2025-08-27T20:10:00Z",
-    "merchant": "FoodieHub",
-    "channel": "Mobile App",
-    "customer_statement": "The charge looks unauthorized — I didn't order food.",
+    "date": "2025-09-04T00:08:13Z",
+    "merchant": "FitGear",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my subscription but was still billed.",
     "crm_ticket_id": "CRM60005",
     "previous_interactions": [
       {
-        "date": "2025-08-18T08:40:00Z",
-        "channel": "email",
-        "summary": "Asked about fraud claim process"
+        "date": "2025-08-28T02:36:41Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
       }
     ],
     "risk_signals": {
-      "fraud_score": 0.91,
-      "device_id": "dev_4104",
-      "ip_address": "192.168.4.99"
+      "fraud_score": 0.52,
+      "device_id": "dev_4024",
+      "ip_address": "192.168.7.74"
     }
   },
   {
-    "customer_id": "CUST1006",
+    "customer_id": "CUST1190",
     "transaction_id": "TXN30006",
-    "amount": 420.00,
+    "amount": 131.68,
     "currency": "USD",
-    "date": "2025-08-28T11:15:00Z",
+    "date": "2025-09-02T14:03:28Z",
     "merchant": "GymPro Fitness",
-    "channel": "Web Portal",
-    "customer_statement": "I canceled my membership last month but was billed again.",
+    "channel": "Online",
+    "customer_statement": "This booking was not made by me.",
     "crm_ticket_id": "CRM60006",
     "previous_interactions": [
       {
-        "date": "2025-08-05T15:20:00Z",
-        "channel": "chat",
-        "summary": "Requested cancellation confirmation"
+        "date": "2025-08-09T16:57:03Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
       }
     ],
     "risk_signals": {
-      "fraud_score": 0.18,
-      "device_id": "dev_5101",
-      "ip_address": "192.168.5.21"
+      "fraud_score": 0.52,
+      "device_id": "dev_5960",
+      "ip_address": "192.168.2.71"
     }
   },
   {
-    "customer_id": "CUST1007",
+    "customer_id": "CUST1111",
     "transaction_id": "TXN30007",
-    "amount": 72.50,
+    "amount": 1428.17,
     "currency": "USD",
-    "date": "2025-08-30T14:55:00Z",
-    "merchant": "QuickMart",
+    "date": "2025-08-20T01:50:35Z",
+    "merchant": "MegaMart",
     "channel": "POS",
     "customer_statement": "I never received my grocery delivery.",
     "crm_ticket_id": "CRM60007",
     "previous_interactions": [
       {
-        "date": "2025-08-25T18:40:00Z",
-        "channel": "phone",
-        "summary": "Called about missing delivery"
+        "date": "2025-08-10T05:25:50Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
       }
     ],
     "risk_signals": {
-      "fraud_score": 0.22,
-      "device_id": "dev_5102",
-      "ip_address": "192.168.5.33"
+      "fraud_score": 0.61,
+      "device_id": "dev_6803",
+      "ip_address": "192.168.2.149"
     }
   },
   {
-    "customer_id": "CUST1008",
+    "customer_id": "CUST1193",
     "transaction_id": "TXN30008",
-    "amount": 980.00,
+    "amount": 258.68,
     "currency": "USD",
-    "date": "2025-09-01T19:05:00Z",
-    "merchant": "GlobalAir",
-    "channel": "Online",
-    "customer_statement": "This flight booking was not made by me.",
+    "date": "2025-08-31T09:58:18Z",
+    "merchant": "AutoParts",
+    "channel": "POS",
+    "customer_statement": "I was charged twice for the same product.",
     "crm_ticket_id": "CRM60008",
     "previous_interactions": [
       {
-        "date": "2025-08-29T09:10:00Z",
-        "channel": "email",
-        "summary": "Reported suspicious account activity"
+        "date": "2025-08-25T06:02:03Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
       }
     ],
     "risk_signals": {
-      "fraud_score": 0.95,
-      "device_id": "dev_5103",
-      "ip_address": "192.168.5.47"
+      "fraud_score": 0.98,
+      "device_id": "dev_4255",
+      "ip_address": "192.168.7.34"
     }
   },
   {
-    "customer_id": "CUST1009",
+    "customer_id": "CUST1195",
     "transaction_id": "TXN30009",
-    "amount": 45.00,
+    "amount": 1132.17,
     "currency": "USD",
-    "date": "2025-09-02T08:25:00Z",
-    "merchant": "StreamFlix",
-    "channel": "Mobile App",
-    "customer_statement": "I was charged even though I canceled my streaming subscription.",
+    "date": "2025-08-16T19:12:52Z",
+    "merchant": "TravelNow",
+    "channel": "Web Portal",
+    "customer_statement": "This booking was not made by me.",
     "crm_ticket_id": "CRM60009",
     "previous_interactions": [
       {
-        "date": "2025-08-28T13:45:00Z",
-        "channel": "chat",
-        "summary": "Asked about subscription cancellation"
+        "date": "2025-08-28T22:41:49Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
       }
     ],
     "risk_signals": {
-      "fraud_score": 0.10,
-      "device_id": "dev_6101",
-      "ip_address": "192.168.6.12"
+      "fraud_score": 0.11,
+      "device_id": "dev_6518",
+      "ip_address": "192.168.7.218"
     }
   },
   {
-    "customer_id": "CUST1010",
+    "customer_id": "CUST1141",
     "transaction_id": "TXN30010",
-    "amount": 560.75,
+    "amount": 1121.83,
     "currency": "USD",
-    "date": "2025-09-03T17:40:00Z",
-    "merchant": "TechWorld",
+    "date": "2025-09-03T00:25:03Z",
+    "merchant": "TravelNow",
     "channel": "Online",
     "customer_statement": "I ordered a laptop but it never arrived.",
     "crm_ticket_id": "CRM60010",
     "previous_interactions": [
       {
-        "date": "2025-08-31T10:20:00Z",
-        "channel": "email",
-        "summary": "Requested shipping status update"
+        "date": "2025-08-15T16:58:39Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
       }
     ],
     "risk_signals": {
-      "fraud_score": 0.28,
-      "device_id": "dev_6102",
-      "ip_address": "192.168.6.45"
+      "fraud_score": 0.58,
+      "device_id": "dev_6532",
+      "ip_address": "192.168.4.46"
+    }
+  },
+  {
+    "customer_id": "CUST1037",
+    "transaction_id": "TXN30011",
+    "amount": 553.62,
+    "currency": "USD",
+    "date": "2025-08-20T02:08:31Z",
+    "merchant": "QuickMart",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60011",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T21:46:00Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.79,
+      "device_id": "dev_6067",
+      "ip_address": "192.168.10.145"
+    }
+  },
+  {
+    "customer_id": "CUST1025",
+    "transaction_id": "TXN30012",
+    "amount": 381.48,
+    "currency": "USD",
+    "date": "2025-08-21T03:24:28Z",
+    "merchant": "StreamFlix",
+    "channel": "Web Portal",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60012",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T14:30:35Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.16,
+      "device_id": "dev_4330",
+      "ip_address": "192.168.9.6"
+    }
+  },
+  {
+    "customer_id": "CUST1132",
+    "transaction_id": "TXN30013",
+    "amount": 669.99,
+    "currency": "USD",
+    "date": "2025-08-23T04:50:49Z",
+    "merchant": "FitGear",
+    "channel": "POS",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60013",
+    "previous_interactions": [
+      {
+        "date": "2025-08-16T09:17:51Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.15,
+      "device_id": "dev_6635",
+      "ip_address": "192.168.9.163"
+    }
+  },
+  {
+    "customer_id": "CUST1086",
+    "transaction_id": "TXN30014",
+    "amount": 592.01,
+    "currency": "USD",
+    "date": "2025-08-07T11:11:46Z",
+    "merchant": "FoodieHub",
+    "channel": "Online",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60014",
+    "previous_interactions": [
+      {
+        "date": "2025-08-03T14:03:34Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.43,
+      "device_id": "dev_5900",
+      "ip_address": "192.168.5.216"
+    }
+  },
+  {
+    "customer_id": "CUST1045",
+    "transaction_id": "TXN30015",
+    "amount": 753.05,
+    "currency": "USD",
+    "date": "2025-08-30T04:12:41Z",
+    "merchant": "MusicZone",
+    "channel": "Mobile App",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60015",
+    "previous_interactions": [
+      {
+        "date": "2025-08-24T14:50:39Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.2,
+      "device_id": "dev_4197",
+      "ip_address": "192.168.5.180"
+    }
+  },
+  {
+    "customer_id": "CUST1110",
+    "transaction_id": "TXN30016",
+    "amount": 1490.34,
+    "currency": "USD",
+    "date": "2025-09-04T09:34:45Z",
+    "merchant": "TechWorld",
+    "channel": "Web Portal",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60016",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T00:11:41Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.46,
+      "device_id": "dev_5400",
+      "ip_address": "192.168.9.211"
+    }
+  },
+  {
+    "customer_id": "CUST1054",
+    "transaction_id": "TXN30017",
+    "amount": 493.8,
+    "currency": "USD",
+    "date": "2025-09-06T13:24:03Z",
+    "merchant": "MusicZone",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60017",
+    "previous_interactions": [
+      {
+        "date": "2025-08-15T04:34:42Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.57,
+      "device_id": "dev_6430",
+      "ip_address": "192.168.9.237"
+    }
+  },
+  {
+    "customer_id": "CUST1171",
+    "transaction_id": "TXN30018",
+    "amount": 791.38,
+    "currency": "USD",
+    "date": "2025-08-11T18:23:03Z",
+    "merchant": "FitGear",
+    "channel": "POS",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60018",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T16:28:19Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.91,
+      "device_id": "dev_5310",
+      "ip_address": "192.168.10.137"
+    }
+  },
+  {
+    "customer_id": "CUST1153",
+    "transaction_id": "TXN30019",
+    "amount": 1449.3,
+    "currency": "USD",
+    "date": "2025-08-29T23:08:08Z",
+    "merchant": "TechWorld",
+    "channel": "Online",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60019",
+    "previous_interactions": [
+      {
+        "date": "2025-08-08T06:59:03Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.09,
+      "device_id": "dev_4507",
+      "ip_address": "192.168.7.211"
+    }
+  },
+  {
+    "customer_id": "CUST1110",
+    "transaction_id": "TXN30020",
+    "amount": 845.09,
+    "currency": "USD",
+    "date": "2025-09-04T22:01:03Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Online",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60020",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T10:09:19Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.53,
+      "device_id": "dev_6300",
+      "ip_address": "192.168.10.173"
+    }
+  },
+  {
+    "customer_id": "CUST1010",
+    "transaction_id": "TXN30021",
+    "amount": 155.19,
+    "currency": "USD",
+    "date": "2025-08-19T05:12:54Z",
+    "merchant": "AutoParts",
+    "channel": "Online",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60021",
+    "previous_interactions": [
+      {
+        "date": "2025-08-18T03:07:07Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.72,
+      "device_id": "dev_4576",
+      "ip_address": "192.168.5.27"
+    }
+  },
+  {
+    "customer_id": "CUST1055",
+    "transaction_id": "TXN30022",
+    "amount": 1179.45,
+    "currency": "USD",
+    "date": "2025-09-02T18:43:19Z",
+    "merchant": "GlobalAir",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60022",
+    "previous_interactions": [
+      {
+        "date": "2025-08-02T11:32:10Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.12,
+      "device_id": "dev_6641",
+      "ip_address": "192.168.2.154"
+    }
+  },
+  {
+    "customer_id": "CUST1177",
+    "transaction_id": "TXN30023",
+    "amount": 1170.02,
+    "currency": "USD",
+    "date": "2025-08-21T00:56:56Z",
+    "merchant": "EduBooks",
+    "channel": "POS",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60023",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T16:09:29Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.63,
+      "device_id": "dev_5390",
+      "ip_address": "192.168.8.240"
+    }
+  },
+  {
+    "customer_id": "CUST1141",
+    "transaction_id": "TXN30024",
+    "amount": 861.15,
+    "currency": "USD",
+    "date": "2025-09-05T13:05:07Z",
+    "merchant": "FoodieHub",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60024",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T03:12:08Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.68,
+      "device_id": "dev_5981",
+      "ip_address": "192.168.7.212"
+    }
+  },
+  {
+    "customer_id": "CUST1129",
+    "transaction_id": "TXN30025",
+    "amount": 113.34,
+    "currency": "USD",
+    "date": "2025-08-07T02:37:48Z",
+    "merchant": "TravelNow",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60025",
+    "previous_interactions": [
+      {
+        "date": "2025-08-03T13:59:35Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.52,
+      "device_id": "dev_6509",
+      "ip_address": "192.168.4.234"
+    }
+  },
+  {
+    "customer_id": "CUST1110",
+    "transaction_id": "TXN30026",
+    "amount": 573.89,
+    "currency": "USD",
+    "date": "2025-08-02T21:53:34Z",
+    "merchant": "TechWorld",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60026",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T12:59:09Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.09,
+      "device_id": "dev_6977",
+      "ip_address": "192.168.5.104"
+    }
+  },
+  {
+    "customer_id": "CUST1165",
+    "transaction_id": "TXN30027",
+    "amount": 174.12,
+    "currency": "USD",
+    "date": "2025-08-30T05:44:54Z",
+    "merchant": "StreamFlix",
+    "channel": "Online",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60027",
+    "previous_interactions": [
+      {
+        "date": "2025-08-06T13:18:03Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.19,
+      "device_id": "dev_5256",
+      "ip_address": "192.168.7.126"
+    }
+  },
+  {
+    "customer_id": "CUST1048",
+    "transaction_id": "TXN30028",
+    "amount": 975.79,
+    "currency": "USD",
+    "date": "2025-09-08T19:31:13Z",
+    "merchant": "TravelNow",
+    "channel": "Online",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60028",
+    "previous_interactions": [
+      {
+        "date": "2025-08-16T16:22:03Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.37,
+      "device_id": "dev_6985",
+      "ip_address": "192.168.5.237"
+    }
+  },
+  {
+    "customer_id": "CUST1064",
+    "transaction_id": "TXN30029",
+    "amount": 422.22,
+    "currency": "USD",
+    "date": "2025-08-29T16:23:49Z",
+    "merchant": "TravelNow",
+    "channel": "Web Portal",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60029",
+    "previous_interactions": [
+      {
+        "date": "2025-08-19T02:32:37Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.8,
+      "device_id": "dev_6862",
+      "ip_address": "192.168.8.59"
+    }
+  },
+  {
+    "customer_id": "CUST1015",
+    "transaction_id": "TXN30030",
+    "amount": 663.91,
+    "currency": "USD",
+    "date": "2025-08-12T17:44:32Z",
+    "merchant": "TravelNow",
+    "channel": "Web Portal",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60030",
+    "previous_interactions": [
+      {
+        "date": "2025-08-27T15:02:49Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.33,
+      "device_id": "dev_6282",
+      "ip_address": "192.168.3.58"
+    }
+  },
+  {
+    "customer_id": "CUST1131",
+    "transaction_id": "TXN30031",
+    "amount": 600.92,
+    "currency": "USD",
+    "date": "2025-08-02T19:35:22Z",
+    "merchant": "TravelNow",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60031",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T15:03:30Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.5,
+      "device_id": "dev_5406",
+      "ip_address": "192.168.7.158"
+    }
+  },
+  {
+    "customer_id": "CUST1174",
+    "transaction_id": "TXN30032",
+    "amount": 454.2,
+    "currency": "USD",
+    "date": "2025-09-08T18:13:36Z",
+    "merchant": "QuickMart",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60032",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T20:06:49Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.23,
+      "device_id": "dev_6565",
+      "ip_address": "192.168.5.54"
+    }
+  },
+  {
+    "customer_id": "CUST1127",
+    "transaction_id": "TXN30033",
+    "amount": 1235.43,
+    "currency": "USD",
+    "date": "2025-08-21T14:26:06Z",
+    "merchant": "GymPro Fitness",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60033",
+    "previous_interactions": [
+      {
+        "date": "2025-08-15T18:36:30Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.44,
+      "device_id": "dev_4503",
+      "ip_address": "192.168.2.119"
+    }
+  },
+  {
+    "customer_id": "CUST1197",
+    "transaction_id": "TXN30034",
+    "amount": 319.16,
+    "currency": "USD",
+    "date": "2025-08-12T11:35:35Z",
+    "merchant": "FitGear",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60034",
+    "previous_interactions": [
+      {
+        "date": "2025-08-27T04:54:55Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.91,
+      "device_id": "dev_5313",
+      "ip_address": "192.168.3.134"
+    }
+  },
+  {
+    "customer_id": "CUST1132",
+    "transaction_id": "TXN30035",
+    "amount": 358.16,
+    "currency": "USD",
+    "date": "2025-08-02T06:09:08Z",
+    "merchant": "AutoParts",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60035",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T12:51:58Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.17,
+      "device_id": "dev_6354",
+      "ip_address": "192.168.9.132"
+    }
+  },
+  {
+    "customer_id": "CUST1088",
+    "transaction_id": "TXN30036",
+    "amount": 98.94,
+    "currency": "USD",
+    "date": "2025-08-10T18:51:08Z",
+    "merchant": "TechWorld",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60036",
+    "previous_interactions": [
+      {
+        "date": "2025-08-04T14:48:49Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.85,
+      "device_id": "dev_5327",
+      "ip_address": "192.168.3.94"
+    }
+  },
+  {
+    "customer_id": "CUST1131",
+    "transaction_id": "TXN30037",
+    "amount": 1245.41,
+    "currency": "USD",
+    "date": "2025-09-01T14:09:41Z",
+    "merchant": "QuickMart",
+    "channel": "POS",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60037",
+    "previous_interactions": [
+      {
+        "date": "2025-08-14T17:45:13Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.16,
+      "device_id": "dev_6765",
+      "ip_address": "192.168.8.6"
+    }
+  },
+  {
+    "customer_id": "CUST1039",
+    "transaction_id": "TXN30038",
+    "amount": 1374.08,
+    "currency": "USD",
+    "date": "2025-09-03T11:38:39Z",
+    "merchant": "EduBooks",
+    "channel": "Web Portal",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60038",
+    "previous_interactions": [
+      {
+        "date": "2025-08-06T11:07:06Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.9,
+      "device_id": "dev_4093",
+      "ip_address": "192.168.9.44"
+    }
+  },
+  {
+    "customer_id": "CUST1078",
+    "transaction_id": "TXN30039",
+    "amount": 1436.58,
+    "currency": "USD",
+    "date": "2025-09-02T07:54:23Z",
+    "merchant": "GlobalAir",
+    "channel": "Online",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60039",
+    "previous_interactions": [
+      {
+        "date": "2025-08-09T03:02:10Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.6,
+      "device_id": "dev_5333",
+      "ip_address": "192.168.6.205"
+    }
+  },
+  {
+    "customer_id": "CUST1127",
+    "transaction_id": "TXN30040",
+    "amount": 897.51,
+    "currency": "USD",
+    "date": "2025-09-07T20:39:13Z",
+    "merchant": "FoodieHub",
+    "channel": "Online",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60040",
+    "previous_interactions": [
+      {
+        "date": "2025-08-24T05:07:37Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.51,
+      "device_id": "dev_4394",
+      "ip_address": "192.168.8.148"
+    }
+  },
+  {
+    "customer_id": "CUST1123",
+    "transaction_id": "TXN30041",
+    "amount": 1023.79,
+    "currency": "USD",
+    "date": "2025-08-17T07:14:58Z",
+    "merchant": "EduBooks",
+    "channel": "Online",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60041",
+    "previous_interactions": [
+      {
+        "date": "2025-08-07T06:36:03Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.67,
+      "device_id": "dev_5237",
+      "ip_address": "192.168.2.167"
+    }
+  },
+  {
+    "customer_id": "CUST1135",
+    "transaction_id": "TXN30042",
+    "amount": 1006.41,
+    "currency": "USD",
+    "date": "2025-08-17T19:38:48Z",
+    "merchant": "TravelNow",
+    "channel": "Mobile App",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60042",
+    "previous_interactions": [
+      {
+        "date": "2025-08-04T18:17:36Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.36,
+      "device_id": "dev_6581",
+      "ip_address": "192.168.4.30"
+    }
+  },
+  {
+    "customer_id": "CUST1127",
+    "transaction_id": "TXN30043",
+    "amount": 584.14,
+    "currency": "USD",
+    "date": "2025-08-20T19:36:26Z",
+    "merchant": "FoodieHub",
+    "channel": "Web Portal",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60043",
+    "previous_interactions": [
+      {
+        "date": "2025-08-26T09:22:48Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.63,
+      "device_id": "dev_4152",
+      "ip_address": "192.168.8.19"
+    }
+  },
+  {
+    "customer_id": "CUST1170",
+    "transaction_id": "TXN30044",
+    "amount": 1287.24,
+    "currency": "USD",
+    "date": "2025-08-11T06:23:54Z",
+    "merchant": "FitGear",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60044",
+    "previous_interactions": [
+      {
+        "date": "2025-08-19T07:50:15Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.79,
+      "device_id": "dev_4319",
+      "ip_address": "192.168.2.29"
+    }
+  },
+  {
+    "customer_id": "CUST1043",
+    "transaction_id": "TXN30045",
+    "amount": 459.73,
+    "currency": "USD",
+    "date": "2025-08-09T23:06:38Z",
+    "merchant": "FitGear",
+    "channel": "Web Portal",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60045",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T06:21:06Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.41,
+      "device_id": "dev_5527",
+      "ip_address": "192.168.4.7"
+    }
+  },
+  {
+    "customer_id": "CUST1001",
+    "transaction_id": "TXN30046",
+    "amount": 807.94,
+    "currency": "USD",
+    "date": "2025-09-04T10:59:50Z",
+    "merchant": "GlobalAir",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60046",
+    "previous_interactions": [
+      {
+        "date": "2025-08-03T06:43:35Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.87,
+      "device_id": "dev_5668",
+      "ip_address": "192.168.5.219"
+    }
+  },
+  {
+    "customer_id": "CUST1076",
+    "transaction_id": "TXN30047",
+    "amount": 942.66,
+    "currency": "USD",
+    "date": "2025-09-08T05:19:30Z",
+    "merchant": "TechWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60047",
+    "previous_interactions": [
+      {
+        "date": "2025-08-15T05:13:49Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.46,
+      "device_id": "dev_6586",
+      "ip_address": "192.168.7.208"
+    }
+  },
+  {
+    "customer_id": "CUST1007",
+    "transaction_id": "TXN30048",
+    "amount": 84.88,
+    "currency": "USD",
+    "date": "2025-08-24T22:03:58Z",
+    "merchant": "GlobalAir",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60048",
+    "previous_interactions": [
+      {
+        "date": "2025-08-03T07:05:38Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.12,
+      "device_id": "dev_4808",
+      "ip_address": "192.168.1.52"
+    }
+  },
+  {
+    "customer_id": "CUST1194",
+    "transaction_id": "TXN30049",
+    "amount": 1102.15,
+    "currency": "USD",
+    "date": "2025-08-03T17:53:53Z",
+    "merchant": "MegaMart",
+    "channel": "Online",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60049",
+    "previous_interactions": [
+      {
+        "date": "2025-08-08T19:49:37Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.65,
+      "device_id": "dev_6505",
+      "ip_address": "192.168.1.233"
+    }
+  },
+  {
+    "customer_id": "CUST1136",
+    "transaction_id": "TXN30050",
+    "amount": 991.39,
+    "currency": "USD",
+    "date": "2025-09-06T19:24:21Z",
+    "merchant": "FoodieHub",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60050",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T11:46:29Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.55,
+      "device_id": "dev_5530",
+      "ip_address": "192.168.4.62"
+    }
+  },
+  {
+    "customer_id": "CUST1052",
+    "transaction_id": "TXN30051",
+    "amount": 883.22,
+    "currency": "USD",
+    "date": "2025-08-08T05:58:41Z",
+    "merchant": "TravelNow",
+    "channel": "Online",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60051",
+    "previous_interactions": [
+      {
+        "date": "2025-08-13T08:43:53Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.13,
+      "device_id": "dev_6095",
+      "ip_address": "192.168.10.78"
+    }
+  },
+  {
+    "customer_id": "CUST1124",
+    "transaction_id": "TXN30052",
+    "amount": 858.1,
+    "currency": "USD",
+    "date": "2025-09-04T12:43:03Z",
+    "merchant": "TechWorld",
+    "channel": "Online",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60052",
+    "previous_interactions": [
+      {
+        "date": "2025-08-14T00:42:40Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.19,
+      "device_id": "dev_6035",
+      "ip_address": "192.168.5.39"
+    }
+  },
+  {
+    "customer_id": "CUST1124",
+    "transaction_id": "TXN30053",
+    "amount": 1046.93,
+    "currency": "USD",
+    "date": "2025-08-08T16:20:22Z",
+    "merchant": "MusicZone",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60053",
+    "previous_interactions": [
+      {
+        "date": "2025-08-21T19:28:04Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.97,
+      "device_id": "dev_5410",
+      "ip_address": "192.168.7.189"
+    }
+  },
+  {
+    "customer_id": "CUST1067",
+    "transaction_id": "TXN30054",
+    "amount": 1394.26,
+    "currency": "USD",
+    "date": "2025-08-20T21:47:23Z",
+    "merchant": "TechWorld",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60054",
+    "previous_interactions": [
+      {
+        "date": "2025-08-18T09:51:19Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.85,
+      "device_id": "dev_6336",
+      "ip_address": "192.168.1.223"
+    }
+  },
+  {
+    "customer_id": "CUST1129",
+    "transaction_id": "TXN30055",
+    "amount": 95.54,
+    "currency": "USD",
+    "date": "2025-08-10T03:11:11Z",
+    "merchant": "MegaMart",
+    "channel": "Online",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60055",
+    "previous_interactions": [
+      {
+        "date": "2025-08-14T20:15:56Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.07,
+      "device_id": "dev_6671",
+      "ip_address": "192.168.1.210"
+    }
+  },
+  {
+    "customer_id": "CUST1193",
+    "transaction_id": "TXN30056",
+    "amount": 502.15,
+    "currency": "USD",
+    "date": "2025-08-04T02:18:50Z",
+    "merchant": "AutoParts",
+    "channel": "Mobile App",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60056",
+    "previous_interactions": [
+      {
+        "date": "2025-08-10T20:34:16Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.76,
+      "device_id": "dev_6451",
+      "ip_address": "192.168.5.203"
+    }
+  },
+  {
+    "customer_id": "CUST1121",
+    "transaction_id": "TXN30057",
+    "amount": 574.24,
+    "currency": "USD",
+    "date": "2025-08-23T22:37:24Z",
+    "merchant": "MegaMart",
+    "channel": "Online",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60057",
+    "previous_interactions": [
+      {
+        "date": "2025-08-26T08:49:40Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.38,
+      "device_id": "dev_5392",
+      "ip_address": "192.168.6.2"
+    }
+  },
+  {
+    "customer_id": "CUST1112",
+    "transaction_id": "TXN30058",
+    "amount": 1416.71,
+    "currency": "USD",
+    "date": "2025-08-16T13:10:00Z",
+    "merchant": "FoodieHub",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60058",
+    "previous_interactions": [
+      {
+        "date": "2025-08-18T15:59:50Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.48,
+      "device_id": "dev_4503",
+      "ip_address": "192.168.5.82"
+    }
+  },
+  {
+    "customer_id": "CUST1046",
+    "transaction_id": "TXN30059",
+    "amount": 962.43,
+    "currency": "USD",
+    "date": "2025-08-12T07:18:21Z",
+    "merchant": "GlobalAir",
+    "channel": "Online",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60059",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T07:31:08Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.3,
+      "device_id": "dev_5195",
+      "ip_address": "192.168.9.90"
+    }
+  },
+  {
+    "customer_id": "CUST1156",
+    "transaction_id": "TXN30060",
+    "amount": 1331.82,
+    "currency": "USD",
+    "date": "2025-08-27T11:11:42Z",
+    "merchant": "GlobalAir",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60060",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T00:11:21Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.5,
+      "device_id": "dev_5057",
+      "ip_address": "192.168.3.25"
+    }
+  },
+  {
+    "customer_id": "CUST1033",
+    "transaction_id": "TXN30061",
+    "amount": 389.59,
+    "currency": "USD",
+    "date": "2025-08-27T15:16:03Z",
+    "merchant": "FoodieHub",
+    "channel": "POS",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60061",
+    "previous_interactions": [
+      {
+        "date": "2025-08-13T08:58:08Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.43,
+      "device_id": "dev_5908",
+      "ip_address": "192.168.5.90"
+    }
+  },
+  {
+    "customer_id": "CUST1200",
+    "transaction_id": "TXN30062",
+    "amount": 922.28,
+    "currency": "USD",
+    "date": "2025-08-13T23:46:50Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60062",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T20:12:28Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.92,
+      "device_id": "dev_5577",
+      "ip_address": "192.168.7.235"
+    }
+  },
+  {
+    "customer_id": "CUST1028",
+    "transaction_id": "TXN30063",
+    "amount": 728.92,
+    "currency": "USD",
+    "date": "2025-08-26T15:54:52Z",
+    "merchant": "FitGear",
+    "channel": "POS",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60063",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T10:39:50Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.85,
+      "device_id": "dev_4869",
+      "ip_address": "192.168.10.196"
+    }
+  },
+  {
+    "customer_id": "CUST1148",
+    "transaction_id": "TXN30064",
+    "amount": 315.24,
+    "currency": "USD",
+    "date": "2025-08-26T17:22:39Z",
+    "merchant": "TechWorld",
+    "channel": "Online",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60064",
+    "previous_interactions": [
+      {
+        "date": "2025-08-20T03:33:58Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.46,
+      "device_id": "dev_6343",
+      "ip_address": "192.168.9.9"
+    }
+  },
+  {
+    "customer_id": "CUST1018",
+    "transaction_id": "TXN30065",
+    "amount": 143.79,
+    "currency": "USD",
+    "date": "2025-08-28T07:54:24Z",
+    "merchant": "QuickMart",
+    "channel": "Online",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60065",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T04:33:41Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.78,
+      "device_id": "dev_6341",
+      "ip_address": "192.168.5.172"
+    }
+  },
+  {
+    "customer_id": "CUST1063",
+    "transaction_id": "TXN30066",
+    "amount": 996.97,
+    "currency": "USD",
+    "date": "2025-08-28T18:18:57Z",
+    "merchant": "GlobalAir",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60066",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T02:54:22Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.43,
+      "device_id": "dev_5733",
+      "ip_address": "192.168.3.214"
+    }
+  },
+  {
+    "customer_id": "CUST1167",
+    "transaction_id": "TXN30067",
+    "amount": 858.94,
+    "currency": "USD",
+    "date": "2025-09-09T20:26:49Z",
+    "merchant": "AutoParts",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60067",
+    "previous_interactions": [
+      {
+        "date": "2025-08-16T17:03:35Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.06,
+      "device_id": "dev_6128",
+      "ip_address": "192.168.7.240"
+    }
+  },
+  {
+    "customer_id": "CUST1082",
+    "transaction_id": "TXN30068",
+    "amount": 395.42,
+    "currency": "USD",
+    "date": "2025-08-06T12:05:08Z",
+    "merchant": "FitGear",
+    "channel": "Mobile App",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60068",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T01:12:47Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.63,
+      "device_id": "dev_5786",
+      "ip_address": "192.168.1.217"
+    }
+  },
+  {
+    "customer_id": "CUST1164",
+    "transaction_id": "TXN30069",
+    "amount": 418.32,
+    "currency": "USD",
+    "date": "2025-08-21T16:31:31Z",
+    "merchant": "EduBooks",
+    "channel": "Web Portal",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60069",
+    "previous_interactions": [
+      {
+        "date": "2025-08-17T07:56:45Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.6,
+      "device_id": "dev_5398",
+      "ip_address": "192.168.8.17"
+    }
+  },
+  {
+    "customer_id": "CUST1003",
+    "transaction_id": "TXN30070",
+    "amount": 1206.9,
+    "currency": "USD",
+    "date": "2025-09-01T07:41:09Z",
+    "merchant": "StreamFlix",
+    "channel": "Mobile App",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60070",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T20:02:02Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.72,
+      "device_id": "dev_4589",
+      "ip_address": "192.168.1.26"
+    }
+  },
+  {
+    "customer_id": "CUST1028",
+    "transaction_id": "TXN30071",
+    "amount": 37.87,
+    "currency": "USD",
+    "date": "2025-08-04T23:26:04Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60071",
+    "previous_interactions": [
+      {
+        "date": "2025-08-18T13:10:37Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.36,
+      "device_id": "dev_4898",
+      "ip_address": "192.168.2.22"
+    }
+  },
+  {
+    "customer_id": "CUST1102",
+    "transaction_id": "TXN30072",
+    "amount": 378.31,
+    "currency": "USD",
+    "date": "2025-08-17T23:05:58Z",
+    "merchant": "MusicZone",
+    "channel": "Web Portal",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60072",
+    "previous_interactions": [
+      {
+        "date": "2025-08-14T04:21:47Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.4,
+      "device_id": "dev_5804",
+      "ip_address": "192.168.3.238"
+    }
+  },
+  {
+    "customer_id": "CUST1025",
+    "transaction_id": "TXN30073",
+    "amount": 356.76,
+    "currency": "USD",
+    "date": "2025-08-30T01:39:30Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Online",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60073",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T21:08:14Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.68,
+      "device_id": "dev_4405",
+      "ip_address": "192.168.1.203"
+    }
+  },
+  {
+    "customer_id": "CUST1002",
+    "transaction_id": "TXN30074",
+    "amount": 913.72,
+    "currency": "USD",
+    "date": "2025-08-11T17:57:15Z",
+    "merchant": "TravelNow",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60074",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T01:16:29Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.82,
+      "device_id": "dev_5289",
+      "ip_address": "192.168.3.231"
+    }
+  },
+  {
+    "customer_id": "CUST1032",
+    "transaction_id": "TXN30075",
+    "amount": 27.74,
+    "currency": "USD",
+    "date": "2025-08-02T06:07:19Z",
+    "merchant": "StreamFlix",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60075",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T22:55:03Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.87,
+      "device_id": "dev_4401",
+      "ip_address": "192.168.5.167"
+    }
+  },
+  {
+    "customer_id": "CUST1082",
+    "transaction_id": "TXN30076",
+    "amount": 1189.1,
+    "currency": "USD",
+    "date": "2025-08-28T14:59:01Z",
+    "merchant": "MusicZone",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60076",
+    "previous_interactions": [
+      {
+        "date": "2025-08-13T19:32:17Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.14,
+      "device_id": "dev_6784",
+      "ip_address": "192.168.2.46"
+    }
+  },
+  {
+    "customer_id": "CUST1094",
+    "transaction_id": "TXN30077",
+    "amount": 365.79,
+    "currency": "USD",
+    "date": "2025-08-28T00:05:21Z",
+    "merchant": "TravelNow",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60077",
+    "previous_interactions": [
+      {
+        "date": "2025-08-26T01:34:13Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.21,
+      "device_id": "dev_5056",
+      "ip_address": "192.168.8.247"
+    }
+  },
+  {
+    "customer_id": "CUST1184",
+    "transaction_id": "TXN30078",
+    "amount": 415.77,
+    "currency": "USD",
+    "date": "2025-08-21T20:59:34Z",
+    "merchant": "EduBooks",
+    "channel": "POS",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60078",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T12:17:21Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.86,
+      "device_id": "dev_5412",
+      "ip_address": "192.168.1.9"
+    }
+  },
+  {
+    "customer_id": "CUST1032",
+    "transaction_id": "TXN30079",
+    "amount": 841.66,
+    "currency": "USD",
+    "date": "2025-08-29T21:54:01Z",
+    "merchant": "TechWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60079",
+    "previous_interactions": [
+      {
+        "date": "2025-08-16T12:18:34Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.17,
+      "device_id": "dev_5684",
+      "ip_address": "192.168.3.119"
+    }
+  },
+  {
+    "customer_id": "CUST1147",
+    "transaction_id": "TXN30080",
+    "amount": 1471.96,
+    "currency": "USD",
+    "date": "2025-08-16T05:38:43Z",
+    "merchant": "MegaMart",
+    "channel": "POS",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60080",
+    "previous_interactions": [
+      {
+        "date": "2025-08-02T11:31:07Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.64,
+      "device_id": "dev_5703",
+      "ip_address": "192.168.10.75"
+    }
+  },
+  {
+    "customer_id": "CUST1064",
+    "transaction_id": "TXN30081",
+    "amount": 185.69,
+    "currency": "USD",
+    "date": "2025-08-11T19:08:52Z",
+    "merchant": "StreamFlix",
+    "channel": "Mobile App",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60081",
+    "previous_interactions": [
+      {
+        "date": "2025-08-11T04:14:19Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.44,
+      "device_id": "dev_4494",
+      "ip_address": "192.168.8.144"
+    }
+  },
+  {
+    "customer_id": "CUST1129",
+    "transaction_id": "TXN30082",
+    "amount": 436.49,
+    "currency": "USD",
+    "date": "2025-08-22T03:43:51Z",
+    "merchant": "MegaMart",
+    "channel": "Online",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60082",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T16:43:33Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.08,
+      "device_id": "dev_5950",
+      "ip_address": "192.168.9.113"
+    }
+  },
+  {
+    "customer_id": "CUST1044",
+    "transaction_id": "TXN30083",
+    "amount": 312.38,
+    "currency": "USD",
+    "date": "2025-09-08T19:09:31Z",
+    "merchant": "FoodieHub",
+    "channel": "Online",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60083",
+    "previous_interactions": [
+      {
+        "date": "2025-08-09T16:16:14Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.06,
+      "device_id": "dev_5042",
+      "ip_address": "192.168.7.26"
+    }
+  },
+  {
+    "customer_id": "CUST1192",
+    "transaction_id": "TXN30084",
+    "amount": 1274.57,
+    "currency": "USD",
+    "date": "2025-09-07T04:25:42Z",
+    "merchant": "MusicZone",
+    "channel": "Web Portal",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60084",
+    "previous_interactions": [
+      {
+        "date": "2025-08-08T16:58:19Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.98,
+      "device_id": "dev_5683",
+      "ip_address": "192.168.5.153"
+    }
+  },
+  {
+    "customer_id": "CUST1109",
+    "transaction_id": "TXN30085",
+    "amount": 689.25,
+    "currency": "USD",
+    "date": "2025-08-15T18:52:38Z",
+    "merchant": "FoodieHub",
+    "channel": "Online",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60085",
+    "previous_interactions": [
+      {
+        "date": "2025-08-09T17:22:30Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.5,
+      "device_id": "dev_5305",
+      "ip_address": "192.168.5.123"
+    }
+  },
+  {
+    "customer_id": "CUST1176",
+    "transaction_id": "TXN30086",
+    "amount": 563.58,
+    "currency": "USD",
+    "date": "2025-08-21T07:28:37Z",
+    "merchant": "StyleStore",
+    "channel": "POS",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60086",
+    "previous_interactions": [
+      {
+        "date": "2025-08-21T06:44:20Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.6,
+      "device_id": "dev_6811",
+      "ip_address": "192.168.7.104"
+    }
+  },
+  {
+    "customer_id": "CUST1166",
+    "transaction_id": "TXN30087",
+    "amount": 1131.66,
+    "currency": "USD",
+    "date": "2025-08-15T22:05:56Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60087",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T10:35:53Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.81,
+      "device_id": "dev_5277",
+      "ip_address": "192.168.5.173"
+    }
+  },
+  {
+    "customer_id": "CUST1018",
+    "transaction_id": "TXN30088",
+    "amount": 966.34,
+    "currency": "USD",
+    "date": "2025-08-26T23:50:36Z",
+    "merchant": "StreamFlix",
+    "channel": "Online",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60088",
+    "previous_interactions": [
+      {
+        "date": "2025-08-24T18:48:32Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.38,
+      "device_id": "dev_5079",
+      "ip_address": "192.168.4.250"
+    }
+  },
+  {
+    "customer_id": "CUST1073",
+    "transaction_id": "TXN30089",
+    "amount": 369.38,
+    "currency": "USD",
+    "date": "2025-08-24T09:39:26Z",
+    "merchant": "FoodieHub",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60089",
+    "previous_interactions": [
+      {
+        "date": "2025-08-08T08:16:33Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.57,
+      "device_id": "dev_5863",
+      "ip_address": "192.168.5.184"
+    }
+  },
+  {
+    "customer_id": "CUST1115",
+    "transaction_id": "TXN30090",
+    "amount": 1388.56,
+    "currency": "USD",
+    "date": "2025-08-12T21:50:09Z",
+    "merchant": "GymPro Fitness",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60090",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T17:47:49Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.24,
+      "device_id": "dev_6007",
+      "ip_address": "192.168.5.91"
+    }
+  },
+  {
+    "customer_id": "CUST1005",
+    "transaction_id": "TXN30091",
+    "amount": 165.45,
+    "currency": "USD",
+    "date": "2025-08-01T14:33:00Z",
+    "merchant": "GlobalAir",
+    "channel": "Online",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60091",
+    "previous_interactions": [
+      {
+        "date": "2025-08-20T20:54:14Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.78,
+      "device_id": "dev_4878",
+      "ip_address": "192.168.3.81"
+    }
+  },
+  {
+    "customer_id": "CUST1083",
+    "transaction_id": "TXN30092",
+    "amount": 604.26,
+    "currency": "USD",
+    "date": "2025-09-08T03:15:24Z",
+    "merchant": "GlobalAir",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60092",
+    "previous_interactions": [
+      {
+        "date": "2025-08-26T21:22:28Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.22,
+      "device_id": "dev_4516",
+      "ip_address": "192.168.3.209"
+    }
+  },
+  {
+    "customer_id": "CUST1196",
+    "transaction_id": "TXN30093",
+    "amount": 1223.74,
+    "currency": "USD",
+    "date": "2025-08-20T07:17:41Z",
+    "merchant": "BookWorld",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60093",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T21:40:37Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.63,
+      "device_id": "dev_6327",
+      "ip_address": "192.168.3.209"
+    }
+  },
+  {
+    "customer_id": "CUST1048",
+    "transaction_id": "TXN30094",
+    "amount": 1314.09,
+    "currency": "USD",
+    "date": "2025-08-26T13:42:17Z",
+    "merchant": "BookWorld",
+    "channel": "POS",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60094",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T20:04:50Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.54,
+      "device_id": "dev_4164",
+      "ip_address": "192.168.10.76"
+    }
+  },
+  {
+    "customer_id": "CUST1002",
+    "transaction_id": "TXN30095",
+    "amount": 1128.58,
+    "currency": "USD",
+    "date": "2025-08-01T07:48:36Z",
+    "merchant": "QuickMart",
+    "channel": "Online",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60095",
+    "previous_interactions": [
+      {
+        "date": "2025-08-07T01:59:26Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.61,
+      "device_id": "dev_6554",
+      "ip_address": "192.168.9.82"
+    }
+  },
+  {
+    "customer_id": "CUST1051",
+    "transaction_id": "TXN30096",
+    "amount": 1290.7,
+    "currency": "USD",
+    "date": "2025-08-15T12:05:32Z",
+    "merchant": "StyleStore",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60096",
+    "previous_interactions": [
+      {
+        "date": "2025-08-24T15:28:13Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.16,
+      "device_id": "dev_6642",
+      "ip_address": "192.168.4.16"
+    }
+  },
+  {
+    "customer_id": "CUST1171",
+    "transaction_id": "TXN30097",
+    "amount": 792.71,
+    "currency": "USD",
+    "date": "2025-08-20T19:14:21Z",
+    "merchant": "TechWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60097",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T04:59:23Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.17,
+      "device_id": "dev_6703",
+      "ip_address": "192.168.3.133"
+    }
+  },
+  {
+    "customer_id": "CUST1094",
+    "transaction_id": "TXN30098",
+    "amount": 859.75,
+    "currency": "USD",
+    "date": "2025-08-21T03:55:40Z",
+    "merchant": "QuickMart",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60098",
+    "previous_interactions": [
+      {
+        "date": "2025-08-19T20:13:41Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.94,
+      "device_id": "dev_4976",
+      "ip_address": "192.168.3.79"
+    }
+  },
+  {
+    "customer_id": "CUST1107",
+    "transaction_id": "TXN30099",
+    "amount": 678.49,
+    "currency": "USD",
+    "date": "2025-08-30T01:44:33Z",
+    "merchant": "EduBooks",
+    "channel": "POS",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60099",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T20:44:01Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.44,
+      "device_id": "dev_4195",
+      "ip_address": "192.168.8.221"
+    }
+  },
+  {
+    "customer_id": "CUST1140",
+    "transaction_id": "TXN30100",
+    "amount": 1168.32,
+    "currency": "USD",
+    "date": "2025-08-10T14:37:35Z",
+    "merchant": "MegaMart",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60100",
+    "previous_interactions": [
+      {
+        "date": "2025-08-03T10:00:18Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.5,
+      "device_id": "dev_6420",
+      "ip_address": "192.168.3.128"
+    }
+  },
+  {
+    "customer_id": "CUST1159",
+    "transaction_id": "TXN30101",
+    "amount": 1214.84,
+    "currency": "USD",
+    "date": "2025-08-22T11:36:11Z",
+    "merchant": "FoodieHub",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60101",
+    "previous_interactions": [
+      {
+        "date": "2025-08-21T16:06:22Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.98,
+      "device_id": "dev_6369",
+      "ip_address": "192.168.6.19"
+    }
+  },
+  {
+    "customer_id": "CUST1056",
+    "transaction_id": "TXN30102",
+    "amount": 390.02,
+    "currency": "USD",
+    "date": "2025-09-04T14:53:29Z",
+    "merchant": "StyleStore",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60102",
+    "previous_interactions": [
+      {
+        "date": "2025-08-19T13:13:26Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.34,
+      "device_id": "dev_4555",
+      "ip_address": "192.168.10.116"
+    }
+  },
+  {
+    "customer_id": "CUST1144",
+    "transaction_id": "TXN30103",
+    "amount": 1481.44,
+    "currency": "USD",
+    "date": "2025-08-04T02:05:10Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Online",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60103",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T00:34:00Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.89,
+      "device_id": "dev_4064",
+      "ip_address": "192.168.10.102"
+    }
+  },
+  {
+    "customer_id": "CUST1136",
+    "transaction_id": "TXN30104",
+    "amount": 1081.61,
+    "currency": "USD",
+    "date": "2025-08-01T00:13:33Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Web Portal",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60104",
+    "previous_interactions": [
+      {
+        "date": "2025-08-06T00:55:10Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.48,
+      "device_id": "dev_4830",
+      "ip_address": "192.168.1.180"
+    }
+  },
+  {
+    "customer_id": "CUST1120",
+    "transaction_id": "TXN30105",
+    "amount": 208.8,
+    "currency": "USD",
+    "date": "2025-08-20T13:23:48Z",
+    "merchant": "BookWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60105",
+    "previous_interactions": [
+      {
+        "date": "2025-08-10T21:19:17Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.53,
+      "device_id": "dev_6551",
+      "ip_address": "192.168.5.89"
+    }
+  },
+  {
+    "customer_id": "CUST1180",
+    "transaction_id": "TXN30106",
+    "amount": 1419.7,
+    "currency": "USD",
+    "date": "2025-08-31T13:15:33Z",
+    "merchant": "TechWorld",
+    "channel": "POS",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60106",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T16:49:15Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.13,
+      "device_id": "dev_5723",
+      "ip_address": "192.168.7.123"
+    }
+  },
+  {
+    "customer_id": "CUST1012",
+    "transaction_id": "TXN30107",
+    "amount": 96.56,
+    "currency": "USD",
+    "date": "2025-08-16T15:05:37Z",
+    "merchant": "MegaMart",
+    "channel": "Web Portal",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60107",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T04:10:17Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.12,
+      "device_id": "dev_4067",
+      "ip_address": "192.168.10.172"
+    }
+  },
+  {
+    "customer_id": "CUST1054",
+    "transaction_id": "TXN30108",
+    "amount": 115.93,
+    "currency": "USD",
+    "date": "2025-08-27T18:45:38Z",
+    "merchant": "EduBooks",
+    "channel": "Online",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60108",
+    "previous_interactions": [
+      {
+        "date": "2025-08-13T18:25:13Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.09,
+      "device_id": "dev_5683",
+      "ip_address": "192.168.5.100"
+    }
+  },
+  {
+    "customer_id": "CUST1176",
+    "transaction_id": "TXN30109",
+    "amount": 645.33,
+    "currency": "USD",
+    "date": "2025-08-19T10:16:33Z",
+    "merchant": "FoodieHub",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60109",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T15:29:19Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.57,
+      "device_id": "dev_5324",
+      "ip_address": "192.168.1.27"
+    }
+  },
+  {
+    "customer_id": "CUST1155",
+    "transaction_id": "TXN30110",
+    "amount": 522.7,
+    "currency": "USD",
+    "date": "2025-08-28T12:05:55Z",
+    "merchant": "FoodieHub",
+    "channel": "Online",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60110",
+    "previous_interactions": [
+      {
+        "date": "2025-08-09T07:41:10Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.24,
+      "device_id": "dev_4477",
+      "ip_address": "192.168.5.96"
+    }
+  },
+  {
+    "customer_id": "CUST1156",
+    "transaction_id": "TXN30111",
+    "amount": 712.24,
+    "currency": "USD",
+    "date": "2025-08-12T17:11:04Z",
+    "merchant": "AutoParts",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60111",
+    "previous_interactions": [
+      {
+        "date": "2025-08-11T11:09:09Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.46,
+      "device_id": "dev_5963",
+      "ip_address": "192.168.5.31"
+    }
+  },
+  {
+    "customer_id": "CUST1131",
+    "transaction_id": "TXN30112",
+    "amount": 943.55,
+    "currency": "USD",
+    "date": "2025-09-05T07:09:13Z",
+    "merchant": "TechWorld",
+    "channel": "POS",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60112",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T01:23:02Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.53,
+      "device_id": "dev_4396",
+      "ip_address": "192.168.3.71"
+    }
+  },
+  {
+    "customer_id": "CUST1086",
+    "transaction_id": "TXN30113",
+    "amount": 1381.91,
+    "currency": "USD",
+    "date": "2025-08-19T01:15:34Z",
+    "merchant": "StreamFlix",
+    "channel": "Mobile App",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60113",
+    "previous_interactions": [
+      {
+        "date": "2025-08-09T11:12:28Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.25,
+      "device_id": "dev_5941",
+      "ip_address": "192.168.8.197"
+    }
+  },
+  {
+    "customer_id": "CUST1103",
+    "transaction_id": "TXN30114",
+    "amount": 943.14,
+    "currency": "USD",
+    "date": "2025-08-16T09:13:54Z",
+    "merchant": "MusicZone",
+    "channel": "Mobile App",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60114",
+    "previous_interactions": [
+      {
+        "date": "2025-08-10T15:27:22Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.89,
+      "device_id": "dev_6199",
+      "ip_address": "192.168.7.218"
+    }
+  },
+  {
+    "customer_id": "CUST1130",
+    "transaction_id": "TXN30115",
+    "amount": 830.05,
+    "currency": "USD",
+    "date": "2025-08-12T09:27:02Z",
+    "merchant": "FoodieHub",
+    "channel": "POS",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60115",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T09:06:30Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.78,
+      "device_id": "dev_6129",
+      "ip_address": "192.168.9.172"
+    }
+  },
+  {
+    "customer_id": "CUST1093",
+    "transaction_id": "TXN30116",
+    "amount": 1042.16,
+    "currency": "USD",
+    "date": "2025-09-07T05:33:44Z",
+    "merchant": "TechWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60116",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T18:58:17Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.24,
+      "device_id": "dev_6440",
+      "ip_address": "192.168.2.127"
+    }
+  },
+  {
+    "customer_id": "CUST1096",
+    "transaction_id": "TXN30117",
+    "amount": 815.61,
+    "currency": "USD",
+    "date": "2025-09-05T22:30:48Z",
+    "merchant": "TravelNow",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60117",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T01:20:06Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.17,
+      "device_id": "dev_6913",
+      "ip_address": "192.168.5.21"
+    }
+  },
+  {
+    "customer_id": "CUST1074",
+    "transaction_id": "TXN30118",
+    "amount": 305.21,
+    "currency": "USD",
+    "date": "2025-08-01T20:04:10Z",
+    "merchant": "FitGear",
+    "channel": "Web Portal",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60118",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T13:46:00Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.29,
+      "device_id": "dev_5042",
+      "ip_address": "192.168.7.182"
+    }
+  },
+  {
+    "customer_id": "CUST1152",
+    "transaction_id": "TXN30119",
+    "amount": 217.18,
+    "currency": "USD",
+    "date": "2025-09-07T12:50:05Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Web Portal",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60119",
+    "previous_interactions": [
+      {
+        "date": "2025-08-20T13:06:01Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.13,
+      "device_id": "dev_5340",
+      "ip_address": "192.168.2.174"
+    }
+  },
+  {
+    "customer_id": "CUST1074",
+    "transaction_id": "TXN30120",
+    "amount": 679.99,
+    "currency": "USD",
+    "date": "2025-09-02T07:12:40Z",
+    "merchant": "EduBooks",
+    "channel": "Online",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60120",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T22:34:28Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.64,
+      "device_id": "dev_6951",
+      "ip_address": "192.168.2.238"
+    }
+  },
+  {
+    "customer_id": "CUST1189",
+    "transaction_id": "TXN30121",
+    "amount": 89.96,
+    "currency": "USD",
+    "date": "2025-08-15T23:17:52Z",
+    "merchant": "MegaMart",
+    "channel": "POS",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60121",
+    "previous_interactions": [
+      {
+        "date": "2025-08-04T09:11:48Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.71,
+      "device_id": "dev_5936",
+      "ip_address": "192.168.2.51"
+    }
+  },
+  {
+    "customer_id": "CUST1074",
+    "transaction_id": "TXN30122",
+    "amount": 1080.87,
+    "currency": "USD",
+    "date": "2025-08-25T14:24:27Z",
+    "merchant": "FoodieHub",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60122",
+    "previous_interactions": [
+      {
+        "date": "2025-08-09T14:48:17Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.82,
+      "device_id": "dev_5125",
+      "ip_address": "192.168.2.121"
+    }
+  },
+  {
+    "customer_id": "CUST1080",
+    "transaction_id": "TXN30123",
+    "amount": 624.15,
+    "currency": "USD",
+    "date": "2025-08-21T22:00:24Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60123",
+    "previous_interactions": [
+      {
+        "date": "2025-08-06T11:41:56Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.8,
+      "device_id": "dev_4120",
+      "ip_address": "192.168.10.211"
+    }
+  },
+  {
+    "customer_id": "CUST1129",
+    "transaction_id": "TXN30124",
+    "amount": 234.95,
+    "currency": "USD",
+    "date": "2025-08-14T18:28:56Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60124",
+    "previous_interactions": [
+      {
+        "date": "2025-08-11T13:44:18Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.61,
+      "device_id": "dev_4612",
+      "ip_address": "192.168.1.174"
+    }
+  },
+  {
+    "customer_id": "CUST1171",
+    "transaction_id": "TXN30125",
+    "amount": 410.38,
+    "currency": "USD",
+    "date": "2025-09-07T18:32:25Z",
+    "merchant": "MegaMart",
+    "channel": "Mobile App",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60125",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T23:43:06Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.92,
+      "device_id": "dev_5037",
+      "ip_address": "192.168.2.207"
+    }
+  },
+  {
+    "customer_id": "CUST1108",
+    "transaction_id": "TXN30126",
+    "amount": 109.42,
+    "currency": "USD",
+    "date": "2025-08-11T13:11:24Z",
+    "merchant": "QuickMart",
+    "channel": "Online",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60126",
+    "previous_interactions": [
+      {
+        "date": "2025-08-20T08:29:35Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.35,
+      "device_id": "dev_4349",
+      "ip_address": "192.168.7.190"
+    }
+  },
+  {
+    "customer_id": "CUST1196",
+    "transaction_id": "TXN30127",
+    "amount": 296.14,
+    "currency": "USD",
+    "date": "2025-09-07T16:43:47Z",
+    "merchant": "GlobalAir",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60127",
+    "previous_interactions": [
+      {
+        "date": "2025-08-14T09:24:42Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.95,
+      "device_id": "dev_4254",
+      "ip_address": "192.168.5.111"
+    }
+  },
+  {
+    "customer_id": "CUST1045",
+    "transaction_id": "TXN30128",
+    "amount": 140.34,
+    "currency": "USD",
+    "date": "2025-08-19T10:06:34Z",
+    "merchant": "GlobalAir",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60128",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T12:04:47Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.91,
+      "device_id": "dev_6780",
+      "ip_address": "192.168.4.11"
+    }
+  },
+  {
+    "customer_id": "CUST1009",
+    "transaction_id": "TXN30129",
+    "amount": 499.62,
+    "currency": "USD",
+    "date": "2025-08-10T16:05:55Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Web Portal",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60129",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T15:32:22Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.35,
+      "device_id": "dev_4692",
+      "ip_address": "192.168.1.88"
+    }
+  },
+  {
+    "customer_id": "CUST1171",
+    "transaction_id": "TXN30130",
+    "amount": 489.42,
+    "currency": "USD",
+    "date": "2025-08-24T21:05:44Z",
+    "merchant": "EduBooks",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60130",
+    "previous_interactions": [
+      {
+        "date": "2025-08-04T22:37:56Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.36,
+      "device_id": "dev_6092",
+      "ip_address": "192.168.8.168"
+    }
+  },
+  {
+    "customer_id": "CUST1031",
+    "transaction_id": "TXN30131",
+    "amount": 145.92,
+    "currency": "USD",
+    "date": "2025-08-19T10:11:22Z",
+    "merchant": "EduBooks",
+    "channel": "POS",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60131",
+    "previous_interactions": [
+      {
+        "date": "2025-08-11T23:29:54Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.36,
+      "device_id": "dev_5214",
+      "ip_address": "192.168.7.174"
+    }
+  },
+  {
+    "customer_id": "CUST1056",
+    "transaction_id": "TXN30132",
+    "amount": 47.73,
+    "currency": "USD",
+    "date": "2025-08-23T01:57:30Z",
+    "merchant": "FitGear",
+    "channel": "Online",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60132",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T03:28:37Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.39,
+      "device_id": "dev_6703",
+      "ip_address": "192.168.3.196"
+    }
+  },
+  {
+    "customer_id": "CUST1142",
+    "transaction_id": "TXN30133",
+    "amount": 902.68,
+    "currency": "USD",
+    "date": "2025-08-20T03:53:22Z",
+    "merchant": "FoodieHub",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60133",
+    "previous_interactions": [
+      {
+        "date": "2025-08-09T23:29:17Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.99,
+      "device_id": "dev_5348",
+      "ip_address": "192.168.8.43"
+    }
+  },
+  {
+    "customer_id": "CUST1101",
+    "transaction_id": "TXN30134",
+    "amount": 569.08,
+    "currency": "USD",
+    "date": "2025-08-26T16:53:57Z",
+    "merchant": "BookWorld",
+    "channel": "Web Portal",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60134",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T23:32:58Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.53,
+      "device_id": "dev_4907",
+      "ip_address": "192.168.10.6"
+    }
+  },
+  {
+    "customer_id": "CUST1042",
+    "transaction_id": "TXN30135",
+    "amount": 855.22,
+    "currency": "USD",
+    "date": "2025-08-18T09:27:39Z",
+    "merchant": "MusicZone",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60135",
+    "previous_interactions": [
+      {
+        "date": "2025-08-17T18:24:59Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.5,
+      "device_id": "dev_6434",
+      "ip_address": "192.168.5.128"
+    }
+  },
+  {
+    "customer_id": "CUST1132",
+    "transaction_id": "TXN30136",
+    "amount": 1223.41,
+    "currency": "USD",
+    "date": "2025-08-14T17:19:49Z",
+    "merchant": "TravelNow",
+    "channel": "Mobile App",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60136",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T16:50:31Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.8,
+      "device_id": "dev_6036",
+      "ip_address": "192.168.5.159"
+    }
+  },
+  {
+    "customer_id": "CUST1190",
+    "transaction_id": "TXN30137",
+    "amount": 1055.36,
+    "currency": "USD",
+    "date": "2025-09-05T05:29:07Z",
+    "merchant": "QuickMart",
+    "channel": "POS",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60137",
+    "previous_interactions": [
+      {
+        "date": "2025-08-27T02:04:26Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.48,
+      "device_id": "dev_5621",
+      "ip_address": "192.168.10.90"
+    }
+  },
+  {
+    "customer_id": "CUST1057",
+    "transaction_id": "TXN30138",
+    "amount": 1091.31,
+    "currency": "USD",
+    "date": "2025-08-16T21:17:18Z",
+    "merchant": "StyleStore",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60138",
+    "previous_interactions": [
+      {
+        "date": "2025-08-17T01:22:41Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.58,
+      "device_id": "dev_5102",
+      "ip_address": "192.168.4.175"
+    }
+  },
+  {
+    "customer_id": "CUST1091",
+    "transaction_id": "TXN30139",
+    "amount": 123.7,
+    "currency": "USD",
+    "date": "2025-08-05T22:51:21Z",
+    "merchant": "TechWorld",
+    "channel": "Web Portal",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60139",
+    "previous_interactions": [
+      {
+        "date": "2025-08-26T12:45:19Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.42,
+      "device_id": "dev_4503",
+      "ip_address": "192.168.4.67"
+    }
+  },
+  {
+    "customer_id": "CUST1099",
+    "transaction_id": "TXN30140",
+    "amount": 1012.09,
+    "currency": "USD",
+    "date": "2025-09-06T07:00:49Z",
+    "merchant": "TechWorld",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60140",
+    "previous_interactions": [
+      {
+        "date": "2025-08-07T18:19:16Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.06,
+      "device_id": "dev_6486",
+      "ip_address": "192.168.10.202"
+    }
+  },
+  {
+    "customer_id": "CUST1057",
+    "transaction_id": "TXN30141",
+    "amount": 573.68,
+    "currency": "USD",
+    "date": "2025-08-25T07:31:01Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Online",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60141",
+    "previous_interactions": [
+      {
+        "date": "2025-08-26T15:16:13Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.21,
+      "device_id": "dev_5158",
+      "ip_address": "192.168.4.83"
+    }
+  },
+  {
+    "customer_id": "CUST1107",
+    "transaction_id": "TXN30142",
+    "amount": 66.84,
+    "currency": "USD",
+    "date": "2025-08-24T03:06:10Z",
+    "merchant": "StyleStore",
+    "channel": "Online",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60142",
+    "previous_interactions": [
+      {
+        "date": "2025-08-10T02:43:31Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.43,
+      "device_id": "dev_6569",
+      "ip_address": "192.168.9.126"
+    }
+  },
+  {
+    "customer_id": "CUST1063",
+    "transaction_id": "TXN30143",
+    "amount": 1420.58,
+    "currency": "USD",
+    "date": "2025-09-03T03:11:35Z",
+    "merchant": "FitGear",
+    "channel": "Online",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60143",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T12:12:08Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.32,
+      "device_id": "dev_5698",
+      "ip_address": "192.168.4.220"
+    }
+  },
+  {
+    "customer_id": "CUST1187",
+    "transaction_id": "TXN30144",
+    "amount": 412.06,
+    "currency": "USD",
+    "date": "2025-08-11T13:50:37Z",
+    "merchant": "AutoParts",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60144",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T22:01:49Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.86,
+      "device_id": "dev_5910",
+      "ip_address": "192.168.10.55"
+    }
+  },
+  {
+    "customer_id": "CUST1009",
+    "transaction_id": "TXN30145",
+    "amount": 856.63,
+    "currency": "USD",
+    "date": "2025-08-05T22:04:20Z",
+    "merchant": "GlobalAir",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60145",
+    "previous_interactions": [
+      {
+        "date": "2025-08-02T20:41:36Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.99,
+      "device_id": "dev_4682",
+      "ip_address": "192.168.6.68"
+    }
+  },
+  {
+    "customer_id": "CUST1177",
+    "transaction_id": "TXN30146",
+    "amount": 1359.06,
+    "currency": "USD",
+    "date": "2025-08-31T05:25:06Z",
+    "merchant": "StreamFlix",
+    "channel": "Web Portal",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60146",
+    "previous_interactions": [
+      {
+        "date": "2025-08-20T03:24:27Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.31,
+      "device_id": "dev_6561",
+      "ip_address": "192.168.6.126"
+    }
+  },
+  {
+    "customer_id": "CUST1196",
+    "transaction_id": "TXN30147",
+    "amount": 144.98,
+    "currency": "USD",
+    "date": "2025-08-06T13:50:12Z",
+    "merchant": "StyleStore",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60147",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T19:29:23Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.53,
+      "device_id": "dev_6570",
+      "ip_address": "192.168.4.57"
+    }
+  },
+  {
+    "customer_id": "CUST1087",
+    "transaction_id": "TXN30148",
+    "amount": 115.06,
+    "currency": "USD",
+    "date": "2025-09-02T23:12:19Z",
+    "merchant": "GlobalAir",
+    "channel": "POS",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60148",
+    "previous_interactions": [
+      {
+        "date": "2025-08-02T15:56:00Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.72,
+      "device_id": "dev_5368",
+      "ip_address": "192.168.10.190"
+    }
+  },
+  {
+    "customer_id": "CUST1026",
+    "transaction_id": "TXN30149",
+    "amount": 249.91,
+    "currency": "USD",
+    "date": "2025-08-28T02:12:59Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60149",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T20:27:33Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.52,
+      "device_id": "dev_4302",
+      "ip_address": "192.168.10.127"
+    }
+  },
+  {
+    "customer_id": "CUST1052",
+    "transaction_id": "TXN30150",
+    "amount": 810.54,
+    "currency": "USD",
+    "date": "2025-09-01T14:04:07Z",
+    "merchant": "MegaMart",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60150",
+    "previous_interactions": [
+      {
+        "date": "2025-08-07T10:01:07Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.45,
+      "device_id": "dev_4371",
+      "ip_address": "192.168.4.11"
+    }
+  },
+  {
+    "customer_id": "CUST1018",
+    "transaction_id": "TXN30151",
+    "amount": 714.75,
+    "currency": "USD",
+    "date": "2025-08-04T23:13:47Z",
+    "merchant": "AutoParts",
+    "channel": "POS",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60151",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T23:40:17Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.34,
+      "device_id": "dev_5582",
+      "ip_address": "192.168.4.215"
+    }
+  },
+  {
+    "customer_id": "CUST1102",
+    "transaction_id": "TXN30152",
+    "amount": 358.28,
+    "currency": "USD",
+    "date": "2025-08-31T16:45:20Z",
+    "merchant": "TechWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60152",
+    "previous_interactions": [
+      {
+        "date": "2025-08-21T08:08:35Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.85,
+      "device_id": "dev_6648",
+      "ip_address": "192.168.9.10"
+    }
+  },
+  {
+    "customer_id": "CUST1065",
+    "transaction_id": "TXN30153",
+    "amount": 901.76,
+    "currency": "USD",
+    "date": "2025-08-14T22:24:44Z",
+    "merchant": "StreamFlix",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60153",
+    "previous_interactions": [
+      {
+        "date": "2025-08-21T03:55:13Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.24,
+      "device_id": "dev_5412",
+      "ip_address": "192.168.7.147"
+    }
+  },
+  {
+    "customer_id": "CUST1123",
+    "transaction_id": "TXN30154",
+    "amount": 22.81,
+    "currency": "USD",
+    "date": "2025-08-04T23:55:56Z",
+    "merchant": "FoodieHub",
+    "channel": "Online",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60154",
+    "previous_interactions": [
+      {
+        "date": "2025-08-18T08:33:15Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.23,
+      "device_id": "dev_6219",
+      "ip_address": "192.168.4.174"
+    }
+  },
+  {
+    "customer_id": "CUST1029",
+    "transaction_id": "TXN30155",
+    "amount": 1403.93,
+    "currency": "USD",
+    "date": "2025-08-03T21:04:05Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "POS",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60155",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T01:19:39Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.27,
+      "device_id": "dev_5222",
+      "ip_address": "192.168.7.218"
+    }
+  },
+  {
+    "customer_id": "CUST1190",
+    "transaction_id": "TXN30156",
+    "amount": 753.46,
+    "currency": "USD",
+    "date": "2025-09-05T21:20:55Z",
+    "merchant": "QuickMart",
+    "channel": "Online",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60156",
+    "previous_interactions": [
+      {
+        "date": "2025-08-06T20:56:06Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.74,
+      "device_id": "dev_5224",
+      "ip_address": "192.168.5.69"
+    }
+  },
+  {
+    "customer_id": "CUST1057",
+    "transaction_id": "TXN30157",
+    "amount": 1487.86,
+    "currency": "USD",
+    "date": "2025-08-02T07:07:13Z",
+    "merchant": "GlobalAir",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60157",
+    "previous_interactions": [
+      {
+        "date": "2025-08-11T19:26:57Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.57,
+      "device_id": "dev_6842",
+      "ip_address": "192.168.1.21"
+    }
+  },
+  {
+    "customer_id": "CUST1185",
+    "transaction_id": "TXN30158",
+    "amount": 505.39,
+    "currency": "USD",
+    "date": "2025-08-18T18:16:01Z",
+    "merchant": "AutoParts",
+    "channel": "Mobile App",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60158",
+    "previous_interactions": [
+      {
+        "date": "2025-08-17T08:54:58Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.18,
+      "device_id": "dev_4391",
+      "ip_address": "192.168.9.202"
+    }
+  },
+  {
+    "customer_id": "CUST1017",
+    "transaction_id": "TXN30159",
+    "amount": 936.05,
+    "currency": "USD",
+    "date": "2025-09-06T18:56:27Z",
+    "merchant": "QuickMart",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60159",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T02:00:23Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.65,
+      "device_id": "dev_5726",
+      "ip_address": "192.168.5.9"
+    }
+  },
+  {
+    "customer_id": "CUST1109",
+    "transaction_id": "TXN30160",
+    "amount": 81.98,
+    "currency": "USD",
+    "date": "2025-09-06T14:31:00Z",
+    "merchant": "TravelNow",
+    "channel": "POS",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60160",
+    "previous_interactions": [
+      {
+        "date": "2025-08-06T21:15:28Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.66,
+      "device_id": "dev_4542",
+      "ip_address": "192.168.10.194"
+    }
+  },
+  {
+    "customer_id": "CUST1126",
+    "transaction_id": "TXN30161",
+    "amount": 1111.96,
+    "currency": "USD",
+    "date": "2025-09-02T11:06:03Z",
+    "merchant": "StyleStore",
+    "channel": "Mobile App",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60161",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T20:21:59Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.96,
+      "device_id": "dev_4003",
+      "ip_address": "192.168.2.218"
+    }
+  },
+  {
+    "customer_id": "CUST1115",
+    "transaction_id": "TXN30162",
+    "amount": 415.32,
+    "currency": "USD",
+    "date": "2025-08-04T02:20:17Z",
+    "merchant": "FitGear",
+    "channel": "Online",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60162",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T22:22:44Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.87,
+      "device_id": "dev_4805",
+      "ip_address": "192.168.2.21"
+    }
+  },
+  {
+    "customer_id": "CUST1075",
+    "transaction_id": "TXN30163",
+    "amount": 102.59,
+    "currency": "USD",
+    "date": "2025-08-03T21:04:26Z",
+    "merchant": "StyleStore",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60163",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T18:25:25Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.64,
+      "device_id": "dev_6816",
+      "ip_address": "192.168.4.34"
+    }
+  },
+  {
+    "customer_id": "CUST1087",
+    "transaction_id": "TXN30164",
+    "amount": 1245.69,
+    "currency": "USD",
+    "date": "2025-08-08T15:52:06Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60164",
+    "previous_interactions": [
+      {
+        "date": "2025-08-04T07:53:04Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.62,
+      "device_id": "dev_4709",
+      "ip_address": "192.168.1.137"
+    }
+  },
+  {
+    "customer_id": "CUST1160",
+    "transaction_id": "TXN30165",
+    "amount": 159.3,
+    "currency": "USD",
+    "date": "2025-08-26T17:12:41Z",
+    "merchant": "EduBooks",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60165",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T23:03:32Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.06,
+      "device_id": "dev_4210",
+      "ip_address": "192.168.10.224"
+    }
+  },
+  {
+    "customer_id": "CUST1182",
+    "transaction_id": "TXN30166",
+    "amount": 180.02,
+    "currency": "USD",
+    "date": "2025-09-03T03:52:56Z",
+    "merchant": "StyleStore",
+    "channel": "Online",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60166",
+    "previous_interactions": [
+      {
+        "date": "2025-08-02T09:43:24Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.87,
+      "device_id": "dev_5923",
+      "ip_address": "192.168.2.135"
+    }
+  },
+  {
+    "customer_id": "CUST1003",
+    "transaction_id": "TXN30167",
+    "amount": 1038.94,
+    "currency": "USD",
+    "date": "2025-08-08T01:38:29Z",
+    "merchant": "BookWorld",
+    "channel": "Online",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60167",
+    "previous_interactions": [
+      {
+        "date": "2025-08-04T04:50:40Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.3,
+      "device_id": "dev_6373",
+      "ip_address": "192.168.4.233"
+    }
+  },
+  {
+    "customer_id": "CUST1033",
+    "transaction_id": "TXN30168",
+    "amount": 1348.11,
+    "currency": "USD",
+    "date": "2025-08-13T21:53:28Z",
+    "merchant": "TechWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60168",
+    "previous_interactions": [
+      {
+        "date": "2025-08-02T21:06:41Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.86,
+      "device_id": "dev_5628",
+      "ip_address": "192.168.8.152"
+    }
+  },
+  {
+    "customer_id": "CUST1185",
+    "transaction_id": "TXN30169",
+    "amount": 737.27,
+    "currency": "USD",
+    "date": "2025-08-04T17:48:29Z",
+    "merchant": "BookWorld",
+    "channel": "POS",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60169",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T12:14:47Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.6,
+      "device_id": "dev_4965",
+      "ip_address": "192.168.3.99"
+    }
+  },
+  {
+    "customer_id": "CUST1062",
+    "transaction_id": "TXN30170",
+    "amount": 955.09,
+    "currency": "USD",
+    "date": "2025-08-12T07:25:32Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60170",
+    "previous_interactions": [
+      {
+        "date": "2025-08-22T07:05:37Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.07,
+      "device_id": "dev_4347",
+      "ip_address": "192.168.4.168"
+    }
+  },
+  {
+    "customer_id": "CUST1169",
+    "transaction_id": "TXN30171",
+    "amount": 104.73,
+    "currency": "USD",
+    "date": "2025-08-18T12:27:23Z",
+    "merchant": "MegaMart",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60171",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T09:28:50Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.46,
+      "device_id": "dev_4559",
+      "ip_address": "192.168.10.215"
+    }
+  },
+  {
+    "customer_id": "CUST1148",
+    "transaction_id": "TXN30172",
+    "amount": 719.36,
+    "currency": "USD",
+    "date": "2025-08-06T13:21:21Z",
+    "merchant": "BookWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60172",
+    "previous_interactions": [
+      {
+        "date": "2025-08-03T13:16:11Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.23,
+      "device_id": "dev_5746",
+      "ip_address": "192.168.5.100"
+    }
+  },
+  {
+    "customer_id": "CUST1108",
+    "transaction_id": "TXN30173",
+    "amount": 93.8,
+    "currency": "USD",
+    "date": "2025-08-02T21:03:24Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60173",
+    "previous_interactions": [
+      {
+        "date": "2025-08-13T03:57:21Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.83,
+      "device_id": "dev_5265",
+      "ip_address": "192.168.8.171"
+    }
+  },
+  {
+    "customer_id": "CUST1029",
+    "transaction_id": "TXN30174",
+    "amount": 71.52,
+    "currency": "USD",
+    "date": "2025-08-13T03:25:38Z",
+    "merchant": "FoodieHub",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60174",
+    "previous_interactions": [
+      {
+        "date": "2025-08-27T10:21:23Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.91,
+      "device_id": "dev_6768",
+      "ip_address": "192.168.3.95"
+    }
+  },
+  {
+    "customer_id": "CUST1068",
+    "transaction_id": "TXN30175",
+    "amount": 1448.07,
+    "currency": "USD",
+    "date": "2025-08-29T00:57:17Z",
+    "merchant": "FitGear",
+    "channel": "Web Portal",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60175",
+    "previous_interactions": [
+      {
+        "date": "2025-08-14T14:30:11Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.09,
+      "device_id": "dev_4437",
+      "ip_address": "192.168.5.84"
+    }
+  },
+  {
+    "customer_id": "CUST1161",
+    "transaction_id": "TXN30176",
+    "amount": 1388.66,
+    "currency": "USD",
+    "date": "2025-08-18T01:43:56Z",
+    "merchant": "MegaMart",
+    "channel": "Mobile App",
+    "customer_statement": "I didn't make this booking.",
+    "crm_ticket_id": "CRM60176",
+    "previous_interactions": [
+      {
+        "date": "2025-08-21T10:48:30Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.42,
+      "device_id": "dev_4192",
+      "ip_address": "192.168.5.201"
+    }
+  },
+  {
+    "customer_id": "CUST1012",
+    "transaction_id": "TXN30177",
+    "amount": 799.27,
+    "currency": "USD",
+    "date": "2025-08-21T13:30:57Z",
+    "merchant": "StreamFlix",
+    "channel": "POS",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60177",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T09:25:41Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.45,
+      "device_id": "dev_6870",
+      "ip_address": "192.168.7.138"
+    }
+  },
+  {
+    "customer_id": "CUST1071",
+    "transaction_id": "TXN30178",
+    "amount": 214.24,
+    "currency": "USD",
+    "date": "2025-09-02T12:29:11Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60178",
+    "previous_interactions": [
+      {
+        "date": "2025-08-13T22:59:15Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.29,
+      "device_id": "dev_5174",
+      "ip_address": "192.168.9.147"
+    }
+  },
+  {
+    "customer_id": "CUST1196",
+    "transaction_id": "TXN30179",
+    "amount": 478.82,
+    "currency": "USD",
+    "date": "2025-08-26T14:49:25Z",
+    "merchant": "GymPro Fitness",
+    "channel": "POS",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60179",
+    "previous_interactions": [
+      {
+        "date": "2025-08-24T15:40:57Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.38,
+      "device_id": "dev_4742",
+      "ip_address": "192.168.7.119"
+    }
+  },
+  {
+    "customer_id": "CUST1171",
+    "transaction_id": "TXN30180",
+    "amount": 541.15,
+    "currency": "USD",
+    "date": "2025-08-18T07:06:35Z",
+    "merchant": "MusicZone",
+    "channel": "Mobile App",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60180",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T13:51:00Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.96,
+      "device_id": "dev_6614",
+      "ip_address": "192.168.9.51"
+    }
+  },
+  {
+    "customer_id": "CUST1149",
+    "transaction_id": "TXN30181",
+    "amount": 419.42,
+    "currency": "USD",
+    "date": "2025-08-13T18:54:25Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60181",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T06:45:38Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.88,
+      "device_id": "dev_6143",
+      "ip_address": "192.168.6.208"
+    }
+  },
+  {
+    "customer_id": "CUST1123",
+    "transaction_id": "TXN30182",
+    "amount": 995.53,
+    "currency": "USD",
+    "date": "2025-08-21T01:06:13Z",
+    "merchant": "MegaMart",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60182",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T20:51:22Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.75,
+      "device_id": "dev_4932",
+      "ip_address": "192.168.5.137"
+    }
+  },
+  {
+    "customer_id": "CUST1108",
+    "transaction_id": "TXN30183",
+    "amount": 643.6,
+    "currency": "USD",
+    "date": "2025-08-07T13:27:01Z",
+    "merchant": "FoodieHub",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60183",
+    "previous_interactions": [
+      {
+        "date": "2025-08-27T05:13:37Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.76,
+      "device_id": "dev_6622",
+      "ip_address": "192.168.2.183"
+    }
+  },
+  {
+    "customer_id": "CUST1053",
+    "transaction_id": "TXN30184",
+    "amount": 429.64,
+    "currency": "USD",
+    "date": "2025-08-29T03:25:01Z",
+    "merchant": "QuickMart",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60184",
+    "previous_interactions": [
+      {
+        "date": "2025-08-10T14:45:35Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.8,
+      "device_id": "dev_6536",
+      "ip_address": "192.168.10.183"
+    }
+  },
+  {
+    "customer_id": "CUST1161",
+    "transaction_id": "TXN30185",
+    "amount": 1239.82,
+    "currency": "USD",
+    "date": "2025-08-26T04:48:03Z",
+    "merchant": "MegaMart",
+    "channel": "Online",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60185",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T17:56:25Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.06,
+      "device_id": "dev_4737",
+      "ip_address": "192.168.9.225"
+    }
+  },
+  {
+    "customer_id": "CUST1188",
+    "transaction_id": "TXN30186",
+    "amount": 1380.1,
+    "currency": "USD",
+    "date": "2025-08-27T14:12:14Z",
+    "merchant": "GlobalAir",
+    "channel": "POS",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60186",
+    "previous_interactions": [
+      {
+        "date": "2025-08-07T20:52:51Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.4,
+      "device_id": "dev_4839",
+      "ip_address": "192.168.2.88"
+    }
+  },
+  {
+    "customer_id": "CUST1022",
+    "transaction_id": "TXN30187",
+    "amount": 393.8,
+    "currency": "USD",
+    "date": "2025-08-19T22:09:27Z",
+    "merchant": "StreamFlix",
+    "channel": "Online",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60187",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T09:20:27Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.89,
+      "device_id": "dev_5939",
+      "ip_address": "192.168.7.245"
+    }
+  },
+  {
+    "customer_id": "CUST1184",
+    "transaction_id": "TXN30188",
+    "amount": 185.01,
+    "currency": "USD",
+    "date": "2025-09-07T00:40:55Z",
+    "merchant": "MegaMart",
+    "channel": "Online",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60188",
+    "previous_interactions": [
+      {
+        "date": "2025-08-20T18:22:32Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.43,
+      "device_id": "dev_6555",
+      "ip_address": "192.168.2.79"
+    }
+  },
+  {
+    "customer_id": "CUST1150",
+    "transaction_id": "TXN30189",
+    "amount": 238.9,
+    "currency": "USD",
+    "date": "2025-08-15T17:12:18Z",
+    "merchant": "FoodieHub",
+    "channel": "Online",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60189",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T11:06:43Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.51,
+      "device_id": "dev_4462",
+      "ip_address": "192.168.3.20"
+    }
+  },
+  {
+    "customer_id": "CUST1161",
+    "transaction_id": "TXN30190",
+    "amount": 142.25,
+    "currency": "USD",
+    "date": "2025-08-21T13:06:26Z",
+    "merchant": "FitGear",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60190",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T21:58:47Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.43,
+      "device_id": "dev_5844",
+      "ip_address": "192.168.9.55"
+    }
+  },
+  {
+    "customer_id": "CUST1078",
+    "transaction_id": "TXN30191",
+    "amount": 1069.53,
+    "currency": "USD",
+    "date": "2025-08-13T12:57:01Z",
+    "merchant": "E-Shop Electronics",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60191",
+    "previous_interactions": [
+      {
+        "date": "2025-08-17T02:40:21Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.54,
+      "device_id": "dev_4731",
+      "ip_address": "192.168.9.178"
+    }
+  },
+  {
+    "customer_id": "CUST1036",
+    "transaction_id": "TXN30192",
+    "amount": 944.65,
+    "currency": "USD",
+    "date": "2025-09-07T09:39:41Z",
+    "merchant": "MusicZone",
+    "channel": "Online",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60192",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T08:59:40Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.11,
+      "device_id": "dev_5986",
+      "ip_address": "192.168.10.158"
+    }
+  },
+  {
+    "customer_id": "CUST1021",
+    "transaction_id": "TXN30193",
+    "amount": 1397.23,
+    "currency": "USD",
+    "date": "2025-08-17T09:20:21Z",
+    "merchant": "QuickMart",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60193",
+    "previous_interactions": [
+      {
+        "date": "2025-08-26T09:26:14Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.37,
+      "device_id": "dev_4347",
+      "ip_address": "192.168.6.57"
+    }
+  },
+  {
+    "customer_id": "CUST1190",
+    "transaction_id": "TXN30194",
+    "amount": 609.93,
+    "currency": "USD",
+    "date": "2025-09-02T11:48:51Z",
+    "merchant": "TechWorld",
+    "channel": "POS",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60194",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T09:26:35Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.73,
+      "device_id": "dev_5611",
+      "ip_address": "192.168.3.177"
+    }
+  },
+  {
+    "customer_id": "CUST1133",
+    "transaction_id": "TXN30195",
+    "amount": 501.51,
+    "currency": "USD",
+    "date": "2025-09-01T12:35:02Z",
+    "merchant": "BookWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60195",
+    "previous_interactions": [
+      {
+        "date": "2025-08-14T03:39:53Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.74,
+      "device_id": "dev_6123",
+      "ip_address": "192.168.6.65"
+    }
+  },
+  {
+    "customer_id": "CUST1090",
+    "transaction_id": "TXN30196",
+    "amount": 1017.28,
+    "currency": "USD",
+    "date": "2025-08-27T01:45:01Z",
+    "merchant": "MusicZone",
+    "channel": "POS",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60196",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T07:27:45Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.89,
+      "device_id": "dev_5218",
+      "ip_address": "192.168.7.137"
+    }
+  },
+  {
+    "customer_id": "CUST1063",
+    "transaction_id": "TXN30197",
+    "amount": 1449.96,
+    "currency": "USD",
+    "date": "2025-08-03T22:03:03Z",
+    "merchant": "StreamFlix",
+    "channel": "Online",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60197",
+    "previous_interactions": [
+      {
+        "date": "2025-08-13T18:14:22Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.81,
+      "device_id": "dev_6987",
+      "ip_address": "192.168.1.241"
+    }
+  },
+  {
+    "customer_id": "CUST1048",
+    "transaction_id": "TXN30198",
+    "amount": 429.8,
+    "currency": "USD",
+    "date": "2025-08-13T16:25:08Z",
+    "merchant": "TechWorld",
+    "channel": "POS",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60198",
+    "previous_interactions": [
+      {
+        "date": "2025-08-10T00:27:47Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.84,
+      "device_id": "dev_4091",
+      "ip_address": "192.168.4.175"
+    }
+  },
+  {
+    "customer_id": "CUST1182",
+    "transaction_id": "TXN30199",
+    "amount": 167.04,
+    "currency": "USD",
+    "date": "2025-09-05T21:20:23Z",
+    "merchant": "TechWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60199",
+    "previous_interactions": [
+      {
+        "date": "2025-08-24T11:29:05Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.5,
+      "device_id": "dev_5422",
+      "ip_address": "192.168.2.158"
+    }
+  },
+  {
+    "customer_id": "CUST1189",
+    "transaction_id": "TXN30200",
+    "amount": 1107.75,
+    "currency": "USD",
+    "date": "2025-09-04T02:40:32Z",
+    "merchant": "GlobalAir",
+    "channel": "Online",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60200",
+    "previous_interactions": [
+      {
+        "date": "2025-08-02T20:15:56Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.92,
+      "device_id": "dev_4035",
+      "ip_address": "192.168.7.192"
+    }
+  },
+  {
+    "customer_id": "CUST1171",
+    "transaction_id": "TXN_DUP30001",
+    "amount": 541.15,
+    "currency": "USD",
+    "date": "2025-08-18T07:06:35Z",
+    "merchant": "MusicZone",
+    "channel": "Mobile App",
+    "customer_statement": "I ordered a laptop but it never arrived.",
+    "crm_ticket_id": "CRM60180",
+    "previous_interactions": [
+      {
+        "date": "2025-08-12T13:51:00Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.96,
+      "device_id": "dev_6614",
+      "ip_address": "192.168.9.51"
+    }
+  },
+  {
+    "customer_id": "CUST1110",
+    "transaction_id": "TXN_DUP30002",
+    "amount": 845.09,
+    "currency": "USD",
+    "date": "2025-09-04T22:01:03Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Online",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60020",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T10:09:19Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.53,
+      "device_id": "dev_6300",
+      "ip_address": "192.168.10.173"
+    }
+  },
+  {
+    "customer_id": "CUST1101",
+    "transaction_id": "TXN_DUP30003",
+    "amount": 569.08,
+    "currency": "USD",
+    "date": "2025-08-26T16:53:57Z",
+    "merchant": "BookWorld",
+    "channel": "Web Portal",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60134",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T23:32:58Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.53,
+      "device_id": "dev_4907",
+      "ip_address": "192.168.10.6"
+    }
+  },
+  {
+    "customer_id": "CUST1043",
+    "transaction_id": "TXN_DUP30004",
+    "amount": 459.73,
+    "currency": "USD",
+    "date": "2025-08-09T23:06:38Z",
+    "merchant": "FitGear",
+    "channel": "Web Portal",
+    "customer_statement": "This booking was not made by me.",
+    "crm_ticket_id": "CRM60045",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T06:21:06Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.41,
+      "device_id": "dev_5527",
+      "ip_address": "192.168.4.7"
+    }
+  },
+  {
+    "customer_id": "CUST1171",
+    "transaction_id": "TXN_DUP30005",
+    "amount": 792.71,
+    "currency": "USD",
+    "date": "2025-08-20T19:14:21Z",
+    "merchant": "TechWorld",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60097",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T04:59:23Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.17,
+      "device_id": "dev_6703",
+      "ip_address": "192.168.3.133"
+    }
+  },
+  {
+    "customer_id": "CUST1046",
+    "transaction_id": "TXN_DUP30006",
+    "amount": 962.43,
+    "currency": "USD",
+    "date": "2025-08-12T07:18:21Z",
+    "merchant": "GlobalAir",
+    "channel": "Online",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60059",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T07:31:08Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.3,
+      "device_id": "dev_5195",
+      "ip_address": "192.168.9.90"
+    }
+  },
+  {
+    "customer_id": "CUST1123",
+    "transaction_id": "TXN_DUP30007",
+    "amount": 1023.79,
+    "currency": "USD",
+    "date": "2025-08-17T07:14:58Z",
+    "merchant": "EduBooks",
+    "channel": "Online",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60041",
+    "previous_interactions": [
+      {
+        "date": "2025-08-07T06:36:03Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.67,
+      "device_id": "dev_5237",
+      "ip_address": "192.168.2.167"
+    }
+  },
+  {
+    "customer_id": "CUST1101",
+    "transaction_id": "TXN_DUP30008",
+    "amount": 569.08,
+    "currency": "USD",
+    "date": "2025-08-26T16:53:57Z",
+    "merchant": "BookWorld",
+    "channel": "Web Portal",
+    "customer_statement": "I was charged twice for the same product.",
+    "crm_ticket_id": "CRM60134",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T23:32:58Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.53,
+      "device_id": "dev_4907",
+      "ip_address": "192.168.10.6"
+    }
+  },
+  {
+    "customer_id": "CUST1018",
+    "transaction_id": "TXN_DUP30009",
+    "amount": 714.75,
+    "currency": "USD",
+    "date": "2025-08-04T23:13:47Z",
+    "merchant": "AutoParts",
+    "channel": "POS",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60151",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T23:40:17Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.34,
+      "device_id": "dev_5582",
+      "ip_address": "192.168.4.215"
+    }
+  },
+  {
+    "customer_id": "CUST1187",
+    "transaction_id": "TXN_DUP30010",
+    "amount": 412.06,
+    "currency": "USD",
+    "date": "2025-08-11T13:50:37Z",
+    "merchant": "AutoParts",
+    "channel": "Mobile App",
+    "customer_statement": "I never received my order.",
+    "crm_ticket_id": "CRM60144",
+    "previous_interactions": [
+      {
+        "date": "2025-08-05T22:01:49Z",
+        "channel": "mobile app",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.86,
+      "device_id": "dev_5910",
+      "ip_address": "192.168.10.55"
+    }
+  },
+  {
+    "customer_id": "CUST1018",
+    "transaction_id": "TXN_DUP30011",
+    "amount": 714.75,
+    "currency": "USD",
+    "date": "2025-08-04T23:13:47Z",
+    "merchant": "AutoParts",
+    "channel": "POS",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60151",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T23:40:17Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.34,
+      "device_id": "dev_5582",
+      "ip_address": "192.168.4.215"
+    }
+  },
+  {
+    "customer_id": "CUST1090",
+    "transaction_id": "TXN_DUP30012",
+    "amount": 1017.28,
+    "currency": "USD",
+    "date": "2025-08-27T01:45:01Z",
+    "merchant": "MusicZone",
+    "channel": "POS",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60196",
+    "previous_interactions": [
+      {
+        "date": "2025-08-23T07:27:45Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.89,
+      "device_id": "dev_5218",
+      "ip_address": "192.168.7.137"
+    }
+  },
+  {
+    "customer_id": "CUST1031",
+    "transaction_id": "TXN_DUP30013",
+    "amount": 145.92,
+    "currency": "USD",
+    "date": "2025-08-19T10:11:22Z",
+    "merchant": "EduBooks",
+    "channel": "POS",
+    "customer_statement": "I was charged even though I canceled my subscription.",
+    "crm_ticket_id": "CRM60131",
+    "previous_interactions": [
+      {
+        "date": "2025-08-11T23:29:54Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.36,
+      "device_id": "dev_5214",
+      "ip_address": "192.168.7.174"
+    }
+  },
+  {
+    "customer_id": "CUST1144",
+    "transaction_id": "TXN_DUP30014",
+    "amount": 1481.44,
+    "currency": "USD",
+    "date": "2025-08-04T02:05:10Z",
+    "merchant": "GymPro Fitness",
+    "channel": "Online",
+    "customer_statement": "The charge looks unauthorized.",
+    "crm_ticket_id": "CRM60103",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T00:34:00Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.89,
+      "device_id": "dev_4064",
+      "ip_address": "192.168.10.102"
+    }
+  },
+  {
+    "customer_id": "CUST1087",
+    "transaction_id": "TXN_DUP30015",
+    "amount": 115.06,
+    "currency": "USD",
+    "date": "2025-09-02T23:12:19Z",
+    "merchant": "GlobalAir",
+    "channel": "POS",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60148",
+    "previous_interactions": [
+      {
+        "date": "2025-08-02T15:56:00Z",
+        "channel": "online",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.72,
+      "device_id": "dev_5368",
+      "ip_address": "192.168.10.190"
+    }
+  },
+  {
+    "customer_id": "CUST1161",
+    "transaction_id": "TXN_DUP30016",
+    "amount": 142.25,
+    "currency": "USD",
+    "date": "2025-08-21T13:06:26Z",
+    "merchant": "FitGear",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60190",
+    "previous_interactions": [
+      {
+        "date": "2025-08-29T21:58:47Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.43,
+      "device_id": "dev_5844",
+      "ip_address": "192.168.9.55"
+    }
+  },
+  {
+    "customer_id": "CUST1160",
+    "transaction_id": "TXN_DUP30017",
+    "amount": 159.3,
+    "currency": "USD",
+    "date": "2025-08-26T17:12:41Z",
+    "merchant": "EduBooks",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my membership but was billed again.",
+    "crm_ticket_id": "CRM60165",
+    "previous_interactions": [
+      {
+        "date": "2025-08-28T23:03:32Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.06,
+      "device_id": "dev_4210",
+      "ip_address": "192.168.10.224"
+    }
+  },
+  {
+    "customer_id": "CUST1196",
+    "transaction_id": "TXN_DUP30018",
+    "amount": 1223.74,
+    "currency": "USD",
+    "date": "2025-08-20T07:17:41Z",
+    "merchant": "BookWorld",
+    "channel": "Web Portal",
+    "customer_statement": "I never received my grocery delivery.",
+    "crm_ticket_id": "CRM60093",
+    "previous_interactions": [
+      {
+        "date": "2025-08-25T21:40:37Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.63,
+      "device_id": "dev_6327",
+      "ip_address": "192.168.3.209"
+    }
+  },
+  {
+    "customer_id": "CUST1174",
+    "transaction_id": "TXN_DUP30019",
+    "amount": 454.2,
+    "currency": "USD",
+    "date": "2025-09-08T18:13:36Z",
+    "merchant": "QuickMart",
+    "channel": "Web Portal",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60032",
+    "previous_interactions": [
+      {
+        "date": "2025-08-01T20:06:49Z",
+        "channel": "web portal",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.23,
+      "device_id": "dev_6565",
+      "ip_address": "192.168.5.54"
+    }
+  },
+  {
+    "customer_id": "CUST1082",
+    "transaction_id": "TXN_DUP30020",
+    "amount": 1189.1,
+    "currency": "USD",
+    "date": "2025-08-28T14:59:01Z",
+    "merchant": "MusicZone",
+    "channel": "Mobile App",
+    "customer_statement": "I canceled my subscription but was still billed.",
+    "crm_ticket_id": "CRM60076",
+    "previous_interactions": [
+      {
+        "date": "2025-08-13T19:32:17Z",
+        "channel": "pos",
+        "summary": "Followed up on dispute"
+      }
+    ],
+    "risk_signals": {
+      "fraud_score": 0.14,
+      "device_id": "dev_6784",
+      "ip_address": "192.168.2.46"
     }
   }
 ]
